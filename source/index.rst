@@ -3,18 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to psiFinder's documentation!
-=====================================
+=========
+psiFinder
+=========
 
+All-in-one solution for pseudouridylation data analyses.
+=======================================================================================================================================================================================
+
+.. image:: ../build/images/workflow.png
+
+Pseudouridine (Ψ) is a post-transcriptional RNA modification that functions in both structural non-coding RNAs and protein-coding RNAs. Recent progress in messenger RNA pseudouridylation discovered a considerable amount of mRNA Ψs but their mechanisms of biosynthesis and functions still remain elusive. Here, we developed a Ψ quantitative software, named psiFinder, to identify non-coding RNA Ψs and mRNA Ψs based on the chemical arrest of reverse transcription.
+
+
+Contents:
+---------
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   content/Installation
+   content/Quality Control
+   content/Transcripts Alignment
+   content/Ψ-sites Identification
+   content/Ψ-sites Annotation
+   content/Ψ-sites Target Prediction
