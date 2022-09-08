@@ -10,7 +10,7 @@ psiFinder
 All-in-one solution for pseudouridylation data analyses.
 =======================================================================================================================================================================================
 
-.. image:: ../build/images/workflow.png
+.. image:: ./images/workflow.png
 
 Pseudouridine (Ψ) is a post-transcriptional RNA modification that functions in both structural non-coding RNAs and protein-coding RNAs. Recent progress in messenger RNA pseudouridylation discovered a considerable amount of mRNA Ψs but their mechanisms of biosynthesis and functions still remain elusive. Here, we developed a Ψ quantitative software, named psiFinder, to identify non-coding RNA Ψs and mRNA Ψs based on the chemical arrest of reverse transcription.
 
