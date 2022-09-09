@@ -32,9 +32,7 @@ Users should download the genome annotation file for the species of interest, an
 
 `Download hg38 <https://mega.nz/file/E4lH3IRD#EcmYwJPJEi9T706fyUgejvA2AFBaejdjCA9ACP8uKiE>`_
 
-`Download mm10 <https://mega.nz/file/Ess2gYAZ#PyfipRKvbL17OA6w6kh60rPDP-bNm3hyqbszxiS4et8>`_
-
-.. **HISAT2 indexes**
+.. **STAR indexes**
 
 
 .. `Download H. sapiens GRCh38 genome_snp <https://genome-idx.s3.amazonaws.com/hisat/grch38_snp.tar.gz>`_
@@ -121,7 +119,7 @@ Then, upon executed the ./psiFinder, the following window appears:
 
 	$ ./psiFinder.sh
 
-.. image:: /images/introduction2.png
+.. image:: /images/psiFinder_popup.png
 
 * *Mac OS*
 
