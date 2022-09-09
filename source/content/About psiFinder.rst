@@ -1,5 +1,5 @@
-About
-======
+About psiFinder
+==================
 
 Contact US
 ^^^^^^^^^^^^

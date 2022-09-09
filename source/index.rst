@@ -28,4 +28,4 @@ Contents:
    content/Ψ-sites Target Prediction
    content/snakemake pipline
    content/More Functions
-   content/About
+   content/About psiFinder
