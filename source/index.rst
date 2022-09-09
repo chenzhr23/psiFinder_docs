@@ -18,7 +18,7 @@ Pseudouridine (Ψ) is a post-transcriptional RNA modification that functions in 
 Contents:
 ---------
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    content/Installation
    content/Quality Control
