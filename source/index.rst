@@ -27,4 +27,5 @@ Contents:
    content/Ψ-sites Annotation
    content/Ψ-sites Target Prediction
    content/snakemake pipline
-   content/about
+   content/More Functions
+   content/About
