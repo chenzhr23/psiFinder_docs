@@ -1,10 +1,15 @@
 Quality Control
 =================
 
-`Upload unaligned or aligned reads from scRNA-Seq data.`
+`Upload sequencing reads from single-end reverse transcription stop data.`
 
 
-.. image:: /images/upload_file.png
+.. image:: /images/psiFinder_Quality_Control_SE.png
+
+`Upload sequencing reads from paired-end reverse transcription stop data.`
+
+
+.. image:: /images/psiFinder_Quality_Control_PE.png
 
 Users can choose to upload Fastq files or BAM files:
 
