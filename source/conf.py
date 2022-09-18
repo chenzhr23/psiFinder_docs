@@ -14,12 +14,11 @@ release = 'v1.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ['myst_parser']
 
 templates_path = ['_templates']
-exclude_patterns = []
 
-
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -27,7 +26,18 @@ exclude_patterns = []
 # html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 
+# For md files
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
+
+# Add custom styles
 def setup(app):
     app.add_css_file('css/custom-style.css')
 
-rst_epilog = '\n.. include:: .custom-style.rst\n'
+rst_prolog = '\n.. include:: .custom-style.rst\n'
+
+# Add modules
+autodoc_mock_imports = ['myst_parser']
