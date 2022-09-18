@@ -1,7 +1,7 @@
 snakemake pipline
 ===========================
 
-.. role:: blue
+
 
 .. role:: red
 
@@ -22,7 +22,7 @@ Current version of psiFinder snakemake pipline mainly support :red:`Group: Mamma
 
 Data upload
 **************
-Users should ``browse`` and locate :blue:`fastq|fasta fastq.gz/fasta.gz fq/fa fq.gz/fa.gz` file for both CMC-input and CMC-treated samples.
+Users should ``browse`` and locate `fastq|fasta fastq.gz/fasta.gz fq/fa fq.gz/fa.gz` file for both CMC-input and CMC-treated samples.
 
 -  If ``Barcode removal`` is checked, it will enable 5'/3' barcode setting, remove ``LENGTH`` (`cutadapt <https://cutadapt.readthedocs.io/en/stable/guide.html>`_) bases from reads.
 -  If ``Adapter removal`` is checked, it will enable 5'/3' adapter setting, sequence of an adapter ligated to the 5'/3' end will be trimmed.
@@ -436,4 +436,4 @@ snakemake result are output to specific directory where psiFinder package is unz
 
     7 directories, 0 files
 
-.. note:: All user input will be recorded in a plain text file with suffix :blue:`_quickstart_config.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+.. note:: All user input will be recorded in a plain text file with suffix ``_quickstart_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).

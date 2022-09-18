@@ -4,7 +4,7 @@ Transcripts Alignment
 .. contents::
     :local:
 
-.. role:: blue
+
 
 
 The functions of this interface utilized `STAR <https://physiology.med.cornell.edu/faculty/skrabanek/lab/angsd/lecture_notes/STARmanual.pdf>`_ to map sequencing reads to reference genome location and consist of two parts:
@@ -147,6 +147,6 @@ Built-in STAR argument for ``Running mapping jobs``:
 
 Output
 *************************
-Results in bam format (with :blue:`Aligned.sortedByCoord.out.bam` suffix) will be output to the target directory.
+Results in bam format (with ``Aligned.sortedByCoord.out.bam`` suffix) will be output to the target directory.
 
-.. note:: All user input will be recorded in a plain text file with suffixes :blue:`_STAR_build_config.txt` and :blue:`_STAR_align_config.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+.. note:: All user input will be recorded in a plain text file with suffixes ``_STAR_build_config.txt`` and ``_STAR_align_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).

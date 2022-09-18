@@ -7,8 +7,6 @@
   <title>Ψ-sites Identification &mdash; psiFinder v1.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -145,7 +143,7 @@
 <p>To build rRNA datasets for overall Ψ identification, we first download files from three databases: Modomics, snOPY, and snoRNABase. Since human 5.8s rRNA (chr21:8212571-8212727), 18s rRNA (chr21:8209631-8211499), and 28s rRNA (chr21:8213888-8218941) have multiple copies in the genome, we extracted one of the copies for subsequent analyses. We calculate and gain the relative position of Ψ sites on each rRNA. Centering on these sites and extending 10 nt of upstream and downstream, we then extract 21 nt sequences in bulk and map them to human genome (-v 0 -a -m 1000 –best –strata) using bowtie. A total of 96 Ψ sites were obtained in the above copy and used as a positive subset of the dataset to perform ROC evaluation or SVM modeling. Meanwhile, using bedtools (v2.30.0) intersect tools (-v -s), the sites that were identified as not Ψ sites were extracted from the above copy and used as a negative subset of the dataset.</p>
 <img alt="../_images/identification_rtsSeeker_workflow.svg" src="../_images/identification_rtsSeeker_workflow.svg" /><section id="input">
 <h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
-<p>Users should choose to upload files in bam format for both CMC-input and CMC-treated groups. Upload reference genome file in fasta format and set the output path of directory. Input the file name for the output information (i.e. file name with <span class="blue">.bed</span> suffix).</p>
+<p>Users should choose to upload files in bam format for both CMC-input and CMC-treated groups. Upload reference genome file in fasta format and set the output path of directory. Input the file name for the output information (i.e. file name with <code class="docutils literal notranslate"><span class="pre">.bed</span></code> suffix).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>STAR input/treat alignment Uniquely mapped reads % should be greater than 30%, or the rtsSeeker may fail to calculate the valid information.</p>
@@ -366,8 +364,8 @@ rtsSeeker: <span class="k">for</span> seeking the reverse transcriptase stop sit
 <h3><a class="toc-backref" href="#id12">(1) SVM: Support Vector Machine</a><a class="headerlink" href="#svm-support-vector-machine" title="Permalink to this heading"></a></h3>
 <p>If <code class="docutils literal notranslate"><span class="pre">SVM</span></code> QT wideget is clicked and popouped:</p>
 <ul class="simple">
-<li><p>press <code class="docutils literal notranslate"><span class="pre">Build</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">svm.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">svm_build_totalRNA.r</span></code> to generate file with <span class="blue">_SVM_model.RData</span> suffix, which is the support vector model built by SVM algorithm.</p></li>
-<li><p>press <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">svm_predict_totalRNA.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">svm_predict_totalRNA.r</span></code> to generate file with <span class="blue">_svm_psi_prediction.bed</span> suffix, which is the candidate Ψ-sites predicted by SVM algorithm.</p></li>
+<li><p>press <code class="docutils literal notranslate"><span class="pre">BUILD</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">svm.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">svm_build_totalRNA.r</span></code> to generate file with <code class="docutils literal notranslate"><span class="pre">_SVM_model.RData</span></code> suffix, which is the support vector model built by SVM algorithm.</p></li>
+<li><p>press <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">svm_predict_totalRNA.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">svm_predict_totalRNA.r</span></code> to generate file with <code class="docutils literal notranslate"><span class="pre">_svm_psi_prediction.bed</span></code> suffix, which is the candidate Ψ-sites predicted by SVM algorithm.</p></li>
 </ul>
 <img alt="../_images/SVM.png" src="../_images/SVM.png" />
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
@@ -420,15 +418,15 @@ mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span cla
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All user input will be recorded in a plain text file with suffixes <span class="blue">_svm_totalRNA_build.txt</span> and <span class="blue">_svm_totalRNA_predict.txt</span> in psiFinder/config and help users to easily reload the previous config (by simply clicking ‘CONFIG’ button).</p>
+<p>All user input will be recorded in a plain text file with suffixes <code class="docutils literal notranslate"><span class="pre">_svm_totalRNA_build.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">_svm_totalRNA_predict.txt</span></code> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
 </div>
 </section>
 <section id="ann-artificial-neural-network">
 <h3><a class="toc-backref" href="#id13">(2) ANN: Artificial Neural Network</a><a class="headerlink" href="#ann-artificial-neural-network" title="Permalink to this heading"></a></h3>
 <p>If <code class="docutils literal notranslate"><span class="pre">ANN</span></code> QT wideget is clicked and popouped:</p>
 <ul class="simple">
-<li><p>press <code class="docutils literal notranslate"><span class="pre">Build</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">ann.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">ann_build_totalRNA.r</span></code> to generate file with <span class="blue">_ANN_model.RData</span> suffix, which is the artifical neuralnet model (resilient backpropagation with weight backtracking, two layers, each 12 neuron).</p></li>
-<li><p>press <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">ann_predict_totalRNA.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">ann_predict_totalRNA.r</span></code> to generate file with <span class="blue">_ann_psi_prediction.bed</span> suffix, which is the candidate Ψ-sites predicted by ANN algorithm.</p></li>
+<li><p>press <code class="docutils literal notranslate"><span class="pre">Build</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">ann.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">ann_build_totalRNA.r</span></code> to generate file with <code class="docutils literal notranslate"><span class="pre">_ANN_model.RData</span></code> suffix, which is the artifical neuralnet model (resilient backpropagation with weight backtracking, two layers, each 12 neuron).</p></li>
+<li><p>press <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">ann_predict_totalRNA.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">ann_predict_totalRNA.r</span></code> to generate file with <code class="docutils literal notranslate"><span class="pre">_ann_psi_prediction.bed</span></code> suffix, which is the candidate Ψ-sites predicted by ANN algorithm.</p></li>
 </ul>
 <img alt="../_images/ANN.png" src="../_images/ANN.png" />
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
@@ -481,12 +479,12 @@ mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span cla
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All user input will be recorded in a plain text file with suffixes <span class="blue">_ann_totalRNA_build.txt</span> and <span class="blue">_ann_totalRNA_predict.txt</span> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
+<p>All user input will be recorded in a plain text file with suffixes <code class="docutils literal notranslate"><span class="pre">_ann_totalRNA_build.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">_ann_totalRNA_predict.txt</span></code> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
 </div>
 </section>
 <section id="roc-receiver-operating-characteristic">
 <h3><a class="toc-backref" href="#id14">(3) ROC: Receiver Operating Characteristic</a><a class="headerlink" href="#roc-receiver-operating-characteristic" title="Permalink to this heading"></a></h3>
-<p>If <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ROC</span></code> option is checked,  <code class="docutils literal notranslate"><span class="pre">3.1_rtsSeeker_roc.sh</span></code> will run <code class="docutils literal notranslate"><span class="pre">roc.r</span></code> to generate file with <span class="blue">_roc_psi_prediction.bed</span> suffix, which is the candidate Ψ-sites gained by ROC best threshold (determined by one of the six variables with the highest F1 score).</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ROC</span></code> option is checked,  <code class="docutils literal notranslate"><span class="pre">3.1_rtsSeeker_roc.sh</span></code> will run <code class="docutils literal notranslate"><span class="pre">roc.r</span></code> to generate file with <code class="docutils literal notranslate"><span class="pre">_roc_psi_prediction.bed</span></code> suffix, which is the candidate Ψ-sites gained by ROC best threshold (determined by one of the six variables with the highest F1 score).</p>
 </section>
 <section id="user-defined-customize-key-thresholds">
 <h3><a class="toc-backref" href="#id15">(4) User-defined: Customize key thresholds</a><a class="headerlink" href="#user-defined-customize-key-thresholds" title="Permalink to this heading"></a></h3>
@@ -496,7 +494,7 @@ mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span cla
 <img alt="../_images/principle.png" src="../_images/principle.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All user input will be recorded in a plain text file with suffixes <span class="blue">_user_defined_predict.txt</span> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
+<p>All user input will be recorded in a plain text file with suffixes <code class="docutils literal notranslate"><span class="pre">_user_defined_predict.txt</span></code> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
 </div>
 </section>
 </section>
@@ -652,7 +650,7 @@ $ tree -L <span class="m">1</span>
 </section>
 <section id="model-building">
 <h3><a class="toc-backref" href="#id19">Model Building</a><a class="headerlink" href="#model-building" title="Permalink to this heading"></a></h3>
-<p>Different identification approaches bring different sensitivity and specificity. For SVM/ANN/ROC/User-defined, ROC evaluation info will be recorded in a log file, e.g. A1_A2_svm_evaluation_totalRNA.log and corresponding ROC plot will popup if your input is validated by programs.</p>
+<p>Different identification approaches bring different sensitivity and specificity. For SVM/ANN/ROC/User-defined, ROC evaluation info will be recorded in a log file, e.g. <code class="docutils literal notranslate"><span class="pre">A1_A2_svm_evaluation_totalRNA.log</span></code> and corresponding ROC plot will popup if your input is validated by programs.</p>
 <p>A SVM QT widget model building result example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
 

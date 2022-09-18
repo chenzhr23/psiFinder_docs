@@ -4,7 +4,7 @@
 .. contents::
     :local:
 
-.. role:: blue
+
 
 We utilize `MetaPlotR <https://github.com/olarerin/metaPlotR>`_ to generate metagene plot for Ψ-sites distribution profile.
 
@@ -217,7 +217,7 @@ Once click ``START``, psiFindeer will run ``metagene.sh``.
 
 Output
 --------
-Result with :blue:`_pseudoU.dist.uniq.txt` suffix is the final MetaGene result.
+Result with ``_pseudoU.dist.uniq.txt`` suffix is the final MetaGene result.
 
 .. code:: bash
 
@@ -238,4 +238,5 @@ Result with :blue:`_pseudoU.dist.uniq.txt` suffix is the final MetaGene result.
 
     0 directories, 9 files
 
-.. note:: All user input will be recorded in a plain text file with suffix :blue:`_metagene_config.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+.. note:: All user input will be recorded in a plain text file with suffix ``_metagene_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+`

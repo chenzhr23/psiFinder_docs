@@ -4,8 +4,6 @@
 .. contents::
     :local:
 
-.. role:: blue
-
 
 We developed a core C program--``bedAnnotator``, for Ψ-sites annotation.
 
@@ -96,7 +94,7 @@ Once click ``START``, psiFindeer will run ``4_bed_annotation.sh``
 
 Output
 --------
-Result with :blue:`_anno_group_redundance.xlsx` suffix is the final annoation result, which group candidate Ψ-sites by the same extended sequence and retain one copy of each group.
+Result with ``_anno_group_redundance.xlsx`` suffix is the final annoation result, which group candidate Ψ-sites by the same extended sequence and retain one copy of each group.
 
 .. code:: bash
 
@@ -136,4 +134,4 @@ Result with :blue:`_anno_group_redundance.xlsx` suffix is the final annoation re
 
     0 directories, 28 files
 
-.. note:: All user input will be recorded in a plain text file with suffix :blue:`_bedAnnotator_config.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+.. note:: All user input will be recorded in a plain text file with suffix ``_bedAnnotator_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).

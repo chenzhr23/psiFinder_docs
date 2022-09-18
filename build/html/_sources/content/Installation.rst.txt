@@ -4,7 +4,7 @@ Installation
 ``Remember`` -- psiFinder are available for **Linux os** as well as for
 **Mac os**!
 
-.. role:: blue
+
 
 .. contents::
     :local:

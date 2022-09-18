@@ -33,16 +33,3 @@ source_suffix = {
 
 # These folders are copied to the documentation's HTML output
 html_static_path = ['_static']
-
-# These paths are either relative to html_static_path
-# or fully qualified paths (eg. https://...)
-html_css_files = [
-    'css/custom-style.css',
-]
-
-# Add custom styles
-def setup(app):
-    app.add_css_file('css/custom-style.css')
-
-rst_prolog = '\n.. include:: .custom-style.rst\n'
-

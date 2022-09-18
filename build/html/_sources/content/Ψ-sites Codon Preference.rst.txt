@@ -4,7 +4,7 @@
 .. contents::
     :local:
 
-.. role:: blue
+
 
 We utilize `MetaPlotR <https://github.com/olarerin/metaPlotR>`_ to generate metagene plot for Ψ-sites distribution profile.
 
@@ -173,7 +173,7 @@ Once click ``START``, psiFindeer will run ``codon_preference.sh``.
 
 Output
 --------
-Result with :blue:`_codon_preference.txt` suffix is the final CodonPre result.
+Result with ``_codon_preference.txt`` suffix is the final CodonPre result.
 
 .. code:: bash
 
@@ -197,4 +197,4 @@ Result with :blue:`_codon_preference.txt` suffix is the final CodonPre result.
 
     0 directories, 12 files
 
-.. note:: All user input will be recorded in a plain text file with suffix :blue:`_codon_preference_config.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+.. note:: All user input will be recorded in a plain text file with suffix ``_codon_preference_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).

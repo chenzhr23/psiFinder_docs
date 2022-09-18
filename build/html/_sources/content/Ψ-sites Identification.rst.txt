@@ -3,7 +3,7 @@
 
 .. role:: red
 
-.. role:: blue
+
 
 
 .. contents::
@@ -20,7 +20,7 @@ To build rRNA datasets for overall Ψ identification, we first download files fr
 Input
 ---------
 
-Users should choose to upload files in bam format for both CMC-input and CMC-treated groups. Upload reference genome file in fasta format and set the output path of directory. Input the file name for the output information (i.e. file name with :blue:`.bed` suffix).
+Users should choose to upload files in bam format for both CMC-input and CMC-treated groups. Upload reference genome file in fasta format and set the output path of directory. Input the file name for the output information (i.e. file name with ``.bed`` suffix).
 
 .. note:: STAR input/treat alignment Uniquely mapped reads % should be greater than 30%, or the rtsSeeker may fail to calculate the valid information.
 
@@ -250,8 +250,8 @@ Identify Ψ-sites using different approaches
 ****************************************
 If ``SVM`` QT wideget is clicked and popouped:
 
--  press ``Build`` buttor will run ``svm.sh`` and ``svm_build_totalRNA.r`` to generate file with :blue:`_SVM_model.RData` suffix, which is the support vector model built by SVM algorithm.
--  press ``PREDICT`` buttor will run ``svm_predict_totalRNA.sh`` and ``svm_predict_totalRNA.r`` to generate file with :blue:`_svm_psi_prediction.bed` suffix, which is the candidate Ψ-sites predicted by SVM algorithm.
+-  press ``BUILD`` buttor will run ``svm.sh`` and ``svm_build_totalRNA.r`` to generate file with ``_SVM_model.RData`` suffix, which is the support vector model built by SVM algorithm.
+-  press ``PREDICT`` buttor will run ``svm_predict_totalRNA.sh`` and ``svm_predict_totalRNA.r`` to generate file with ``_svm_psi_prediction.bed`` suffix, which is the candidate Ψ-sites predicted by SVM algorithm.
 
 
 .. image:: /images/SVM.png
@@ -305,14 +305,14 @@ If ``SVM`` QT wideget is clicked and popouped:
     echo "total RNA: SVM program is done!"
     echo -e "total RNA: SVM result in $(dirname ${outFileName}_svm_psi_prediction.bed)"
 
-.. note:: All user input will be recorded in a plain text file with suffixes :blue:`_svm_totalRNA_build.txt` and :blue:`_svm_totalRNA_predict.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking 'CONFIG' button).
+.. note:: All user input will be recorded in a plain text file with suffixes ``_svm_totalRNA_build.txt`` and ``_svm_totalRNA_predict.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
 
 (2) ANN: Artificial Neural Network
 *****************************************
 If ``ANN`` QT wideget is clicked and popouped:
 
--  press ``Build`` buttor will run ``ann.sh`` and ``ann_build_totalRNA.r`` to generate file with :blue:`_ANN_model.RData` suffix, which is the artifical neuralnet model (resilient backpropagation with weight backtracking, two layers, each 12 neuron).
--  press ``PREDICT`` buttor will run ``ann_predict_totalRNA.sh`` and ``ann_predict_totalRNA.r`` to generate file with :blue:`_ann_psi_prediction.bed` suffix, which is the candidate Ψ-sites predicted by ANN algorithm.
+-  press ``Build`` buttor will run ``ann.sh`` and ``ann_build_totalRNA.r`` to generate file with ``_ANN_model.RData`` suffix, which is the artifical neuralnet model (resilient backpropagation with weight backtracking, two layers, each 12 neuron).
+-  press ``PREDICT`` buttor will run ``ann_predict_totalRNA.sh`` and ``ann_predict_totalRNA.r`` to generate file with ``_ann_psi_prediction.bed`` suffix, which is the candidate Ψ-sites predicted by ANN algorithm.
 
 .. image:: /images/ANN.png
 
@@ -366,11 +366,11 @@ If ``ANN`` QT wideget is clicked and popouped:
     echo -e "total RNA: ann result in $(dirname ${outFileName}_ann_psi_prediction.bed)"
 
 
-.. note:: All user input will be recorded in a plain text file with suffixes :blue:`_ann_totalRNA_build.txt` and :blue:`_ann_totalRNA_predict.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+.. note:: All user input will be recorded in a plain text file with suffixes ``_ann_totalRNA_build.txt`` and ``_ann_totalRNA_predict.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
 
 (3) ROC: Receiver Operating Characteristic
 *************************************************
-If ``plot ROC`` option is checked,  ``3.1_rtsSeeker_roc.sh`` will run ``roc.r`` to generate file with :blue:`_roc_psi_prediction.bed` suffix, which is the candidate Ψ-sites gained by ROC best threshold (determined by one of the six variables with the highest F1 score).
+If ``plot ROC`` option is checked,  ``3.1_rtsSeeker_roc.sh`` will run ``roc.r`` to generate file with ``_roc_psi_prediction.bed`` suffix, which is the candidate Ψ-sites gained by ROC best threshold (determined by one of the six variables with the highest F1 score).
 
 
 (4) User-defined: Customize key thresholds
@@ -383,7 +383,7 @@ Schematic overview of the six key metrics:
 
 .. image:: /images/principle.png
 
-.. note:: All user input will be recorded in a plain text file with suffixes :blue:`_user_defined_predict.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+.. note:: All user input will be recorded in a plain text file with suffixes ``_user_defined_predict.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
 
 
 Output
@@ -548,7 +548,7 @@ The ``plot ROC`` function return information and plot for ROC evaluation.
 Model Building
 ********************
 
-Different identification approaches bring different sensitivity and specificity. For SVM/ANN/ROC/User-defined, ROC evaluation info will be recorded in a log file, e.g. A1_A2_svm_evaluation_totalRNA.log and corresponding ROC plot will popup if your input is validated by programs.
+Different identification approaches bring different sensitivity and specificity. For SVM/ANN/ROC/User-defined, ROC evaluation info will be recorded in a log file, e.g. ``A1_A2_svm_evaluation_totalRNA.log`` and corresponding ROC plot will popup if your input is validated by programs.
 
 A SVM QT widget model building result example:
 

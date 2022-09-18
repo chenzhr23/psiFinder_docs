@@ -1,5 +1,0 @@
-.. role:: red
-
-.. role:: blue
-
-.. role:: green
