@@ -239,4 +239,3 @@ Result with ``_pseudoU.dist.uniq.txt`` suffix is the final MetaGene result.
     0 directories, 9 files
 
 .. note:: All user input will be recorded in a plain text file with suffix ``_metagene_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
-`
