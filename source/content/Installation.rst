@@ -4,6 +4,8 @@ Installation
 ``Remember`` -- psiFinder are available for **Linux os** as well as for
 **Mac os**!
 
+.. role:: blue
+
 .. contents::
     :local:
 
@@ -21,32 +23,23 @@ Windows support is currently a work-in-progress. Stay tuned and visit back for a
 
 .. note:: For users who want to remote operation a linux system in windows, the SSH client must be capable of X11-Forwarding, such as `MobaXterm <https://mobaxterm.mobatek.net/>`_ et al.
 
-Download Genome annotation file
----------------------------------
+Download genome sequence and annotation file
+------------------------------------------------------------------
 
-Users should download the genome annotation file for the species of interest, and decompress these files into the same directory of psiFinder.
+Users should download the genome file and annotation file for the species of interest.
 
-.. There are two types of genome annotation file, one is the indexes with spike-in pre-built by us. The other is HISAT2 official indexes.
+.. note:: Current version of psiFinder mainly support genome data derived from human, more support for other species please contact us for new version development!
 
-* **pre-built indexes**
+`Download hg38 genome <fa> <https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/>`_
 
-`Download hg38 <https://mega.nz/file/E4lH3IRD#EcmYwJPJEi9T706fyUgejvA2AFBaejdjCA9ACP8uKiE>`_
-
-.. **STAR indexes**
-
-
-.. `Download H. sapiens GRCh38 genome_snp <https://genome-idx.s3.amazonaws.com/hisat/grch38_snp.tar.gz>`_
-
-.. `Download M. musculus GRCm38 genome_snp <https://cloud.biohpc.swmed.edu/index.php/s/grcm38_snp/download>`_
-
-.. .. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ .
+`Download hg38 annotation <gtf> <https://www.gencodegenes.org/human/>`_
 
 Download example data
 -----------------------
 
-psiFinder provide some example data (mouse) for the user to test. If want to do so, you should download the example data, and decompress these files into the same directory of psiFinder.
+psiFinder provide some example data (human) for the user to test. If want to do so, you should download the example data.
 
-`Download example data <https://mega.nz/file/Axk3wa6S#eEXffvKWwFO3Zz07PaGr3elSSFdRF92swOeIJwUn05c>`_
+`Download example data <https://mega.nz/fm/wacTDQQK>`_
 
 
 Install conda
@@ -119,7 +112,7 @@ Then, upon executed the ./psiFinder, the following window appears:
 
 	$ ./psiFinder.sh
 
-.. image:: /images/psiFinder_popup.png
+.. image:: /images/psiFinder_window.png
 
 * *Mac OS*
 
@@ -129,9 +122,11 @@ For Mac users, after decompressing the file, open the ``Command Line`` file, cd 
 
 Configuration
 ---------------------------
-Before uploading data, you should first configure the operating environment of the software, this step can be achieved through clicking the *Configuration* button at the bottom of the main window.
+Before uploading data, you should first configure the operating environment of the software, this step can be achieved through clicking the option ``global->configuration`` at the upper of the main window.
 
-.. image:: /images/Configuration2.png
+.. image:: /images/configuration.png
+
+Once click ``CHECK``, psiFindeer will run ``0_configuration.sh``.
 
 .. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ .
 

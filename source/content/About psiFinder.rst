@@ -3,13 +3,14 @@ About psiFinder
 
 Contact US
 ^^^^^^^^^^^^
+psiFinder is devoted to meet the needs of Ψ-sites data analyses!
 
 psiFinder is under constant maintenance and improvement and is developed by the `RNA Bioinformatics Facility <https://rna.sysu.edu.cn/>`_ at the Sun Yat-sen University, Qu Lab.
 
 Any questions about the usage, comments or suggestions are appreciated.
 
 The contact :
-Lingling Zheng: zhengll33@mail.sysu.edu.cn
+Zhirong Chen: chenzhr23@mail2.sysu.edu.cn
 
 Our Other Tools
 ^^^^^^^^^^^^^^^^^^^^

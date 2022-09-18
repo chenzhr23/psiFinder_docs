@@ -25,7 +25,8 @@ Contents:
    content/Transcripts Alignment
    content/Ψ-sites Identification
    content/Ψ-sites Annotation
+   content/Ψ-sites Distribution
+   content/Ψ-sites Codon Preference
    content/Ψ-sites Target Prediction
    content/snakemake pipline
-   content/More Functions
    content/About psiFinder

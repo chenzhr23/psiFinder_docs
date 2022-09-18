@@ -1,72 +1,36 @@
 Quality Control
 =================
 
-`Upload sequencing reads from single-end reverse transcription stop data.`
+.. role:: red
 
-
-.. image:: /images/psiFinder_Quality_Control_SE.png
-
-`Upload sequencing reads from paired-end reverse transcription stop data.`
-
-
-.. image:: /images/psiFinder_Quality_Control_PE.png
-
-Users can choose to upload Fastq files or BAM files:
+.. role:: blue
 
 .. contents::
     :local:
 
-Input fastq files
-------------------------------------------------------
+Users should choose to upload input files suitable for `cutadapt <https://cutadapt.readthedocs.io/en/stable/guide.html>`_ software. Once ``START``, psiFinder will run ``1_QC_SE.sh`` or ``1_QC_PE.sh`` to gain processed fastq files.
 
-The file needs to be in fastq.gz format, users can select the directory where the data is located through the Browse button;
 
-.. .. image:: /images/upload_file_browse.png
+.. tip:: single-end: Upload sequencing reads in ``fastq|fq|fastq.gz|fq.gz`` format from :red:`single-end` reverse transcription stop data.
 
-Perform quality control on data
+.. image:: /images/QC_SE.png
+
+
+.. tip:: paired-end: Upload sequencing reads in ``fastq|fq|fastq.gz|fq.gz`` format from :red:`paired-end` reverse transcription stop data.
+
+.. image:: /images/QC_PE.png
+
+Input
 ************************************
+Users can choose to upload files with one of the format suffixes :blue:`fastq|fq|fastq.gz|fq.gz` for both CMC-input and CMC-treated groups. The ``Quality Control`` QT widget accept the argument of command-line adapter trimming tools `cutadapt <https://cutadapt.readthedocs.io/en/stable/guide.html>`_.
 
-After uploading the data, the data will be automatically controlled for quality; if the Adapter sequence is provided, the user can enter the adapter sequence in reads1, reads2; if the adapter sequence not provided, the adapter will be automatically detected for quality control.
+Perform quality control
+************************************
+Simple clicking of ``START`` button after uploading the data and setting the adapter sequence, uploaded data will be automatically controlled for customized output.
 
-Basic Parameters
-******************
-
-
--  ``-q (--qualified_quality_phred)`` - The quality value that a base is qualified. Default 15 means phred quality >=Q15 is qualified. (int [=15]).
--  ``--thread`` - The worker thread number.
-
-Then the user can run the program by clicking START.
-
-.. .. image:: /images/upload_file_START.png
-
-After the program runs, the user can view the results of the quality control by clicking the Result button.
-
-.. image:: /images/upload_file_Result.png
-
-Quality control results
+Output
 *************************
+Results in fastq fromat (with :blue:`.trimmed.fastq` suffix) will be output to the target directory.
 
-
-.. image:: /images/upload_file_Result_enter.png
-
-The user presses the Enter Key to display the results of the quality control and double-click the file to view the quality of the reads in the upload files.
-
-.. .. image:: /images/upload_file_Result_files.png
-
-Then, by clicking the NEXT-> Transcript Alignment button, the user can reach the InfoAssembly interface.
-
-
-Input bam files
-------------------------------------------------------
-If upload bam files, the program will automatically assemble and merge transcripts.
-
-The file needs to be in bam format, users can select the directory where the data is located through the Browse button;
-
-Upload the example data by checking the Use example data;
-
-Then the user can run the program by clicking BEGIN.
-
-By clicking the NEXT-> NovelScan button, the user can reach the NovelScan interface.
-
-.. note::   If the user uploads bam files, InfoAssembly will be skipped and NovelScan will proceed directly.
+.. note:: All user input will be recorded in a plain text file with suffix :blue:`_cutadapt_SE_config.txt` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
 
