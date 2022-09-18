@@ -35,5 +35,7 @@ source_suffix = {
 def setup(app):
     app.add_css_file('css/custom-style.css')
 
+html_css_files = ["custom-style.css"]
+
 rst_prolog = '\n.. include:: .custom-style.rst\n'
 
