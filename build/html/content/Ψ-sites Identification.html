@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ψ-sites Identification &mdash; psiFinder v1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ψ-sites Annotation" href="%CE%A8-sites%20Annotation.html" />
+    <link rel="prev" title="Transcripts Alignment" href="Transcripts%20Alignment.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> psiFinder
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quality%20Control.html">Quality Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Transcripts%20Alignment.html">Transcripts Alignment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ψ-sites Identification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional">Optional</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#customize-rtsseeker-argument">customize rtsSeeker argument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-all-psi-information">get all psi information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-roc">plot ROC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-psi-sites">search psi sites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skip-read-with-soft-clip">skip read with soft clip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#normalized-reads-to-the-locus-number">normalized reads to the locus number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keep-duplication">keep duplication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#detail">Detail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identify-sites-using-different-approaches">Identify Ψ-sites using different approaches</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#svm-support-vector-machine">(1) SVM: Support Vector Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ann-artificial-neural-network">(2) ANN: Artificial Neural Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#roc-receiver-operating-characteristic">(3) ROC: Receiver Operating Characteristic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-defined-customize-key-thresholds">(4) User-defined: Customize key thresholds</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#output">Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rtsseeker-result">rtsSeeker result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#roc-evaluation">ROC evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-building">Model Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-prediction">Model Prediction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Distribution.html">Ψ-sites Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Codon%20Preference.html">Ψ-sites Codon Preference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Target%20Prediction.html">Ψ-sites Target Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snakemake%20pipline.html">snakemake pipline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">psiFinder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Ψ-sites Identification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/Ψ-sites Identification.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sites-identification">
+<h1>Ψ-sites Identification<a class="headerlink" href="#sites-identification" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#input" id="id1">Input</a></p></li>
+<li><p><a class="reference internal" href="#optional" id="id2">Optional</a></p>
+<ul>
+<li><p><a class="reference internal" href="#customize-rtsseeker-argument" id="id3">customize rtsSeeker argument</a></p></li>
+<li><p><a class="reference internal" href="#get-all-psi-information" id="id4">get all psi information</a></p></li>
+<li><p><a class="reference internal" href="#plot-roc" id="id5">plot ROC</a></p></li>
+<li><p><a class="reference internal" href="#search-psi-sites" id="id6">search psi sites</a></p></li>
+<li><p><a class="reference internal" href="#skip-read-with-soft-clip" id="id7">skip read with soft clip</a></p></li>
+<li><p><a class="reference internal" href="#normalized-reads-to-the-locus-number" id="id8">normalized reads to the locus number</a></p></li>
+<li><p><a class="reference internal" href="#keep-duplication" id="id9">keep duplication</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#detail" id="id10">Detail</a></p></li>
+<li><p><a class="reference internal" href="#identify-sites-using-different-approaches" id="id11">Identify Ψ-sites using different approaches</a></p>
+<ul>
+<li><p><a class="reference internal" href="#svm-support-vector-machine" id="id12">(1) SVM: Support Vector Machine</a></p></li>
+<li><p><a class="reference internal" href="#ann-artificial-neural-network" id="id13">(2) ANN: Artificial Neural Network</a></p></li>
+<li><p><a class="reference internal" href="#roc-receiver-operating-characteristic" id="id14">(3) ROC: Receiver Operating Characteristic</a></p></li>
+<li><p><a class="reference internal" href="#user-defined-customize-key-thresholds" id="id15">(4) User-defined: Customize key thresholds</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#output" id="id16">Output</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rtsseeker-result" id="id17">rtsSeeker result</a></p></li>
+<li><p><a class="reference internal" href="#roc-evaluation" id="id18">ROC evaluation</a></p></li>
+<li><p><a class="reference internal" href="#model-building" id="id19">Model Building</a></p></li>
+<li><p><a class="reference internal" href="#model-prediction" id="id20">Model Prediction</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>We developed a core C program–<code class="docutils literal notranslate"><span class="pre">rtsSeeker</span></code> (as the core of psiFinder), for seeking the reverse transcriptase stop sites (RTS) and output the overall RTS information.</p>
+<img alt="../_images/Identification.png" src="../_images/Identification.png" />
+<p>To build rRNA datasets for overall Ψ identification, we first download files from three databases: Modomics, snOPY, and snoRNABase. Since human 5.8s rRNA (chr21:8212571-8212727), 18s rRNA (chr21:8209631-8211499), and 28s rRNA (chr21:8213888-8218941) have multiple copies in the genome, we extracted one of the copies for subsequent analyses. We calculate and gain the relative position of Ψ sites on each rRNA. Centering on these sites and extending 10 nt of upstream and downstream, we then extract 21 nt sequences in bulk and map them to human genome (-v 0 -a -m 1000 –best –strata) using bowtie. A total of 96 Ψ sites were obtained in the above copy and used as a positive subset of the dataset to perform ROC evaluation or SVM modeling. Meanwhile, using bedtools (v2.30.0) intersect tools (-v -s), the sites that were identified as not Ψ sites were extracted from the above copy and used as a negative subset of the dataset.</p>
+<img alt="../_images/identification_rtsSeeker_workflow.svg" src="../_images/identification_rtsSeeker_workflow.svg" /><section id="input">
+<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
+<p>Users should choose to upload files in bam format for both CMC-input and CMC-treated groups. Upload reference genome file in fasta format and set the output path of directory. Input the file name for the output information (i.e. file name with <span class="blue">.bed</span> suffix).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>STAR input/treat alignment Uniquely mapped reads % should be greater than 30%, or the rtsSeeker may fail to calculate the valid information.</p>
+</div>
+</section>
+<section id="optional">
+<h2><a class="toc-backref" href="#id2">Optional</a><a class="headerlink" href="#optional" title="Permalink to this heading"></a></h2>
+<p>Multiple option are provided for rtsSeeker argument control.</p>
+<section id="customize-rtsseeker-argument">
+<h3><a class="toc-backref" href="#id3">customize rtsSeeker argument</a><a class="headerlink" href="#customize-rtsseeker-argument" title="Permalink to this heading"></a></h3>
+<p>if your want to customize the rtsSeeker argument, do not check <span class="red">get all psi information</span> or check <span class="red">plot ROC</span> option. Once <code class="docutils literal notranslate"><span class="pre">START</span></code>, psiFinder will run <code class="docutils literal notranslate"><span class="pre">3.0_rtsSeeker.sh</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+Help<span class="o">()</span> <span class="o">{</span>
+<span class="nb">echo</span>
+<span class="s2">&quot;rtsSeeker_wrap.sh example:</span>
+<span class="s2"> bash rtsSeeker_wrap.sh -c rtsSeeker command -g genome</span>
+<span class="s2">&quot;</span>
+<span class="o">}</span>
+
+
+usage<span class="o">()</span> <span class="o">{</span>                                      <span class="c1"># Function: Print a help message.</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [ -h help] [ -c cmd ] [ -g genome]&quot;</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="o">}</span>
+exit_abnormal<span class="o">()</span> <span class="o">{</span>                              <span class="c1"># Function: Exit with error.</span>
+  usage
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="o">}</span>
+
+
+<span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;:h:c:g:&quot;</span> options<span class="p">;</span> <span class="k">do</span>
+
+  <span class="k">case</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">in</span>
+    h<span class="p">|</span>:<span class="o">)</span>
+      usage
+      Help
+      <span class="nb">exit</span> <span class="m">0</span>
+      <span class="p">;;</span>
+    c<span class="o">)</span>
+      <span class="nv">cmd</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$cmd</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the cmd&quot;</span>
+      <span class="k">fi</span>
+      <span class="p">;;</span>
+    g<span class="o">)</span>
+      <span class="nv">genome</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$genome</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the genome&quot;</span>
+      <span class="k">fi</span>
+      <span class="p">;;</span>
+    <span class="se">\?</span><span class="o">)</span> <span class="c1"># incorrect option</span>
+      <span class="nb">echo</span> <span class="s2">&quot;Error: -</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2"> Invalid option&quot;</span>
+      exit_abnormal
+      <span class="p">;;</span>
+  <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="nb">shift</span> <span class="k">$((</span><span class="nv">$OPTIND</span> <span class="o">-</span> <span class="m">1</span><span class="k">))</span>
+date  <span class="c1">## echo the date at start</span>
+<span class="nb">echo</span> <span class="s2">&quot;Starting: one rtsSeeker job is starting...&quot;</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Normal rtsSeeker mode: rtsSeeker start...&quot;</span> &gt; rtsSeeker_wrap.log
+
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="si">${</span><span class="nv">genome</span><span class="si">}</span><span class="s2">.fai&quot;</span>  <span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span> <span class="s2">&quot;generate fai file&quot;</span> &gt;&gt; rtsSeeker_wrap.log
+samtools faidx <span class="nv">$genome</span>
+<span class="k">else</span>
+<span class="nb">echo</span> <span class="s2">&quot;fai file exist&quot;</span> &gt;&gt; rtsSeeker_wrap.log
+<span class="k">fi</span>
+
+<span class="nb">eval</span> <span class="nv">$cmd</span> &gt;&gt; rtsSeeker_wrap.log <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+<span class="nb">wait</span>
+<span class="nb">echo</span> <span class="s1">&#39;Genome-wise pseudouridylated sites identification is done by rtsSeeker!&#39;</span> &gt;&gt; rtsSeeker_wrap.log
+
+<span class="nb">echo</span> <span class="s2">&quot;rtsSeeker_wrap.sh running is done!&quot;</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;\n </span><span class="k">$(</span>tput setaf <span class="m">3</span><span class="k">)</span><span class="s2">Succeed: one rtsSeeker job is finished!</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">exit</span> <span class="m">0</span>  <span class="c1"># Exit normally.</span>
+</pre></div>
+</div>
+</section>
+<section id="get-all-psi-information">
+<h3><a class="toc-backref" href="#id4">get all psi information</a><a class="headerlink" href="#get-all-psi-information" title="Permalink to this heading"></a></h3>
+<p>If this option is checked, <code class="docutils literal notranslate"><span class="pre">Detail</span></code> argument input will be blocked and psiFinder will run <code class="docutils literal notranslate"><span class="pre">get_all.sh</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> -ne <span class="m">4</span> <span class="o">]]</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s1">&#39;Usage: ./&#39;</span><span class="nv">$0</span> <span class="s1">&#39; genome.fa treatment.bam input.bam out.bed&#39;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nv">genome</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">treatment</span><span class="o">=</span><span class="nv">$2</span>
+<span class="nv">input</span><span class="o">=</span><span class="nv">$3</span>
+<span class="nv">out</span><span class="o">=</span><span class="nv">$4</span>
+<span class="nv">outFileName</span><span class="o">=</span><span class="si">${</span><span class="nv">out</span><span class="p">%.bed</span><span class="si">}</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;rtsSeeker get All mode: rtsSeeker start...&quot;</span>
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="si">${</span><span class="nv">genome</span><span class="si">}</span><span class="s2">.fai&quot;</span>  <span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span> <span class="s2">&quot;generate faifile&quot;</span>
+samtools faidx <span class="nv">$genome</span>
+<span class="k">else</span>
+<span class="nb">echo</span> <span class="s2">&quot;faifile exist&quot;</span>
+<span class="k">fi</span>
+
+<span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/rtsSeeker --fa <span class="nv">$genome</span> --fai <span class="si">${</span><span class="nv">genome</span><span class="si">}</span>.fai --treat <span class="nv">$treatment</span> --input <span class="nv">$input</span> -p <span class="m">1</span>.5 -t <span class="m">0</span> -r <span class="m">0</span> -M <span class="m">1</span> --gene <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38.gencode.v30.tRNA.refseqNcRNA.geneAnno.bed12 -f <span class="m">0</span> -m <span class="m">0</span> -s -w <span class="m">20</span> -o <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_all.bed <span class="m">2</span>&gt;<span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_all_rtsSeeker.log
+awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {if($1~/^chr[0-9|a-z|A-Z]*$/ &amp;&amp; $10==&quot;T&quot; &amp;&amp; $14&gt;5){print $0}}&#39;</span> <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_all.bed &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_filt.bed
+awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {$25=sprintf(&quot;%.2f&quot;,$25);$27=sprintf(&quot;%.2f&quot;,$27);$28=sprintf(&quot;%.2f&quot;,$28);$30=sprintf(&quot;%.2f&quot;,$30);$31=sprintf(&quot;%.2f&quot;,$31);$33=sprintf(&quot;%.2f&quot;,$33)}1&#39;</span> <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_filt.bed &gt; tmp <span class="o">&amp;&amp;</span> mv tmp <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_filt.bed
+<span class="nb">echo</span> -e <span class="s2">&quot;All rtsSeeker result in </span><span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span><span class="s2">_all.bed&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-roc">
+<h3><a class="toc-backref" href="#id5">plot ROC</a><a class="headerlink" href="#plot-roc" title="Permalink to this heading"></a></h3>
+<p>If this option is checked, <code class="docutils literal notranslate"><span class="pre">Detail</span></code> argument input will be blocked and psiFinder will run <code class="docutils literal notranslate"><span class="pre">3.1_rtsSeeker_roc.sh</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> -ne <span class="m">4</span> <span class="o">]]</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s1">&#39;Usage: &#39;</span><span class="nv">$0</span> <span class="s1">&#39; genome.fa treatment.bam input.bam out.bed&#39;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nv">genome</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">treatment</span><span class="o">=</span><span class="nv">$2</span>
+<span class="nv">input</span><span class="o">=</span><span class="nv">$3</span>
+<span class="nv">out</span><span class="o">=</span><span class="nv">$4</span>
+<span class="nv">outFileName</span><span class="o">=</span><span class="si">${</span><span class="nv">out</span><span class="p">%.bed</span><span class="si">}</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;rtsSeeker ROC mode: rtsSeeker start...&quot;</span>
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="si">${</span><span class="nv">genome</span><span class="si">}</span><span class="s2">.fai&quot;</span>  <span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span> <span class="s2">&quot;generate faifile&quot;</span>
+samtools faidx <span class="nv">$genome</span>
+<span class="k">else</span>
+<span class="nb">echo</span> <span class="s2">&quot;faifile exist&quot;</span>
+<span class="k">fi</span>
+
+<span class="c1"># ROC</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">/rtsSeeker --fa </span><span class="nv">$genome</span><span class="s2"> --fai </span><span class="si">${</span><span class="nv">genome</span><span class="si">}</span><span class="s2">.fai --treat </span><span class="nv">$treatment</span><span class="s2"> --input </span><span class="nv">$input</span><span class="s2"> -p 1.5 -t 5 -r 0.05 -M 1 --gene </span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">/hg38.gencode.v30.tRNA.refseqNcRNA.geneAnno.bed12 -f 1 -m 0 -s -n -w 20 -o </span><span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span><span class="s2">_roc_all.bed 2&gt;</span><span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span><span class="s2">_roc_all_rtsSeeker.log&quot;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_rtsSeeker_cmd.log
+<span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/rtsSeeker --fa <span class="nv">$genome</span> --fai <span class="si">${</span><span class="nv">genome</span><span class="si">}</span>.fai --treat <span class="nv">$treatment</span> --input <span class="nv">$input</span> -p <span class="m">1</span>.5 -t <span class="m">5</span> -r <span class="m">0</span>.05 -M <span class="m">1</span> --gene <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38.gencode.v30.tRNA.refseqNcRNA.geneAnno.bed12 -f <span class="m">1</span> -m <span class="m">0</span> -s -n -w <span class="m">20</span> -o <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_all.bed <span class="m">2</span>&gt;<span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_all_rtsSeeker.log <span class="c1"># no -c remove duplicate change model to 1 and add gene annotation add -p 1.5</span>
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_all.bed &gt; <span class="nv">$out</span>
+
+awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {if($1~/^chr[0-9|a-z|A-Z]*$/ &amp;&amp; $10==&quot;T&quot; &amp;&amp; $14&gt;10){print $0}}&#39;</span> <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_all.bed &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_filt.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_filt.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_filt.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/rrna_chr21.bed -s &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_rrna.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_rrna.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s -v &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.bed
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.bed <span class="p">|</span>awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {print $0,&quot;1&quot;}&#39;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.txt
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.bed <span class="p">|</span>awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {print $0,&quot;0&quot;}&#39;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.txt
+<span class="nb">echo</span> <span class="s2">&quot;getting roc_plot.txt&quot;</span>
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.txt <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.txt &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_plot.txt
+
+<span class="nb">echo</span> <span class="s2">&quot;generate ROC plot...&quot;</span>
+nohup Rscript <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/roc.r -f <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_plot.txt -t <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_filt.bed -r <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38.psiU.SingleSites.bed -o <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_bestthres.log <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+<span class="nb">wait</span>
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_bestthres.log
+
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_six_variables_rRNA_violinplot.pdf <span class="p">&amp;</span>&gt; /dev/null
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_summary.pdf <span class="p">&amp;</span>&gt; /dev/null
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_best_evaluation.pdf <span class="p">&amp;</span>&gt; /dev/null
+
+<span class="nb">echo</span> <span class="s2">&quot;rtsSeeker ROC end&quot;</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;rtsSeeker ROC result in </span><span class="k">$(</span>dirname <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_roc_psi_prediction.bed<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="search-psi-sites">
+<h3><a class="toc-backref" href="#id6">search psi sites</a><a class="headerlink" href="#search-psi-sites" title="Permalink to this heading"></a></h3>
+<p>Correspond to rtsSeeker <code class="docutils literal notranslate"><span class="pre">-U/--psi</span></code> argument.</p>
+</section>
+<section id="skip-read-with-soft-clip">
+<h3><a class="toc-backref" href="#id7">skip read with soft clip</a><a class="headerlink" href="#skip-read-with-soft-clip" title="Permalink to this heading"></a></h3>
+<p>Default is false, correspond to rtsSeeker <code class="docutils literal notranslate"><span class="pre">-S/--soft</span></code> argument.</p>
+</section>
+<section id="normalized-reads-to-the-locus-number">
+<h3><a class="toc-backref" href="#id8">normalized reads to the locus number</a><a class="headerlink" href="#normalized-reads-to-the-locus-number" title="Permalink to this heading"></a></h3>
+<p>Correspond to rtsSeeker <code class="docutils literal notranslate"><span class="pre">-n/--norm</span></code> argument.</p>
+</section>
+<section id="keep-duplication">
+<h3><a class="toc-backref" href="#id9">keep duplication</a><a class="headerlink" href="#keep-duplication" title="Permalink to this heading"></a></h3>
+<p>Default is false, correspond to rtsSeeker <code class="docutils literal notranslate"><span class="pre">-c/--collapser</span></code> argument.</p>
+</section>
+</section>
+<section id="detail">
+<h2><a class="toc-backref" href="#id10">Detail</a><a class="headerlink" href="#detail" title="Permalink to this heading"></a></h2>
+<p>Detailed argument for rtsSeeker output information control.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Usage:  rtsSeeker <span class="o">[</span>options<span class="o">]</span> --fa &lt;genome seq&gt; --fai &lt;fai file&gt; --gene &lt;bed12 gene file&gt; --treat &lt;treat alignments&gt; --input &lt;input alignments&gt;
+rtsSeeker: <span class="k">for</span> seeking the reverse transcriptase stop sites
+<span class="o">[</span>options<span class="o">]</span>
+-v/--verbose                   : verbose information
+-V/--version                   : rtsSeeker version
+-h/--help                      : <span class="nb">help</span> informations
+-U/--psi                       : search psi sites
+-s/--strand                    : strand-specific<span class="o">[</span><span class="nv">default</span><span class="o">=</span>false<span class="o">]</span>
+-S/--soft                      : skip <span class="nb">read</span> with soft-clip<span class="o">[</span><span class="nv">default</span><span class="o">=</span>false<span class="o">]</span>
+-n/--norm                      : normalized reads to the locus number
+-p/--pval                      : p-value<span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">1</span>.5<span class="o">]</span>
+-c/--collapser                 : keep duplication, deault is <span class="nb">false</span>
+-M/--model &lt;int&gt;               : model<span class="o">[</span><span class="m">0</span> <span class="k">for</span> genome, <span class="m">1</span> <span class="k">for</span> gene, <span class="m">2</span> <span class="k">for</span> both, <span class="nv">default</span><span class="o">=</span><span class="m">1</span><span class="o">]</span>
+--treat &lt;string&gt;               : treatment file&lt;BAM format&gt;
+--input &lt;string&gt;               : input file&lt;BAM format&gt;
+--gene &lt;string&gt;                : gene file &lt;BED12 format&gt;
+-o/--outfile &lt;string&gt;          : output file
+-t/--min-tag &lt;double&gt;          : minimum tag number <span class="k">for</span> each psi, default&gt;<span class="o">=</span><span class="m">5</span>.0 <span class="nb">read</span>
+-r/--rpm &lt;double&gt;              : minimum rpm value <span class="k">for</span> each psi, default&gt;<span class="o">=</span><span class="m">0</span>.05
+-f/--fold &lt;int&gt;                : minimum fold-change<span class="o">[</span>default&gt;<span class="o">=</span><span class="m">1</span>.0<span class="o">]</span>
+-m/--mfold &lt;int&gt;               : minimum fold-change <span class="k">for</span> stop-tag/mean-tag
+-w/--window &lt;int&gt;              : window size around the rts position<span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">50</span><span class="o">]</span>
+-l/--min-len &lt;int&gt;             : minimum length of reads, <span class="nv">default</span><span class="o">=</span><span class="m">15</span>
+-L/--max-len &lt;int&gt;             : maximum length of reads, <span class="nv">default</span><span class="o">=</span><span class="m">1000</span>
+</pre></div>
+</div>
+</section>
+<section id="identify-sites-using-different-approaches">
+<h2><a class="toc-backref" href="#id11">Identify Ψ-sites using different approaches</a><a class="headerlink" href="#identify-sites-using-different-approaches" title="Permalink to this heading"></a></h2>
+<section id="svm-support-vector-machine">
+<h3><a class="toc-backref" href="#id12">(1) SVM: Support Vector Machine</a><a class="headerlink" href="#svm-support-vector-machine" title="Permalink to this heading"></a></h3>
+<p>If <code class="docutils literal notranslate"><span class="pre">SVM</span></code> QT wideget is clicked and popouped:</p>
+<ul class="simple">
+<li><p>press <code class="docutils literal notranslate"><span class="pre">Build</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">svm.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">svm_build_totalRNA.r</span></code> to generate file with <span class="blue">_SVM_model.RData</span> suffix, which is the support vector model built by SVM algorithm.</p></li>
+<li><p>press <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">svm_predict_totalRNA.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">svm_predict_totalRNA.r</span></code> to generate file with <span class="blue">_svm_psi_prediction.bed</span> suffix, which is the candidate Ψ-sites predicted by SVM algorithm.</p></li>
+</ul>
+<img alt="../_images/SVM.png" src="../_images/SVM.png" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> -ne <span class="m">4</span> <span class="o">]]</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s1">&#39;Usage: &#39;</span><span class="nv">$0</span> <span class="s1">&#39; input.bam treatment.bam genome.fa out.bed&#39;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nv">input</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">treatment</span><span class="o">=</span><span class="nv">$2</span>
+<span class="nv">genome</span><span class="o">=</span><span class="nv">$3</span>
+<span class="nv">out</span><span class="o">=</span><span class="nv">$4</span>
+<span class="nv">outFileName</span><span class="o">=</span><span class="si">${</span><span class="nv">out</span><span class="p">%.bed</span><span class="si">}</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;rtsSeeker SVM mode: rtsSeeker start...&quot;</span>
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="si">${</span><span class="nv">genome</span><span class="si">}</span><span class="s2">.fai&quot;</span>  <span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span> <span class="s2">&quot;generate faifile&quot;</span>
+samtools faidx <span class="nv">$genome</span>
+<span class="k">else</span>
+<span class="nb">echo</span> <span class="s2">&quot;faifile exist&quot;</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">/rtsSeeker --fa </span><span class="nv">$genome</span><span class="s2"> --fai </span><span class="si">${</span><span class="nv">genome</span><span class="si">}</span><span class="s2">.fai --treat </span><span class="nv">$treatment</span><span class="s2"> --input </span><span class="nv">$input</span><span class="s2"> -p 1.5 -t 5 -r 0.05 -M 1 --gene </span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">/hg38.gencode.v30.tRNA.refseqNcRNA.geneAnno.bed12 -f 1 -m 0 -s -w 20 -o </span><span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span><span class="s2">_svm_all.bed 2&gt;</span><span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span><span class="s2">_svm_all_rtsSeeker.log&quot;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_all_rtsSeeker.cmd <span class="c1"># no -c remove duplicate</span>
+<span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/rtsSeeker --fa <span class="nv">$genome</span> --fai <span class="si">${</span><span class="nv">genome</span><span class="si">}</span>.fai --treat <span class="nv">$treatment</span> --input <span class="nv">$input</span> -p <span class="m">1</span>.5 -t <span class="m">5</span> -r <span class="m">0</span>.05 -M <span class="m">1</span> --gene <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38.gencode.v30.tRNA.refseqNcRNA.geneAnno.bed12 -f <span class="m">1</span> -m <span class="m">0</span> -s -w <span class="m">20</span> -o <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_all.bed <span class="m">2</span>&gt;<span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_all_rtsSeeker.log <span class="c1"># no -c remove duplicate</span>
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_all.bed &gt; <span class="nv">$out</span>
+
+awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {if($1~/^chr[0-9|a-z|A-Z]*$/ &amp;&amp; $10==&quot;T&quot; &amp;&amp; $14&gt;10){print $0}}&#39;</span> <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_all.bed &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_filt_totalRNA.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_filt_totalRNA.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_filt_totalRNA.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/rrna_chr21.bed -s &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_rrna.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_rrna.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s -v &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.bed
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.bed <span class="p">|</span>awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {print $0,&quot;1&quot;}&#39;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.txt
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.bed <span class="p">|</span>awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {print $0,&quot;0&quot;}&#39;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.txt
+<span class="nb">echo</span> <span class="s2">&quot;getting roc_plot.txt&quot;</span>
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.txt <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.txt &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_plot.txt
+
+nohup Rscript <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/svm_build_totalRNA.r -f <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_plot.txt -k <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_filt_totalRNA.bed -r <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38.psiU.SingleSites.bed  -o <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_evaluation_totalRNA.log <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+<span class="nb">wait</span>
+
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_evaluation_totalRNA.log
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_six_variables_rRNA_violinplot.pdf <span class="p">&amp;</span>&gt; /dev/null
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_SVM_roc_test_data_plot.pdf <span class="p">&amp;</span>&gt; /dev/null
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_evaluation.pdf <span class="p">&amp;</span>&gt; /dev/null
+
+<span class="nb">echo</span> <span class="s2">&quot;total RNA: SVM program is done!&quot;</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;total RNA: SVM result in </span><span class="k">$(</span>dirname <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_svm_psi_prediction.bed<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All user input will be recorded in a plain text file with suffixes <span class="blue">_svm_totalRNA_build.txt</span> and <span class="blue">_svm_totalRNA_predict.txt</span> in psiFinder/config and help users to easily reload the previous config (by simply clicking ‘CONFIG’ button).</p>
+</div>
+</section>
+<section id="ann-artificial-neural-network">
+<h3><a class="toc-backref" href="#id13">(2) ANN: Artificial Neural Network</a><a class="headerlink" href="#ann-artificial-neural-network" title="Permalink to this heading"></a></h3>
+<p>If <code class="docutils literal notranslate"><span class="pre">ANN</span></code> QT wideget is clicked and popouped:</p>
+<ul class="simple">
+<li><p>press <code class="docutils literal notranslate"><span class="pre">Build</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">ann.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">ann_build_totalRNA.r</span></code> to generate file with <span class="blue">_ANN_model.RData</span> suffix, which is the artifical neuralnet model (resilient backpropagation with weight backtracking, two layers, each 12 neuron).</p></li>
+<li><p>press <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">ann_predict_totalRNA.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">ann_predict_totalRNA.r</span></code> to generate file with <span class="blue">_ann_psi_prediction.bed</span> suffix, which is the candidate Ψ-sites predicted by ANN algorithm.</p></li>
+</ul>
+<img alt="../_images/ANN.png" src="../_images/ANN.png" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> -ne <span class="m">4</span> <span class="o">]]</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s1">&#39;Usage: &#39;</span><span class="nv">$0</span> <span class="s1">&#39; input.bam treatment.bam genome.fa out.bed&#39;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nv">input</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">treatment</span><span class="o">=</span><span class="nv">$2</span>
+<span class="nv">genome</span><span class="o">=</span><span class="nv">$3</span>
+<span class="nv">out</span><span class="o">=</span><span class="nv">$4</span>
+<span class="nv">outFileName</span><span class="o">=</span><span class="si">${</span><span class="nv">out</span><span class="p">%.bed</span><span class="si">}</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;rtsSeeker ANN mode: rtsSeeker start...&quot;</span>
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="si">${</span><span class="nv">genome</span><span class="si">}</span><span class="s2">.fai&quot;</span>  <span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span> <span class="s2">&quot;generate faifile&quot;</span>
+samtools faidx <span class="nv">$genome</span>
+<span class="k">else</span>
+<span class="nb">echo</span> <span class="s2">&quot;faifile exist&quot;</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">/rtsSeeker --fa </span><span class="nv">$genome</span><span class="s2"> --fai </span><span class="si">${</span><span class="nv">genome</span><span class="si">}</span><span class="s2">.fai --treat </span><span class="nv">$treatment</span><span class="s2"> --input </span><span class="nv">$input</span><span class="s2"> -p 1.5 -t 5 -r 0.05 -M 1 --gene </span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">/hg38.gencode.v30.tRNA.refseqNcRNA.geneAnno.bed12 -f 1 -m 0 -s -w 20 -o </span><span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span><span class="s2">_ann_all.bed 2&gt;</span><span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span><span class="s2">_ann_all_rtsSeeker.log&quot;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_all_rtsSeeker.cmd <span class="c1"># no -c remove duplicate</span>
+<span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/rtsSeeker --fa <span class="nv">$genome</span> --fai <span class="si">${</span><span class="nv">genome</span><span class="si">}</span>.fai --treat <span class="nv">$treatment</span> --input <span class="nv">$input</span> -p <span class="m">1</span>.5 -t <span class="m">5</span> -r <span class="m">0</span>.05 -M <span class="m">1</span> --gene <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38.gencode.v30.tRNA.refseqNcRNA.geneAnno.bed12 -f <span class="m">1</span> -m <span class="m">0</span> -s -w <span class="m">20</span> -o <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_all.bed <span class="m">2</span>&gt;<span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_all_rtsSeeker.log <span class="c1"># no -c remove duplicate</span>
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_all.bed &gt; <span class="nv">$out</span>
+
+awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {if($1~/^chr[0-9|a-z|A-Z]*$/ &amp;&amp; $10==&quot;T&quot; &amp;&amp; $14&gt;10){print $0}}&#39;</span> <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_all.bed &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_filt_totalRNA.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_filt_totalRNA.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_filt_totalRNA.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/rrna_chr21.bed -s &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_rrna.bed
+bedtools intersect -a <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_rrna.bed -b <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s -v &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.bed
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.bed <span class="p">|</span>awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {print $0,&quot;1&quot;}&#39;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.txt
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.bed <span class="p">|</span>awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {print $0,&quot;0&quot;}&#39;</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.txt
+<span class="nb">echo</span> <span class="s2">&quot;getting roc_plot.txt&quot;</span>
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_knowpse.txt <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_notpse.txt &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_plot.txt
+
+nohup Rscript <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/ann_build_totalRNA.r -f <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_plot.txt -k <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_filt_totalRNA.bed -r <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38_human_chr21_rRNA_known_pseudoU_SingleSites.bed -s <span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>/hg38.psiU.SingleSites.bed  -o <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_evaluation_totalRNA.log <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+<span class="nb">wait</span>
+
+cat <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_evaluation_totalRNA.log
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_six_variables_rRNA_violinplot.pdf <span class="p">&amp;</span>&gt; /dev/null
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_roc_test_data_plot.pdf <span class="p">&amp;</span>&gt; /dev/null
+mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_evaluation.pdf <span class="p">&amp;</span>&gt; /dev/null
+
+<span class="nb">echo</span> <span class="s2">&quot;total RNA: ann program is done!&quot;</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;total RNA: ann result in </span><span class="k">$(</span>dirname <span class="si">${</span><span class="nv">outFileName</span><span class="si">}</span>_ann_psi_prediction.bed<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All user input will be recorded in a plain text file with suffixes <span class="blue">_ann_totalRNA_build.txt</span> and <span class="blue">_ann_totalRNA_predict.txt</span> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
+</div>
+</section>
+<section id="roc-receiver-operating-characteristic">
+<h3><a class="toc-backref" href="#id14">(3) ROC: Receiver Operating Characteristic</a><a class="headerlink" href="#roc-receiver-operating-characteristic" title="Permalink to this heading"></a></h3>
+<p>If <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ROC</span></code> option is checked,  <code class="docutils literal notranslate"><span class="pre">3.1_rtsSeeker_roc.sh</span></code> will run <code class="docutils literal notranslate"><span class="pre">roc.r</span></code> to generate file with <span class="blue">_roc_psi_prediction.bed</span> suffix, which is the candidate Ψ-sites gained by ROC best threshold (determined by one of the six variables with the highest F1 score).</p>
+</section>
+<section id="user-defined-customize-key-thresholds">
+<h3><a class="toc-backref" href="#id15">(4) User-defined: Customize key thresholds</a><a class="headerlink" href="#user-defined-customize-key-thresholds" title="Permalink to this heading"></a></h3>
+<p>By user-defined thresholds with stringent statistical controls, psiFinder allows users to filter and preserve highly reliable true positive Ψ sites (expertise of threshold determination is needed).</p>
+<img alt="../_images/User-defined.png" src="../_images/User-defined.png" />
+<p>Schematic overview of the six key metrics:</p>
+<img alt="../_images/principle.png" src="../_images/principle.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All user input will be recorded in a plain text file with suffixes <span class="blue">_user_defined_predict.txt</span> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
+</div>
+</section>
+</section>
+<section id="output">
+<h2><a class="toc-backref" href="#id16">Output</a><a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
+<section id="rtsseeker-result">
+<h3><a class="toc-backref" href="#id17">rtsSeeker result</a><a class="headerlink" href="#rtsseeker-result" title="Permalink to this heading"></a></h3>
+<p>rtsSeeker result will be well-organized as a bed file with 36 <code class="docutils literal notranslate"><span class="pre">(-M</span> <span class="pre">0)</span></code> or 39 <code class="docutils literal notranslate"><span class="pre">(-M</span> <span class="pre">1)</span></code> column.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#run with -M 0, rtsSeeker will output below file information</span>
+<span class="c1">##column description</span>
+<span class="c1"># 1 #chrom  chr3</span>
+<span class="c1"># 2 chromStart      132621249</span>
+<span class="c1"># 3 chromEnd        132621250</span>
+<span class="c1"># 4 name    rtsSeeker-1</span>
+<span class="c1"># 5 foldChange      1</span>
+<span class="c1"># 6 strand  +</span>
+<span class="c1"># 7 base    G</span>
+<span class="c1"># 8 treatPval       -5.01125</span>
+<span class="c1"># 9 ctrlPval        -3.06332</span>
+<span class="c1"># 10        minusPval       -1.94793</span>
+<span class="c1"># 11        treatStopNum    22</span>
+<span class="c1"># 12        treatStopRPM    2.62337</span>
+<span class="c1"># 13        treatPreStopNum 1</span>
+<span class="c1"># 14        treatAfterStopNum       21</span>
+<span class="c1"># 15        treatReadthroughNum     22</span>
+<span class="c1"># 16        ctrlStopNum     14.33333</span>
+<span class="c1"># 17        ctrlStopRPM     2.21748</span>
+<span class="c1"># 18        ctrlPreStopNum  1</span>
+<span class="c1"># 19        ctrlAfterStopNum        13.6</span>
+<span class="c1"># 20        ctrlReadthroughNum      14.33333</span>
+<span class="c1"># 21        stopRpmFC       1.18304</span>
+<span class="c1"># 22        treatPreRpmFold 22</span>
+<span class="c1"># 23        ctrlPreRpmFold  14.33333</span>
+<span class="c1"># 24        preRpmFoldRatio 1.53488</span>
+<span class="c1"># 25        treatAfterRpmFold       1.04762</span>
+<span class="c1"># 26        ctrlAfterRpmFold        1.05392</span>
+<span class="c1"># 27        afterRpmFoldRatio       0.99402</span>
+<span class="c1"># 28        treatStopRatio  1</span>
+<span class="c1"># 29        ctrlStopRatio   1</span>
+<span class="c1"># 30        stopRatioFC     1</span>
+<span class="c1"># 31        treatStopMeanNum        14</span>
+<span class="c1"># 32        treatStopMeanFold       1.57143</span>
+<span class="c1"># 33        ctrlStopMeanNum 8.97778</span>
+<span class="c1"># 34        ctrlStopMeanFold        1.59653</span>
+<span class="c1"># 35        treatStopMeanFoldRatio  0.98427</span>
+<span class="c1"># 36        extendSeq       TCTTAGAAAGAGGAGYTTGCCTCCTTAGCGC</span>
+
+<span class="c1">#run with -M 1 --gene $(dirname &quot;$0&quot;)/hg38.gencode.v30.tRNA.refseqNcRNA.geneAnno.bed12, rtsSeeker will output below file information</span>
+<span class="c1">##column description</span>
+<span class="c1"># 1 #chrom  chr14</span>
+<span class="c1"># 2 chromStart      49586636</span>
+<span class="c1"># 3 chromEnd        49586637</span>
+<span class="c1"># 4 name    rtsSeeker-1</span>
+<span class="c1"># 5 foldChange      0.04179</span>
+<span class="c1"># 6 strand  +</span>
+<span class="c1"># 7 geneName        ENST00000618786.1|RN7SL1-201|ENSG00000276168.1|RN7SL1|misc_RNA</span>
+<span class="c1"># 8 geneStart       57</span>
+<span class="c1"># 9 geneEnd 58</span>
+<span class="c1"># 10        base    G</span>
+<span class="c1"># 11        treatPval       0</span>
+<span class="c1"># 12        ctrlPval        -2.67E-09</span>
+<span class="c1"># 13        minusPval       2.67E-09</span>
+<span class="c1"># 14        treatStopNum    2.91439</span>
+<span class="c1"># 15        treatStopRPM    0.07151</span>
+<span class="c1"># 16        treatPreStopNum 8.32692</span>
+<span class="c1"># 17        treatAfterStopNum       6.92437</span>
+<span class="c1"># 18        treatReadthroughNum     10574.08742</span>
+<span class="c1"># 19        ctrlStopNum     20.62316</span>
+<span class="c1"># 20        ctrlStopRPM     0.52566</span>
+<span class="c1"># 21        ctrlPreStopNum  17.01255</span>
+<span class="c1"># 22        ctrlAfterStopNum        36.85115</span>
+<span class="c1"># 23        ctrlReadthroughNum      3126.84178</span>
+<span class="c1"># 24        stopRpmFC       0.13604</span>
+<span class="c1"># 25        treatPreRpmFold 0.35</span>
+<span class="c1"># 26        ctrlPreRpmFold  1.21223</span>
+<span class="c1"># 27        preRpmFoldRatio 0.28872</span>
+<span class="c1"># 28        treatAfterRpmFold       0.42089</span>
+<span class="c1"># 29        ctrlAfterRpmFold        0.55963</span>
+<span class="c1"># 30        afterRpmFoldRatio       0.75208</span>
+<span class="c1"># 31        treatStopRatio  0.00028</span>
+<span class="c1"># 32        ctrlStopRatio   0.0066</span>
+<span class="c1"># 33        stopRatioFC     0.04179</span>
+<span class="c1"># 34        treatStopMeanNum        186.30904</span>
+<span class="c1"># 35        treatStopMeanFold       0.01564</span>
+<span class="c1"># 36        ctrlStopMeanNum 117.26259</span>
+<span class="c1"># 37        ctrlStopMeanFold        0.17587</span>
+<span class="c1"># 38        treatStopMeanFoldRatio  0.08894</span>
+<span class="c1"># 39        extendSeq       AGGCTGAGGCTGGAGYATCGCTTGAGTCCAG</span>
+</pre></div>
+</div>
+</section>
+<section id="roc-evaluation">
+<h3><a class="toc-backref" href="#id18">ROC evaluation</a><a class="headerlink" href="#roc-evaluation" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ROC</span></code> function return information and plot for ROC evaluation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
+
+<span class="c1"># see all files, don&#39;t run.</span>
+$ tree -L <span class="m">1</span>
+.
+├── A1_A2_aft_plot.pdf
+├── A1_A2_aft_plot.png
+├── A1_A2.bed
+├── A1_A2_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_hit.csv
+├── A1_A2_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_miss.csv
+├── A1_A2_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_roc_stopRatioFC_thres_hit.csv
+├── A1_A2_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_roc_stopRatioFC_thres_miss.csv
+├── A1_A2_hg38.psiU.SingleSites.bed_rtsSeeker_hit.csv
+├── A1_A2_hg38.psiU.SingleSites.bed_rtsSeeker_miss.csv
+├── A1_A2_knowpse.bed
+├── A1_A2_knowpse.txt
+├── A1_A2_notpse.bed
+├── A1_A2_notpse.txt
+├── A1_A2_pre_plot.pdf
+├── A1_A2_pre_plot.png
+├── A1_A2_ratio_plot.pdf
+├── A1_A2_ratio_plot.png
+├── A1_A2_roc_afterRpmFoldRatio.pdf
+├── A1_A2_roc_all.bed
+├── A1_A2_roc_best_evaluation.pdf
+├── A1_A2_roc_bestthres_colname.txt
+├── A1_A2_roc_bestthres.log
+├── A1_A2_roc_bestthres.txt
+├── A1_A2_roc_confusion_matrix_and_indicators_arrange.txt
+├── A1_A2_roc_confusion_matrix_and_indicators.txt
+├── A1_A2_roc_filt.bed
+├── A1_A2_roc_plot.txt
+├── A1_A2_roc_preRpmFoldRatio.pdf
+├── A1_A2_roc_psi_prediction.bed
+├── A1_A2_roc_psi_prediction.txt
+├── A1_A2_roc_stopRatioFC.pdf
+├── A1_A2_roc_summary.pdf
+├── A1_A2_roc_total_prediction.txt
+├── A1_A2_roc_treatAfterRpmFold.pdf
+├── A1_A2_roc_treatPreRpmFold.pdf
+├── A1_A2_roc_treatStopMeanFold.pdf
+├── A1_A2_roc_treatStopMeanFoldRatio.pdf
+├── A1_A2_roc_treatStopRatio.pdf
+├── A1_A2_rrna.bed
+├── A1_A2_rtsSeeker_cmd.log
+├── A1_A2_six_variables_plot.pdf
+├── A1_A2_six_variables_rRNA_violinplot.pdf
+├── A1_A2_StopMeanFold_plot.pdf
+├── A1_A2_StopMeanFold_plot.png
+├── A1_A2_stopratio_plot.pdf
+└── A1_A2_stopratio_plot.png
+
+<span class="m">0</span> directories, <span class="m">46</span> files
+</pre></div>
+</div>
+<img alt="../_images/ROC_violinplot.png" src="../_images/ROC_violinplot.png" />
+<img alt="../_images/ROC_summary.png" src="../_images/ROC_summary.png" />
+<img alt="../_images/ROC_best_threshold.png" src="../_images/ROC_best_threshold.png" />
+</section>
+<section id="model-building">
+<h3><a class="toc-backref" href="#id19">Model Building</a><a class="headerlink" href="#model-building" title="Permalink to this heading"></a></h3>
+<p>Different identification approaches bring different sensitivity and specificity. For SVM/ANN/ROC/User-defined, ROC evaluation info will be recorded in a log file, e.g. A1_A2_svm_evaluation_totalRNA.log and corresponding ROC plot will popup if your input is validated by programs.</p>
+<p>A SVM QT widget model building result example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
+
+<span class="c1"># see all files, don&#39;t run.</span>
+$ tree -L <span class="m">1</span>
+.
+├── A1_A2.bed
+├── A1_A2_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_hit.csv
+├── A1_A2_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_miss.csv
+├── A1_A2_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_svm_hit.csv
+├── A1_A2_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_svm_miss.csv
+├── A1_A2_hg38.psiU.SingleSites.bed_rtsSeeker_hit.csv
+├── A1_A2_hg38.psiU.SingleSites.bed_rtsSeeker_miss.csv
+├── A1_A2_knowpse.bed
+├── A1_A2_knowpse.txt
+├── A1_A2_notpse.bed
+├── A1_A2_notpse.txt
+├── A1_A2_pca.pdf
+├── A1_A2_rrna.bed
+├── A1_A2_six_variables_rRNA_violinplot.pdf
+├── A1_A2_svm_all.bed
+├── A1_A2_svm_all_rtsSeeker.cmd
+├── A1_A2_SVM_eval.txt
+├── A1_A2_svm_evaluation.pdf
+├── A1_A2_svm_evaluation_totalRNA.log
+├── A1_A2_svm_filt_totalRNA.bed
+├── A1_A2_SVM_model.RData
+├── A1_A2_SVM_model.rds
+├── A1_A2_SVM_model.scale
+├── A1_A2_svm_plot.txt
+├── A1_A2_svm_psi_prediction.bed
+├── A1_A2_svm_psi_prediction.txt
+├── A1_A2_SVM_roc_test_data_plot.pdf
+├── A1_A2_SVM_test_data.xlsx
+├── A1_A2_svm_total_prediction.bed
+├── A1_A2_svm_total_prediction.txt
+└── A1_A2_svm_total_prediction.xlsx
+
+<span class="m">0</span> directory, <span class="m">31</span> files
+</pre></div>
+</div>
+<img alt="../_images/SVM_roc.png" src="../_images/SVM_roc.png" />
+<img alt="../_images/SVM_evaluation.png" src="../_images/SVM_evaluation.png" />
+</section>
+<section id="model-prediction">
+<h3><a class="toc-backref" href="#id20">Model Prediction</a><a class="headerlink" href="#model-prediction" title="Permalink to this heading"></a></h3>
+<p>After <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">Building</span></code>, users can use <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> in SVM/ANN/ QT widget to predict Ψ-sites by a built SVM/ANN model.</p>
+<p>A SVM QT widget model prediction result example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
+
+<span class="c1"># see all files, don&#39;t run.</span>
+$ tree -L <span class="m">1</span>
+.
+├── A1_A2_svm_filt_totalRNA.bed
+├── A1_A2_svm_filt_totalRNA_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_svm_hit.csv
+├── A1_A2_svm_filt_totalRNA_hg38_human_chr21_rRNA_known_pseudoU_SingleSites_rtsSeeker_svm_miss.csv
+├── A1_A2_svm_filt_totalRNA.log
+├── A1_A2_svm_filt_totalRNA_svm_filt.bed
+├── A1_A2_svm_filt_totalRNA_svm_psi_prediction.bed
+├── A1_A2_svm_filt_totalRNA_svm_psi_prediction.txt
+├── A1_A2_svm_filt_totalRNA_svm_total_prediction.bed
+├── A1_A2_svm_filt_totalRNA_svm_total_prediction.txt
+└── A1_A2_svm_filt_totalRNA_svm_total_prediction.xlsx
+
+<span class="m">0</span> directory, <span class="m">10</span> files
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Transcripts%20Alignment.html" class="btn btn-neutral float-left" title="Transcripts Alignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="%CE%A8-sites%20Annotation.html" class="btn btn-neutral float-right" title="Ψ-sites Annotation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, chenzhr23.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
