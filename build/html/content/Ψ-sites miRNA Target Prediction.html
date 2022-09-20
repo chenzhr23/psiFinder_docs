@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ψ-sites miRNA Target Prediction &mdash; psiFinder v1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ψ-sites and snoRNA Interaction" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html" />
+    <link rel="prev" title="Ψ-sites snoRNA Target Prediction" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> psiFinder
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quality%20Control.html">Quality Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Transcripts%20Alignment.html">Transcripts Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Identification.html">Ψ-sites Identification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Distribution.html">Ψ-sites Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Codon%20Preference.html">Ψ-sites Codon Preference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html">Ψ-sites snoRNA Target Prediction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ψ-sites miRNA Target Prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input">Input</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#miranda-core-algorithm-parameters">miranda core algorithm parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#predict-sites-mirna-target">Predict Ψ-sites miRNA target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html">Ψ-sites and snoRNA Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Motif%20Searching.html">Ψ-sites Motif Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Differential%20Modification.html">Ψ-sites Differential Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snakemake%20pipline.html">snakemake pipline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accessory%20Tools.html">Accessory Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">psiFinder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Ψ-sites miRNA Target Prediction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/Ψ-sites miRNA Target Prediction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sites-mirna-target-prediction">
+<h1>Ψ-sites miRNA Target Prediction<a class="headerlink" href="#sites-mirna-target-prediction" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#input" id="id1">Input</a></p>
+<ul>
+<li><p><a class="reference internal" href="#miranda-core-algorithm-parameters" id="id2">miranda core algorithm parameters</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#predict-sites-mirna-target" id="id3">Predict Ψ-sites miRNA target</a></p></li>
+<li><p><a class="reference internal" href="#output" id="id4">Output</a></p></li>
+</ul>
+</div>
+<p>psiFinder <code class="docutils literal notranslate"><span class="pre">Ψ-sites</span> <span class="pre">miRNA</span> <span class="pre">Target</span> <span class="pre">Prediction</span></code> was developed for Ψ-sites miRNA target prediction (e.g. Ψ-modified mRNA regulated by miRNA).</p>
+<img alt="../_images/MIscan.png" src="../_images/MIscan.png" />
+<section id="input">
+<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
+<p>Users should choose to upload files (i.e. rtsSeeker result) in bed format, miRNA sequence fasta file, and genome fasta file, to predict miRNA-(Ψ)target interaction.</p>
+<section id="miranda-core-algorithm-parameters">
+<h3><a class="toc-backref" href="#id2">miranda core algorithm parameters</a><a class="headerlink" href="#miranda-core-algorithm-parameters" title="Permalink to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">score/energy/scaling/strict</span></code> options of miranda correspond to <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">score</span> <span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">energy</span> <span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">scaling</span> <span class="pre">parameter</span></code>, and <code class="docutils literal notranslate"><span class="pre">Demand</span> <span class="pre">strict</span> <span class="pre">5'</span> <span class="pre">seed</span> <span class="pre">pairing</span></code>.</p>
+</section>
+</section>
+<section id="predict-sites-mirna-target">
+<h2><a class="toc-backref" href="#id3">Predict Ψ-sites miRNA target</a><a class="headerlink" href="#predict-sites-mirna-target" title="Permalink to this heading"></a></h2>
+<p>Once click <code class="docutils literal notranslate"><span class="pre">START</span></code>, psiFindeer will run <code class="docutils literal notranslate"><span class="pre">MIscan.sh</span></code>. <a class="reference external" href="https://buildmedia.readthedocs.org/media/pdf/bedtools/latest/bedtools.pdf">bedtools</a> will firstly extend the sequence of the input sites to 21 nt length long (with <code class="docutils literal notranslate"><span class="pre">_win21.bed</span></code> suffix), then <a class="reference external" href="https://cbio.mskcc.org/miRNA2003/miranda.html">miranda</a> will be used to predict the miRNA target based on the input miRNA sequence file and the extended sequence file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MIscan.sh</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> -ne <span class="m">7</span> <span class="o">]]</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s1">&#39;Usage: ./&#39;</span><span class="nv">$0</span> <span class="s1">&#39; bedfile miRNAseq genome score energy scaling strict&#39;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nv">bedfile</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">miRNAseq</span><span class="o">=</span><span class="nv">$2</span> <span class="c1">#grep &quot;Homo sapiens&quot; mature.fa -A 1 | grep -v &quot;\--&quot; &gt; only_human_mirna.fa or download directly from miBase</span>
+<span class="nv">genome</span><span class="o">=</span><span class="nv">$3</span>
+<span class="nv">score</span><span class="o">=</span><span class="nv">$4</span>
+<span class="nv">energy</span><span class="o">=</span><span class="nv">$5</span>
+<span class="nv">scaling</span><span class="o">=</span><span class="nv">$6</span>
+<span class="nv">strict_bool</span><span class="o">=</span><span class="nv">$7</span>
+<span class="nv">strict</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">strict_bool</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="k">then</span>
+    <span class="s2">&quot;</span><span class="nv">$strict</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;-strict&quot;</span>
+<span class="k">fi</span>
+
+
+awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {print $1,$2-10,$3+10,&quot;&quot;$1&quot;_&quot;$2&quot;_&quot;$3&quot;_&quot;$6&quot;&quot;,$5,$6}&#39;</span> <span class="si">${</span><span class="nv">bedfile</span><span class="si">}</span> &gt;<span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_win21.bed
+bedtools getfasta -fi <span class="nv">$genome</span> -bed <span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_win21.bed -name+ -s&gt;<span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_win21.fa
+
+<span class="nb">echo</span> <span class="s2">&quot;finding miRNA target&quot;</span>
+miranda <span class="nv">$miRNAseq</span> <span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_win21.fa -sc <span class="nv">$score</span> -en <span class="nv">$energy</span> -scale <span class="nv">$scaling</span> <span class="nv">$strict</span> &gt; <span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_miRNAtarget.out
+
+
+grep <span class="s1">&#39;Seq1,Seq2,Tot Score,Tot Energy,Max Score,Max Energy,Strand,Len1,Len2,Positions&#39;</span> -A <span class="m">1</span> <span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_miRNAtarget.out &gt;<span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_miRNAtarget_tmp.txt
+sed -i -e <span class="s1">&#39;s/&gt;//&#39;</span> -e <span class="s1">&#39;s/--//&#39;</span> -e <span class="s1">&#39;s/,/\t/g&#39;</span> <span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_miRNAtarget_tmp.txt
+sort -r -u <span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_miRNAtarget_tmp.txt &gt;<span class="si">${</span><span class="nv">bedfile</span><span class="p">%.bed</span><span class="si">}</span>_miRNAtarget.txt
+
+<span class="nb">echo</span> -e <span class="s2">&quot;Finished: MIscan done!\n&quot;</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;MIscan result in </span><span class="k">$(</span>dirname <span class="si">${</span><span class="nv">bedfile</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="output">
+<h2><a class="toc-backref" href="#id4">Output</a><a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
+<p>Result with <code class="docutils literal notranslate"><span class="pre">_miRNAtarget.txt</span></code> suffix is the final miRNA target prediction result.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
+$ tree -L <span class="m">1</span>
+.
+├── Day0_common_rep1.bed
+├── Day0_common_rep1_miRNAtarget.out
+├── Day0_common_rep1_miRNAtarget_tmp.txt
+├── Day0_common_rep1_miRNAtarget.txt
+├── Day0_common_rep1_win21.bed
+└── Day0_common_rep1_win21.fa
+
+<span class="m">0</span> directories, <span class="m">6</span> files
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All user input will be recorded in a plain text file with suffix <code class="docutils literal notranslate"><span class="pre">_MIscan_config.txt</span></code> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html" class="btn btn-neutral float-left" title="Ψ-sites snoRNA Target Prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="%CE%A8-sites%20and%20snoRNA%20Interaction.html" class="btn btn-neutral float-right" title="Ψ-sites and snoRNA Interaction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, chenzhr23.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Ψ-sites Target Prediction" href="%CE%A8-sites%20Target%20Prediction.html" />
+    <link rel="next" title="Ψ-sites snoRNA Target Prediction" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html" />
     <link rel="prev" title="Ψ-sites Distribution" href="%CE%A8-sites%20Distribution.html" /> 
 </head>
 
@@ -51,11 +51,22 @@
 <li class="toctree-l3"><a class="reference internal" href="#sites-file">Ψ-sites file</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output">Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#information">Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagram">Diagram</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Target%20Prediction.html">Ψ-sites Target Prediction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html">Ψ-sites snoRNA Target Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20miRNA%20Target%20Prediction.html">Ψ-sites miRNA Target Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html">Ψ-sites and snoRNA Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Motif%20Searching.html">Ψ-sites Motif Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Differential%20Modification.html">Ψ-sites Differential Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snakemake%20pipline.html">snakemake pipline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accessory%20Tools.html">Accessory Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
 </ul>
 
@@ -93,14 +104,19 @@
 <li><p><a class="reference internal" href="#sites-file" id="id3">Ψ-sites file</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#output" id="id4">Output</a></p></li>
+<li><p><a class="reference internal" href="#output" id="id4">Output</a></p>
+<ul>
+<li><p><a class="reference internal" href="#information" id="id5">Information</a></p></li>
+<li><p><a class="reference internal" href="#diagram" id="id6">Diagram</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
-<p>We utilize <a class="reference external" href="https://github.com/olarerin/metaPlotR">MetaPlotR</a> to generate metagene plot for Ψ-sites distribution profile.</p>
+<p>psiFinder <code class="docutils literal notranslate"><span class="pre">Ψ-sites</span> <span class="pre">Codon</span> <span class="pre">Preference</span></code> utilize <a class="reference external" href="https://github.com/olarerin/metaPlotR">MetaPlotR</a> to generate codon preference result for Ψ-sites.</p>
 <img alt="../_images/CodonPre.png" src="../_images/CodonPre.png" />
 <section id="input">
 <h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
-<p>Users should choose to upload files (i.e. rtsSeeker result) in bed format, genome fasta file, genome annotation file, and transcript annotation file (the same file for bedAnnotator <code class="docutils literal notranslate"><span class="pre">--anno</span></code> input).</p>
+<p>Users should choose to upload files (i.e. rtsSeeker result) to <code class="docutils literal notranslate"><span class="pre">CodonPre</span></code> QT widget in bed format, genome fasta file, genome annotation file, and transcript annotation file (the same file for bedAnnotator <code class="docutils literal notranslate"><span class="pre">--anno</span></code> input).</p>
 </section>
 <section id="profile-sites-codon-preference">
 <h2><a class="toc-backref" href="#id2">Profile Ψ-sites codon preference</a><a class="headerlink" href="#profile-sites-codon-preference" title="Permalink to this heading"></a></h2>
@@ -172,77 +188,79 @@ mupdf-x11 <span class="si">${</span><span class="nv">bedfile</span><span class="
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">codon_preference.r</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># reference https://github.com/olarerin/metaPlotR</span>
-suppressMessages<span class="o">(</span>library<span class="o">(</span><span class="s2">&quot;ggplot2&quot;</span><span class="o">))</span>
-suppressMessages<span class="o">(</span>library<span class="o">(</span><span class="s2">&quot;optparse&quot;</span><span class="o">))</span>
-suppressMessages<span class="o">(</span>library<span class="o">(</span><span class="s2">&quot;dplyr&quot;</span><span class="o">))</span>
-suppressMessages<span class="o">(</span>library<span class="o">(</span><span class="s2">&quot;RColorBrewer&quot;</span><span class="o">))</span>
-suppressMessages<span class="o">(</span>library<span class="o">(</span><span class="s2">&quot;stringr&quot;</span><span class="o">))</span>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1">#!/usr/bin/env Rscript</span>
 
-<span class="nv">option_list</span> <span class="o">=</span> list<span class="o">(</span>
-  make_option<span class="o">(</span>c<span class="o">(</span><span class="s2">&quot;-f&quot;</span>, <span class="s2">&quot;--metagenefile&quot;</span><span class="o">)</span>, <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;character&quot;</span>, <span class="nv">default</span><span class="o">=</span>NULL,
-              <span class="nv">help</span><span class="o">=</span><span class="s2">&quot;metagenefile [file]&quot;</span>, <span class="nv">metavar</span><span class="o">=</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>,
-  make_option<span class="o">(</span>c<span class="o">(</span><span class="s2">&quot;-m&quot;</span>, <span class="s2">&quot;--metagenefile_cds&quot;</span><span class="o">)</span>, <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;character&quot;</span>, <span class="nv">default</span><span class="o">=</span>NULL,
-              <span class="nv">help</span><span class="o">=</span><span class="s2">&quot;metagenefile_cds [file]&quot;</span>, <span class="nv">metavar</span><span class="o">=</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>,
-  make_option<span class="o">(</span>c<span class="o">(</span><span class="s2">&quot;-o&quot;</span>, <span class="s2">&quot;--outfile_prefix&quot;</span><span class="o">)</span>, <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;character&quot;</span>, <span class="nv">default</span><span class="o">=</span>NULL,
-              <span class="nv">help</span><span class="o">=</span><span class="s2">&quot;output file name [default= %default]&quot;</span>, <span class="nv">metavar</span><span class="o">=</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>
-<span class="o">)</span><span class="p">;</span>
-<span class="nv">opt_parser</span> <span class="o">=</span> OptionParser<span class="o">(</span><span class="nv">option_list</span><span class="o">=</span>option_list<span class="o">)</span><span class="p">;</span>
-<span class="nv">opt</span> <span class="o">=</span> parse_args<span class="o">(</span>opt_parser<span class="o">)</span><span class="p">;</span>
+<span class="c1"># reference https://github.com/olarerin/metaPlotR</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;ggplot2&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;optparse&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;dplyr&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;RColorBrewer&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;stringr&quot;</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="o">(</span>is.null<span class="o">(</span>opt<span class="nv">$metagenefile</span><span class="o">)||</span> is.null<span class="o">(</span>opt<span class="nv">$outfile_prefix</span><span class="o">)</span> <span class="o">){</span>
-  print_help<span class="o">(</span>opt_parser<span class="o">)</span><span class="p">;</span>
-  stop<span class="o">(</span><span class="s2">&quot;Please provide -f metagene file -m metagene_cds file and -o outfile_prefix option&quot;</span>, call.<span class="o">=</span>FALSE<span class="o">)</span><span class="p">;</span>
-<span class="o">}</span>
+<span class="n">option_list</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+  <span class="nf">make_option</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;--metagenefile&quot;</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s">&quot;metagenefile [file]&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">),</span>
+  <span class="nf">make_option</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;-m&quot;</span><span class="p">,</span> <span class="s">&quot;--metagenefile_cds&quot;</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s">&quot;metagenefile_cds [file]&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">),</span>
+  <span class="nf">make_option</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--outfile_prefix&quot;</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s">&quot;output file name [default= %default]&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="n">opt_parser</span> <span class="o">=</span> <span class="nf">OptionParser</span><span class="p">(</span><span class="n">option_list</span><span class="o">=</span><span class="n">option_list</span><span class="p">);</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="nf">parse_args</span><span class="p">(</span><span class="n">opt_parser</span><span class="p">);</span>
 
-<span class="nv">metagenefile</span> <span class="o">=</span> opt<span class="nv">$metagenefile</span>
-<span class="nv">metagenefile_cds</span> <span class="o">=</span> opt<span class="nv">$metagenefile_cds</span>
-<span class="nv">outFile_prefix</span> <span class="o">=</span> opt<span class="nv">$outfile_prefix</span>
+<span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">opt</span><span class="o">$</span><span class="n">metagenefile</span><span class="p">)</span><span class="o">||</span> <span class="nf">is.null</span><span class="p">(</span><span class="n">opt</span><span class="o">$</span><span class="n">outfile_prefix</span><span class="p">)</span> <span class="p">){</span>
+  <span class="nf">print_help</span><span class="p">(</span><span class="n">opt_parser</span><span class="p">);</span>
+  <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;Please provide -f metagene file -m metagene_cds file and -o outfile_prefix option&quot;</span><span class="p">,</span> <span class="n">call.</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">);</span>
+<span class="p">}</span>
 
-print<span class="o">(</span>metagenefile<span class="o">)</span>
-print<span class="o">(</span>metagenefile_cds<span class="o">)</span>
-print<span class="o">(</span>outFile_prefix<span class="o">)</span>
+<span class="n">metagenefile</span> <span class="o">=</span> <span class="n">opt</span><span class="o">$</span><span class="n">metagenefile</span>
+<span class="n">metagenefile_cds</span> <span class="o">=</span> <span class="n">opt</span><span class="o">$</span><span class="n">metagenefile_cds</span>
+<span class="n">outFile_prefix</span> <span class="o">=</span> <span class="n">opt</span><span class="o">$</span><span class="n">outfile_prefix</span>
 
-pseudoU.dist &lt;- read.delim <span class="o">(</span>metagenefile, <span class="nv">header</span> <span class="o">=</span> T<span class="o">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">metagenefile</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">metagenefile_cds</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">outFile_prefix</span><span class="p">)</span>
+
+<span class="n">pseudoU.dist</span> <span class="o">&lt;-</span> <span class="nf">read.delim </span><span class="p">(</span><span class="n">metagenefile</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
 <span class="c1"># Determine longest length transcript for each gene</span>
-trx_len &lt;- pseudoU.dist<span class="nv">$utr5_size</span> + pseudoU.dist<span class="nv">$cds_size</span> + pseudoU.dist<span class="nv">$utr3_size</span>
-temp &lt;- data.frame<span class="o">(</span>paste<span class="o">(</span>pseudoU.dist<span class="nv">$chr</span>,pseudoU.dist<span class="nv">$coord</span>,sep<span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="o">)</span>, pseudoU.dist<span class="nv">$refseqID</span>, trx_len<span class="o">)</span>
-colnames<span class="o">(</span>temp<span class="o">)</span> &lt;- c<span class="o">(</span><span class="s2">&quot;coord&quot;</span>, <span class="s2">&quot;gid&quot;</span>, <span class="s2">&quot;trx_len&quot;</span><span class="o">)</span>
-temp.df &lt;- temp<span class="o">[</span>order<span class="o">(</span>temp<span class="nv">$coord</span>,  temp<span class="nv">$gid</span>, -temp<span class="nv">$trx_len</span><span class="o">)</span>,<span class="o">]</span>
-temp.df &lt;- temp<span class="o">[</span>!duplicated<span class="o">(</span>temp<span class="nv">$coord</span><span class="o">)</span>,<span class="o">]</span>
+<span class="n">trx_len</span> <span class="o">&lt;-</span> <span class="n">pseudoU.dist</span><span class="o">$</span><span class="n">utr5_size</span> <span class="o">+</span> <span class="n">pseudoU.dist</span><span class="o">$</span><span class="n">cds_size</span> <span class="o">+</span> <span class="n">pseudoU.dist</span><span class="o">$</span><span class="n">utr3_size</span>
+<span class="n">temp</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">pseudoU.dist</span><span class="o">$</span><span class="n">chr</span><span class="p">,</span><span class="n">pseudoU.dist</span><span class="o">$</span><span class="n">coord</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;_&quot;</span><span class="p">),</span> <span class="n">pseudoU.dist</span><span class="o">$</span><span class="n">refseqID</span><span class="p">,</span> <span class="n">trx_len</span><span class="p">)</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;coord&quot;</span><span class="p">,</span> <span class="s">&quot;gid&quot;</span><span class="p">,</span> <span class="s">&quot;trx_len&quot;</span><span class="p">)</span>
+<span class="n">temp.df</span> <span class="o">&lt;-</span> <span class="n">temp</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">temp</span><span class="o">$</span><span class="n">coord</span><span class="p">,</span>  <span class="n">temp</span><span class="o">$</span><span class="n">gid</span><span class="p">,</span> <span class="o">-</span><span class="n">temp</span><span class="o">$</span><span class="n">trx_len</span><span class="p">),]</span>
+<span class="n">temp.df</span> <span class="o">&lt;-</span> <span class="n">temp</span><span class="p">[</span><span class="o">!</span><span class="nf">duplicated</span><span class="p">(</span><span class="n">temp</span><span class="o">$</span><span class="n">coord</span><span class="p">),]</span>
 
-<span class="nv">mycol</span><span class="o">=</span>brewer.pal<span class="o">(</span><span class="m">7</span>, <span class="s2">&quot;Set1&quot;</span><span class="o">)</span>
-codon_info&lt;-read.table<span class="o">(</span>metagenefile_cds, <span class="nv">header</span><span class="o">=</span>FALSE<span class="o">)</span>
-codon_final&lt;-codon_info<span class="o">[</span>paste<span class="o">(</span>codon_info<span class="nv">$V1</span>,codon_info<span class="nv">$V2</span>,codon_info<span class="nv">$V3</span>,sep<span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="o">)</span> %in% paste<span class="o">(</span>temp.df<span class="nv">$coord</span>,temp.df<span class="nv">$gid</span>,sep<span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="o">)</span>,c<span class="o">(</span><span class="m">4</span>,6<span class="o">)]</span>
-codon_final_tmp&lt;-codon_info<span class="o">[</span>paste<span class="o">(</span>codon_info<span class="nv">$V1</span>,codon_info<span class="nv">$V2</span>,codon_info<span class="nv">$V3</span>,sep<span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="o">)</span> %in% paste<span class="o">(</span>temp.df<span class="nv">$coord</span>,temp.df<span class="nv">$gid</span>,sep<span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="o">)</span>,<span class="o">]</span>
-write.table<span class="o">(</span>codon_final_tmp,paste<span class="o">(</span>outFile_prefix, <span class="s1">&#39;_codon_preference_bed.txt&#39;</span>, <span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">)</span>,sep<span class="o">=</span><span class="s2">&quot;\t&quot;</span>,row.names<span class="o">=</span>FALSE, col.names<span class="o">=</span>TRUE,quote<span class="o">=</span>F<span class="o">)</span>
-codon_final<span class="nv">$V6</span>&lt;-toupper<span class="o">(</span>codon_final<span class="nv">$V6</span><span class="o">)</span>
-codon_final&lt;-plyr::count<span class="o">(</span>codon_final, names<span class="o">(</span>codon_final<span class="o">))</span>
-colnames<span class="o">(</span>codon_final<span class="o">)</span>&lt;-c<span class="o">(</span><span class="s2">&quot;position&quot;</span>,<span class="s2">&quot;codon&quot;</span>,<span class="s2">&quot;number&quot;</span><span class="o">)</span>
-codon_final<span class="nv">$position</span><span class="o">=</span>as.character<span class="o">(</span>codon_final<span class="nv">$position</span><span class="o">)</span>
-codon_final<span class="nv">$position</span>&lt;-str_replace_all<span class="o">(</span>codon_final<span class="nv">$position</span>, c<span class="o">(</span><span class="s2">&quot;1&quot;</span> <span class="o">=</span> <span class="s2">&quot;1st&quot;</span>, <span class="s2">&quot;2&quot;</span> <span class="o">=</span> <span class="s2">&quot;2nd&quot;</span>,<span class="s2">&quot;3&quot;</span><span class="o">=</span><span class="s2">&quot;3rd&quot;</span><span class="o">))</span>
-codon_final&lt;-arrange<span class="o">(</span>codon_final,desc<span class="o">(</span>number<span class="o">))</span>
-codon_final&lt;-codon_final<span class="o">[</span>codon_final<span class="nv">$number</span>&gt;1,<span class="o">]</span>
-codon_plot&lt;-ggplot<span class="o">(</span>codon_final,aes<span class="o">(</span><span class="nv">x</span><span class="o">=</span>factor<span class="o">(</span>codon,levels<span class="o">=</span>unique<span class="o">(</span>codon_final<span class="nv">$codon</span><span class="o">))</span>,y<span class="o">=</span>number,fill<span class="o">=</span>position<span class="o">))</span>+geom_bar<span class="o">(</span><span class="nv">alpha</span><span class="o">=</span><span class="m">0</span>.8,width<span class="o">=</span><span class="m">0</span>.5,stat<span class="o">=</span><span class="s2">&quot;identity&quot;</span>,position<span class="o">=</span><span class="s2">&quot;stack&quot;</span><span class="o">)</span>+ theme_bw<span class="o">()</span>+theme<span class="o">(</span>
-     legend.position<span class="o">=</span><span class="s2">&quot;top&quot;</span>,
-     plot.margin <span class="o">=</span> unit<span class="o">(</span>c<span class="o">(</span><span class="m">7</span>,4,7,4<span class="o">)</span>, <span class="s2">&quot;cm&quot;</span><span class="o">)</span>,
-         axis.text.x <span class="o">=</span> element_text<span class="o">(</span><span class="nv">angle</span><span class="o">=</span><span class="m">90</span>, <span class="nv">hjust</span><span class="o">=</span><span class="m">0</span>, <span class="nv">vjust</span><span class="o">=</span><span class="m">0</span>.3<span class="o">)</span>,
-         panel.border <span class="o">=</span> element_blank<span class="o">()</span>,
-         panel.grid.major <span class="o">=</span> element_blank<span class="o">()</span>,
-         panel.grid.minor <span class="o">=</span> element_blank<span class="o">()</span>,
-         axis.line <span class="o">=</span> element_line<span class="o">(</span><span class="nv">colour</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="o">)</span>,
-         axis.title.x<span class="o">=</span>element_blank<span class="o">()</span>,
-         axis.ticks.x<span class="o">=</span>element_blank<span class="o">()</span>,
-         panel.grid <span class="o">=</span> element_blank<span class="o">()</span>,
-         panel.background<span class="o">=</span>element_blank<span class="o">()</span>,
-         <span class="o">)</span>+ylab<span class="o">(</span><span class="s2">&quot;Numbers&quot;</span><span class="o">)</span>+
-         scale_fill_manual<span class="o">(</span><span class="nv">values</span> <span class="o">=</span> mycol<span class="o">)</span>+
-         scale_y_continuous<span class="o">(</span><span class="nv">expand</span> <span class="o">=</span> c<span class="o">(</span><span class="m">0</span>,0<span class="o">))</span>
-pdf<span class="o">(</span>paste<span class="o">(</span>outFile_prefix, <span class="s1">&#39;_codon_preference.pdf&#39;</span>, <span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">)</span>,width<span class="o">=</span> <span class="m">8</span>,height<span class="o">=</span><span class="m">8</span><span class="o">)</span>
-codon_plot
-dev.off<span class="o">()</span>
+<span class="n">mycol</span><span class="o">=</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">7</span><span class="p">,</span> <span class="s">&quot;Set1&quot;</span><span class="p">)</span>
+<span class="n">codon_info</span><span class="o">&lt;-</span><span class="nf">read.table</span><span class="p">(</span><span class="n">metagenefile_cds</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">codon_final</span><span class="o">&lt;-</span><span class="n">codon_info</span><span class="p">[</span><span class="nf">paste</span><span class="p">(</span><span class="n">codon_info</span><span class="o">$</span><span class="n">V1</span><span class="p">,</span><span class="n">codon_info</span><span class="o">$</span><span class="n">V2</span><span class="p">,</span><span class="n">codon_info</span><span class="o">$</span><span class="n">V3</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;_&quot;</span><span class="p">)</span> <span class="o">%in%</span> <span class="nf">paste</span><span class="p">(</span><span class="n">temp.df</span><span class="o">$</span><span class="n">coord</span><span class="p">,</span><span class="n">temp.df</span><span class="o">$</span><span class="n">gid</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;_&quot;</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">6</span><span class="p">)]</span>
+<span class="n">codon_final_tmp</span><span class="o">&lt;-</span><span class="n">codon_info</span><span class="p">[</span><span class="nf">paste</span><span class="p">(</span><span class="n">codon_info</span><span class="o">$</span><span class="n">V1</span><span class="p">,</span><span class="n">codon_info</span><span class="o">$</span><span class="n">V2</span><span class="p">,</span><span class="n">codon_info</span><span class="o">$</span><span class="n">V3</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;_&quot;</span><span class="p">)</span> <span class="o">%in%</span> <span class="nf">paste</span><span class="p">(</span><span class="n">temp.df</span><span class="o">$</span><span class="n">coord</span><span class="p">,</span><span class="n">temp.df</span><span class="o">$</span><span class="n">gid</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;_&quot;</span><span class="p">),]</span>
+<span class="nf">write.table</span><span class="p">(</span><span class="n">codon_final_tmp</span><span class="p">,</span><span class="nf">paste</span><span class="p">(</span><span class="n">outFile_prefix</span><span class="p">,</span> <span class="s">&#39;_codon_preference_bed.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;\t&quot;</span><span class="p">,</span><span class="n">row.names</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">col.names</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">quote</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+<span class="n">codon_final</span><span class="o">$</span><span class="n">V6</span><span class="o">&lt;-</span><span class="nf">toupper</span><span class="p">(</span><span class="n">codon_final</span><span class="o">$</span><span class="n">V6</span><span class="p">)</span>
+<span class="n">codon_final</span><span class="o">&lt;-</span><span class="n">plyr</span><span class="o">::</span><span class="nf">count</span><span class="p">(</span><span class="n">codon_final</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="n">codon_final</span><span class="p">))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">codon_final</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;position&quot;</span><span class="p">,</span><span class="s">&quot;codon&quot;</span><span class="p">,</span><span class="s">&quot;number&quot;</span><span class="p">)</span>
+<span class="n">codon_final</span><span class="o">$</span><span class="n">position</span><span class="o">=</span><span class="nf">as.character</span><span class="p">(</span><span class="n">codon_final</span><span class="o">$</span><span class="n">position</span><span class="p">)</span>
+<span class="n">codon_final</span><span class="o">$</span><span class="n">position</span><span class="o">&lt;-</span><span class="nf">str_replace_all</span><span class="p">(</span><span class="n">codon_final</span><span class="o">$</span><span class="n">position</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;1&quot;</span> <span class="o">=</span> <span class="s">&quot;1st&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span> <span class="o">=</span> <span class="s">&quot;2nd&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="o">=</span><span class="s">&quot;3rd&quot;</span><span class="p">))</span>
+<span class="n">codon_final</span><span class="o">&lt;-</span><span class="nf">arrange</span><span class="p">(</span><span class="n">codon_final</span><span class="p">,</span><span class="nf">desc</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+<span class="n">codon_final</span><span class="o">&lt;-</span><span class="n">codon_final</span><span class="p">[</span><span class="n">codon_final</span><span class="o">$</span><span class="n">number</span><span class="o">&gt;</span><span class="m">1</span><span class="p">,]</span>
+<span class="n">codon_plot</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">codon_final</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">factor</span><span class="p">(</span><span class="n">codon</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="nf">unique</span><span class="p">(</span><span class="n">codon_final</span><span class="o">$</span><span class="n">codon</span><span class="p">)),</span><span class="n">y</span><span class="o">=</span><span class="n">number</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="n">position</span><span class="p">))</span><span class="o">+</span><span class="nf">geom_bar</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="m">0.8</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span><span class="n">stat</span><span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span><span class="n">position</span><span class="o">=</span><span class="s">&quot;stack&quot;</span><span class="p">)</span><span class="o">+</span> <span class="nf">theme_bw</span><span class="p">()</span><span class="o">+</span><span class="nf">theme</span><span class="p">(</span>
+     <span class="n">legend.position</span><span class="o">=</span><span class="s">&quot;top&quot;</span><span class="p">,</span>
+     <span class="n">plot.margin</span> <span class="o">=</span> <span class="nf">unit</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">),</span> <span class="s">&quot;cm&quot;</span><span class="p">),</span>
+         <span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">vjust</span><span class="o">=</span><span class="m">0.3</span><span class="p">),</span>
+         <span class="n">panel.border</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+         <span class="n">panel.grid.major</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+         <span class="n">panel.grid.minor</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+         <span class="n">axis.line</span> <span class="o">=</span> <span class="nf">element_line</span><span class="p">(</span><span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">),</span>
+         <span class="n">axis.title.x</span><span class="o">=</span><span class="nf">element_blank</span><span class="p">(),</span>
+         <span class="n">axis.ticks.x</span><span class="o">=</span><span class="nf">element_blank</span><span class="p">(),</span>
+         <span class="n">panel.grid</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+         <span class="n">panel.background</span><span class="o">=</span><span class="nf">element_blank</span><span class="p">(),</span>
+         <span class="p">)</span><span class="o">+</span><span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;Numbers&quot;</span><span class="p">)</span><span class="o">+</span>
+         <span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">values</span> <span class="o">=</span> <span class="n">mycol</span><span class="p">)</span><span class="o">+</span>
+         <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">expand</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">))</span>
+<span class="nf">pdf</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">outFile_prefix</span><span class="p">,</span> <span class="s">&#39;_codon_preference.pdf&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">width</span><span class="o">=</span> <span class="m">8</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="m">8</span><span class="p">)</span>
+<span class="n">codon_plot</span>
+<span class="nf">dev.off</span><span class="p">()</span>
 
-write.table<span class="o">(</span>codon_final,paste<span class="o">(</span>outFile_prefix, <span class="s1">&#39;_codon_preference.txt&#39;</span>, <span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">)</span>,sep<span class="o">=</span><span class="s2">&quot;\t&quot;</span>,row.names<span class="o">=</span>FALSE, col.names<span class="o">=</span>TRUE,quote<span class="o">=</span>F<span class="o">)</span>
+<span class="nf">write.table</span><span class="p">(</span><span class="n">codon_final</span><span class="p">,</span><span class="nf">paste</span><span class="p">(</span><span class="n">outFile_prefix</span><span class="p">,</span> <span class="s">&#39;_codon_preference.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;\t&quot;</span><span class="p">,</span><span class="n">row.names</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">col.names</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">quote</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="sites-file">
@@ -252,10 +270,10 @@ write.table<span class="o">(</span>codon_final,paste<span class="o">(</span>outF
 </section>
 <section id="output">
 <h2><a class="toc-backref" href="#id4">Output</a><a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
+<section id="information">
+<h3><a class="toc-backref" href="#id5">Information</a><a class="headerlink" href="#information" title="Permalink to this heading"></a></h3>
 <p>Result with <code class="docutils literal notranslate"><span class="pre">_codon_preference.txt</span></code> suffix is the final CodonPre result.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
-
-<span class="c1"># see all files, don&#39;t run.</span>
 $ tree -L <span class="m">1</span>
 .
 ├── Day0_common_rep1_anno.bed
@@ -274,10 +292,16 @@ $ tree -L <span class="m">1</span>
 <span class="m">0</span> directories, <span class="m">12</span> files
 </pre></div>
 </div>
+</section>
+<section id="diagram">
+<h3><a class="toc-backref" href="#id6">Diagram</a><a class="headerlink" href="#diagram" title="Permalink to this heading"></a></h3>
+<p>File with suffix <code class="docutils literal notranslate"><span class="pre">_codon_preference.pdf</span></code> is a histogram of Ψ-sites codon preference on input Ψ-sites file (rtsSeeker result).</p>
+<img alt="../_images/CodonPre_codon_preference.png" src="../_images/CodonPre_codon_preference.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All user input will be recorded in a plain text file with suffix <code class="docutils literal notranslate"><span class="pre">_codon_preference_config.txt</span></code> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
 </div>
+</section>
 </section>
 </section>
 
@@ -286,7 +310,7 @@ $ tree -L <span class="m">1</span>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="%CE%A8-sites%20Distribution.html" class="btn btn-neutral float-left" title="Ψ-sites Distribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="%CE%A8-sites%20Target%20Prediction.html" class="btn btn-neutral float-right" title="Ψ-sites Target Prediction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html" class="btn btn-neutral float-right" title="Ψ-sites snoRNA Target Prediction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

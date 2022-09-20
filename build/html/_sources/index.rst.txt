@@ -27,6 +27,13 @@ Contents:
    content/Ψ-sites Annotation
    content/Ψ-sites Distribution
    content/Ψ-sites Codon Preference
-   content/Ψ-sites Target Prediction
+   content/Ψ-sites snoRNA Target Prediction
+   content/Ψ-sites miRNA Target Prediction
+   content/Ψ-sites and snoRNA Interaction
+   content/Ψ-sites Motif Searching
+   content/Ψ-sites SNPs and SNVs Searching
+   content/Ψ-sites Differential Modification
+   content/Ψ-sites Functional Enrichment
    content/snakemake pipline
+   content/Accessory Tools
    content/About psiFinder

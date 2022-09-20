@@ -42,7 +42,7 @@ If User-defined ``Mode options`` is checked, then ``Filter thresholds`` is enabl
 
 snakemake rules
 ----------------
-Once click ``START``, psiFindeer will firstly run ``cp_unzip.sh`` to unzip and redirect the input sequencing reads files. Then, ``pseudotb.sh`` will be secondly run to apply snakemake rules selected by ``quickstart_config.yml``.
+Once click ``START``, psiFindeer will firstly run ``cp_unzip.sh`` to unzip and redirect the input sequencing reads files. Then, ``psiFinder.sh`` will be secondly run to apply snakemake rules selected by ``quickstart_config.yml``.
 
 ``cp_unzip.sh``
 
@@ -404,15 +404,13 @@ snakemake result are output to specific directory where psiFinder package is unz
 .. code:: bash
 
     $ cd /the/directory/of/psiFinder/snakemake/
-
-    # see all files, don't run.
     $ tree -L 1
     .
     ├── cp_unzip.sh
     ├── genome
     ├── logs
     ├── output
-    ├── pseudotb.sh
+    ├── psiFinder.sh
     ├── reads
     ├── script
     ├── Snakefile
@@ -422,8 +420,6 @@ snakemake result are output to specific directory where psiFinder package is unz
     7 directories, 3 files
 
     $ cd /the/directory/of/psiFinder/snakemake/output
-
-    # see all files, don't run.
     $ tree -L 1
     .
     ├── ann

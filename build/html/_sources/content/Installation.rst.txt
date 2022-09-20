@@ -75,8 +75,6 @@ Once the psiFinder mian program and the Genome annotation are downloaded and unz
 .. code:: bash
 
     $ cd /the/directory/of/unzipped_psiFinder
-
-    # see all files, don't run.
     $ tree -L 1
     .
     ├── AppRun -> psiFinder

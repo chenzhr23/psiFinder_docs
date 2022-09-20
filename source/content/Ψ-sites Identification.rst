@@ -3,13 +3,10 @@
 
 .. role:: red
 
-
-
-
 .. contents::
     :local:
 
-We developed a core C program--``rtsSeeker`` (as the core of psiFinder), for seeking the reverse transcriptase stop sites (RTS) and output the overall RTS information.
+psiFinder ``Ψ-sites Identification`` was developed with a core C program--``rtsSeeker`` (as the core of psiFinder), for seeking the reverse transcriptase stop sites (RTS) and output the overall RTS information.
 
 .. image:: /images/Identification.png
 
@@ -480,13 +477,11 @@ rtsSeeker result will be well-organized as a bed file with 36 ``(-M 0)`` or 39 `
 
 ROC evaluation
 ********************
-The ``plot ROC`` function return information and plot for ROC evaluation.
+The ``plot ROC`` function return information and plot for ROC evaluation. File with ``_roc_psi_prediction.bed`` suffix is the filter result by the best ROC threshold (with best F1 score). Running Information will be recorded in a log file, e.g. ``A1_A2_roc_bestthres.log``.
 
 .. code:: bash
 
     $ cd /the/directory/of/out_file_dir
-
-    # see all files, don't run.
     $ tree -L 1
     .
     ├── A1_A2_aft_plot.pdf
@@ -539,6 +534,8 @@ The ``plot ROC`` function return information and plot for ROC evaluation.
     0 directories, 46 files
 
 
+.. note:: ``A1_A2_roc_bestthres_colname.txt`` record the best ROC thresholds of the six key metrics, users can apply them to ``User-defined`` QT widget.
+
 .. image:: /images/ROC_violinplot.png
 
 .. image:: /images/ROC_summary.png
@@ -548,15 +545,13 @@ The ``plot ROC`` function return information and plot for ROC evaluation.
 Model Building
 ********************
 
-Different identification approaches bring different sensitivity and specificity. For SVM/ANN/ROC/User-defined, ROC evaluation info will be recorded in a log file, e.g. ``A1_A2_svm_evaluation_totalRNA.log`` and corresponding ROC plot will popup if your input is validated by programs.
+Different identification approaches bring different sensitivity and specificity. For ``SVM/ANN/ROC/User-defined``, ROC evaluation running information will be recorded in a log file, e.g. ``A1_A2_svm_evaluation_totalRNA.log`` and corresponding ROC plot will popup if your input is validated by programs.
 
-A SVM QT widget model building result example:
+A ``SVM`` QT widget model building result example:
 
 .. code:: bash
 
     $ cd /the/directory/of/out_file_dir
-
-    # see all files, don't run.
     $ tree -L 1
     .
     ├── A1_A2.bed
@@ -602,15 +597,13 @@ A SVM QT widget model building result example:
 Model Prediction
 ********************
 
-After ``Model Building``, users can use ``PREDICT`` in SVM/ANN/ QT widget to predict Ψ-sites by a built SVM/ANN model.
+After ``Model Building``, users can use ``PREDICT`` in ``SVM/ANN`` QT widget to predict Ψ-sites by a built ``SVM/ANN model``.
 
-A SVM QT widget model prediction result example:
+A ``SVM`` QT widget model prediction result example:
 
 .. code:: bash
 
     $ cd /the/directory/of/out_file_dir
-
-    # see all files, don't run.
     $ tree -L 1
     .
     ├── A1_A2_svm_filt_totalRNA.bed

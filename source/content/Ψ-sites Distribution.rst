@@ -4,9 +4,7 @@
 .. contents::
     :local:
 
-
-
-We utilize `MetaPlotR <https://github.com/olarerin/metaPlotR>`_ to generate metagene plot for Ψ-sites distribution profile.
+psiFinder ``Ψ-sites Distribution`` utilize `MetaPlotR <https://github.com/olarerin/metaPlotR>`_ to generate metagene result for Ψ-sites.
 
 .. image:: /images/MetaGene.png
 
@@ -14,7 +12,7 @@ We utilize `MetaPlotR <https://github.com/olarerin/metaPlotR>`_ to generate meta
 Input
 ---------------------------------------------
 
-Users should choose to upload files (i.e. rtsSeeker result) in bed format, genome fasta file, genome annotation file, and transcript annotation file (the same file for bedAnnotator ``--anno`` input).
+Users should choose to upload files (i.e. rtsSeeker result) to ``MetaGene`` QT widget in bed format, genome fasta file, genome annotation file, and transcript annotation file (the same file for bedAnnotator ``--anno`` input).
 
 
 Profile Ψ-sites distribution
@@ -217,13 +215,15 @@ Once click ``START``, psiFindeer will run ``metagene.sh``.
 
 Output
 --------
+
+Information
+************
+
 Result with ``_pseudoU.dist.uniq.txt`` suffix is the final MetaGene result.
 
 .. code:: bash
 
     $ cd /the/directory/of/out_file_dir
-
-    # see all files, don't run.
     $ tree -L 1
     .
     ├── Day0_common_rep1_anno.bed
@@ -237,5 +237,16 @@ Result with ``_pseudoU.dist.uniq.txt`` suffix is the final MetaGene result.
     └── Day0_common_rep1.sorted_annot.bed
 
     0 directories, 9 files
+
+Diagram
+************
+
+File with suffix ``_pseudoU_standard.pdf`` is a density graphical summary (without normalization by ``5'UTR/CDS/3'UTR`` region length) of Ψ-sites distribution on input Ψ-sites file (rtsSeeker result).
+
+.. image:: /images/MetaGene_pseudoU_standard.png
+
+File with suffix ``_pseudoU_norm_length.pdf`` is a density graphical summary (with normalization by ``5'UTR/CDS/3'UTR`` region length) of Ψ-sites distribution on input Ψ-sites file (rtsSeeker result).
+
+.. image:: /images/MetaGene_pseudoU_norm_length.png
 
 .. note:: All user input will be recorded in a plain text file with suffix ``_metagene_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).

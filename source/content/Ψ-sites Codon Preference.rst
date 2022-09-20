@@ -4,9 +4,7 @@
 .. contents::
     :local:
 
-
-
-We utilize `MetaPlotR <https://github.com/olarerin/metaPlotR>`_ to generate metagene plot for Ψ-sites distribution profile.
+psiFinder ``Ψ-sites Codon Preference`` utilize `MetaPlotR <https://github.com/olarerin/metaPlotR>`_ to generate codon preference result for Ψ-sites.
 
 .. image:: /images/CodonPre.png
 
@@ -14,7 +12,7 @@ We utilize `MetaPlotR <https://github.com/olarerin/metaPlotR>`_ to generate meta
 Input
 ---------------------------------------------
 
-Users should choose to upload files (i.e. rtsSeeker result) in bed format, genome fasta file, genome annotation file, and transcript annotation file (the same file for bedAnnotator ``--anno`` input).
+Users should choose to upload files (i.e. rtsSeeker result) to ``CodonPre`` QT widget in bed format, genome fasta file, genome annotation file, and transcript annotation file (the same file for bedAnnotator ``--anno`` input).
 
 
 Profile Ψ-sites codon preference
@@ -92,7 +90,9 @@ Once click ``START``, psiFindeer will run ``codon_preference.sh``.
 
 ``codon_preference.r``
 
-.. code:: bash
+.. code:: R
+
+    #!/usr/bin/env Rscript
 
     # reference https://github.com/olarerin/metaPlotR
     suppressMessages(library("ggplot2"))
@@ -173,13 +173,15 @@ Once click ``START``, psiFindeer will run ``codon_preference.sh``.
 
 Output
 --------
+
+Information
+************
+
 Result with ``_codon_preference.txt`` suffix is the final CodonPre result.
 
 .. code:: bash
 
     $ cd /the/directory/of/out_file_dir
-
-    # see all files, don't run.
     $ tree -L 1
     .
     ├── Day0_common_rep1_anno.bed
@@ -196,5 +198,11 @@ Result with ``_codon_preference.txt`` suffix is the final CodonPre result.
     └── Day0_common_rep1.sorted_annot.bed
 
     0 directories, 12 files
+
+Diagram
+********
+File with suffix ``_codon_preference.pdf`` is a histogram of Ψ-sites codon preference on input Ψ-sites file (rtsSeeker result).
+
+.. image:: /images/CodonPre_codon_preference.png
 
 .. note:: All user input will be recorded in a plain text file with suffix ``_codon_preference_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).

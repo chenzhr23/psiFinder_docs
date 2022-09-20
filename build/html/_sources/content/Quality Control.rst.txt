@@ -3,11 +3,10 @@ Quality Control
 
 .. role:: red
 
-
-
 .. contents::
     :local:
 
+psiFinder ``Quality Control`` utilized `cutadapt <https://cutadapt.readthedocs.io/en/stable/guide.html>`_ to control quality for input sequencing reads.
 Users should choose to upload input files suitable for `cutadapt <https://cutadapt.readthedocs.io/en/stable/guide.html>`_ software. Once ``START``, psiFinder will run ``1_QC_SE.sh`` or ``1_QC_PE.sh`` to gain processed fastq files.
 
 

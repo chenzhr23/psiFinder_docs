@@ -4,10 +4,7 @@ Transcripts Alignment
 .. contents::
     :local:
 
-
-
-
-The functions of this interface utilized `STAR <https://physiology.med.cornell.edu/faculty/skrabanek/lab/angsd/lecture_notes/STARmanual.pdf>`_ to map sequencing reads to reference genome location and consist of two parts:
+psiFinder ``Transcripts Alignment`` utilized `STAR <https://physiology.med.cornell.edu/faculty/skrabanek/lab/angsd/lecture_notes/STARmanual.pdf>`_ to map sequencing reads to reference genome location and consist of two parts:
 
 -  ``Generating genome indexes``
 -  ``Running mapping jobs``

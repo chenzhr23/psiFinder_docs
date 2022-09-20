@@ -74,8 +74,15 @@
 <li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Distribution.html">Ψ-sites Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Codon%20Preference.html">Ψ-sites Codon Preference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Target%20Prediction.html">Ψ-sites Target Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html">Ψ-sites snoRNA Target Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20miRNA%20Target%20Prediction.html">Ψ-sites miRNA Target Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html">Ψ-sites and snoRNA Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Motif%20Searching.html">Ψ-sites Motif Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Differential%20Modification.html">Ψ-sites Differential Modification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snakemake%20pipline.html">snakemake pipline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accessory%20Tools.html">Accessory Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
 </ul>
 
@@ -138,7 +145,7 @@
 </li>
 </ul>
 </div>
-<p>We developed a core C program–<code class="docutils literal notranslate"><span class="pre">rtsSeeker</span></code> (as the core of psiFinder), for seeking the reverse transcriptase stop sites (RTS) and output the overall RTS information.</p>
+<p>psiFinder <code class="docutils literal notranslate"><span class="pre">Ψ-sites</span> <span class="pre">Identification</span></code> was developed with a core C program–<code class="docutils literal notranslate"><span class="pre">rtsSeeker</span></code> (as the core of psiFinder), for seeking the reverse transcriptase stop sites (RTS) and output the overall RTS information.</p>
 <img alt="../_images/Identification.png" src="../_images/Identification.png" />
 <p>To build rRNA datasets for overall Ψ identification, we first download files from three databases: Modomics, snOPY, and snoRNABase. Since human 5.8s rRNA (chr21:8212571-8212727), 18s rRNA (chr21:8209631-8211499), and 28s rRNA (chr21:8213888-8218941) have multiple copies in the genome, we extracted one of the copies for subsequent analyses. We calculate and gain the relative position of Ψ sites on each rRNA. Centering on these sites and extending 10 nt of upstream and downstream, we then extract 21 nt sequences in bulk and map them to human genome (-v 0 -a -m 1000 –best –strata) using bowtie. A total of 96 Ψ sites were obtained in the above copy and used as a positive subset of the dataset to perform ROC evaluation or SVM modeling. Meanwhile, using bedtools (v2.30.0) intersect tools (-v -s), the sites that were identified as not Ψ sites were extracted from the above copy and used as a negative subset of the dataset.</p>
 <img alt="../_images/identification_rtsSeeker_workflow.svg" src="../_images/identification_rtsSeeker_workflow.svg" /><section id="input">
@@ -588,10 +595,8 @@ mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span cla
 </section>
 <section id="roc-evaluation">
 <h3><a class="toc-backref" href="#id18">ROC evaluation</a><a class="headerlink" href="#roc-evaluation" title="Permalink to this heading"></a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ROC</span></code> function return information and plot for ROC evaluation.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ROC</span></code> function return information and plot for ROC evaluation. File with <code class="docutils literal notranslate"><span class="pre">_roc_psi_prediction.bed</span></code> suffix is the filter result by the best ROC threshold (with best F1 score). Running Information will be recorded in a log file, e.g. <code class="docutils literal notranslate"><span class="pre">A1_A2_roc_bestthres.log</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
-
-<span class="c1"># see all files, don&#39;t run.</span>
 $ tree -L <span class="m">1</span>
 .
 ├── A1_A2_aft_plot.pdf
@@ -644,17 +649,19 @@ $ tree -L <span class="m">1</span>
 <span class="m">0</span> directories, <span class="m">46</span> files
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">A1_A2_roc_bestthres_colname.txt</span></code> record the best ROC thresholds of the six key metrics, users can apply them to <code class="docutils literal notranslate"><span class="pre">User-defined</span></code> QT widget.</p>
+</div>
 <img alt="../_images/ROC_violinplot.png" src="../_images/ROC_violinplot.png" />
 <img alt="../_images/ROC_summary.png" src="../_images/ROC_summary.png" />
 <img alt="../_images/ROC_best_threshold.png" src="../_images/ROC_best_threshold.png" />
 </section>
 <section id="model-building">
 <h3><a class="toc-backref" href="#id19">Model Building</a><a class="headerlink" href="#model-building" title="Permalink to this heading"></a></h3>
-<p>Different identification approaches bring different sensitivity and specificity. For SVM/ANN/ROC/User-defined, ROC evaluation info will be recorded in a log file, e.g. <code class="docutils literal notranslate"><span class="pre">A1_A2_svm_evaluation_totalRNA.log</span></code> and corresponding ROC plot will popup if your input is validated by programs.</p>
-<p>A SVM QT widget model building result example:</p>
+<p>Different identification approaches bring different sensitivity and specificity. For <code class="docutils literal notranslate"><span class="pre">SVM/ANN/ROC/User-defined</span></code>, ROC evaluation running information will be recorded in a log file, e.g. <code class="docutils literal notranslate"><span class="pre">A1_A2_svm_evaluation_totalRNA.log</span></code> and corresponding ROC plot will popup if your input is validated by programs.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">SVM</span></code> QT widget model building result example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
-
-<span class="c1"># see all files, don&#39;t run.</span>
 $ tree -L <span class="m">1</span>
 .
 ├── A1_A2.bed
@@ -697,11 +704,9 @@ $ tree -L <span class="m">1</span>
 </section>
 <section id="model-prediction">
 <h3><a class="toc-backref" href="#id20">Model Prediction</a><a class="headerlink" href="#model-prediction" title="Permalink to this heading"></a></h3>
-<p>After <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">Building</span></code>, users can use <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> in SVM/ANN/ QT widget to predict Ψ-sites by a built SVM/ANN model.</p>
-<p>A SVM QT widget model prediction result example:</p>
+<p>After <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">Building</span></code>, users can use <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> in <code class="docutils literal notranslate"><span class="pre">SVM/ANN</span></code> QT widget to predict Ψ-sites by a built <code class="docutils literal notranslate"><span class="pre">SVM/ANN</span> <span class="pre">model</span></code>.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">SVM</span></code> QT widget model prediction result example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
-
-<span class="c1"># see all files, don&#39;t run.</span>
 $ tree -L <span class="m">1</span>
 .
 ├── A1_A2_svm_filt_totalRNA.bed

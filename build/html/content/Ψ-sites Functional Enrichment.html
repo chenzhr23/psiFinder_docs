@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ψ-sites Functional Enrichment &mdash; psiFinder v1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="snakemake pipline" href="snakemake%20pipline.html" />
+    <link rel="prev" title="Ψ-sites Differential Modification" href="%CE%A8-sites%20Differential%20Modification.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> psiFinder
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quality%20Control.html">Quality Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Transcripts%20Alignment.html">Transcripts Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Identification.html">Ψ-sites Identification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Distribution.html">Ψ-sites Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Codon%20Preference.html">Ψ-sites Codon Preference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html">Ψ-sites snoRNA Target Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20miRNA%20Target%20Prediction.html">Ψ-sites miRNA Target Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html">Ψ-sites and snoRNA Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Motif%20Searching.html">Ψ-sites Motif Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Differential%20Modification.html">Ψ-sites Differential Modification</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ψ-sites Functional Enrichment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#construct-sites-functional-enrichment">Construct Ψ-sites functional enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output">Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#information">Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagram">Diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="snakemake%20pipline.html">snakemake pipline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accessory%20Tools.html">Accessory Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">psiFinder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Ψ-sites Functional Enrichment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/Ψ-sites Functional Enrichment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sites-functional-enrichment">
+<h1>Ψ-sites Functional Enrichment<a class="headerlink" href="#sites-functional-enrichment" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#input" id="id1">Input</a></p></li>
+<li><p><a class="reference internal" href="#construct-sites-functional-enrichment" id="id2">Construct Ψ-sites functional enrichment</a></p></li>
+<li><p><a class="reference internal" href="#output" id="id3">Output</a></p>
+<ul>
+<li><p><a class="reference internal" href="#information" id="id4">Information</a></p></li>
+<li><p><a class="reference internal" href="#diagram" id="id5">Diagram</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>psiFinder <code class="docutils literal notranslate"><span class="pre">Ψ-sites</span> <span class="pre">Functional</span> <span class="pre">Enrichment</span></code> utilize <a class="reference external" href="https://cran.r-project.org/web/packages/gprofiler2/vignettes/gprofiler2.html">gprofiler2</a> and <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/pathview/inst/doc/pathview.pdf">pathview</a> to generate Gene ontology (GO) result for Ψ-sites functional enrichment based on <code class="docutils literal notranslate"><span class="pre">stopRatioFC</span></code> of input rtsSeeker result files.</p>
+<img alt="../_images/Functional_Enrichment_1.png" src="../_images/Functional_Enrichment_1.png" />
+<p>If <code class="docutils literal notranslate"><span class="pre">ADD</span></code> button is clicked, then a new input text edit field will be added. Users can input multiple gene list and each gene list result will be outputed to the same target directory, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
+$ tree -L <span class="m">1</span>
+.
+├── Day0_com_gprofiler.csv
+├── Day0_com_gprofiler.pdf
+├── Day0_com_top10_REAC_bubble.pdf
+├── Day0_com_top12GO_CC_BP_MF_bubble.pdf
+├── Day0_com.txt
+├── Day4_com_Day0_com.pdf
+├── Day4_com_gprofiler.csv
+├── Day4_com_gprofiler.pdf
+├── Day4_com_top10_REAC_bubble.pdf
+├── Day4_com_top12GO_CC_BP_MF_bubble.pdf
+└── Day4_com.txt
+
+<span class="m">0</span> directories, <span class="m">11</span> files
+</pre></div>
+</div>
+<img alt="../_images/Functional_Enrichment_2.png" src="../_images/Functional_Enrichment_2.png" />
+<p><code class="docutils literal notranslate"><span class="pre">pseUfun</span></code> also support KEGG pathway enrichment, if column of gene value is added, then KEGG enrichment result will be outputed as well.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
+$ tree -L <span class="m">1</span>
+.
+├── Day4_com_gprofiler.csv
+├── Day4_com_gprofiler.pdf
+├── Day4_com_pathview.pdf
+├── Day4_com.pdf
+├── Day4_com_top10_REAC_bubble.pdf
+├── Day4_com_top12GO_CC_BP_MF_bubble.pdf
+├── Day4_com_topKEGG.csv
+├── Day4_com.txt
+├── hsa03010.png
+├── hsa03010.Ribosome.png
+├── hsa03010.xml
+├── hsa05012.Parkinson_disease.png
+├── hsa05012.png
+├── hsa05012.xml
+├── hsa05171.Coronavirus_disease_-_COVID-19.png
+├── hsa05171.png
+└── hsa05171.xml
+
+<span class="m">0</span> directories, <span class="m">17</span> files
+</pre></div>
+</div>
+<img alt="../_images/Functional_Enrichment_3.png" src="../_images/Functional_Enrichment_3.png" />
+<section id="input">
+<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
+<p>Users should input gene IDs (proteins, transcripts, microarray IDs, etc), SNP IDs, chromosomal intervals or term IDs id to <code class="docutils literal notranslate"><span class="pre">pseUfun</span></code> QT widget, to construct Ψ-sites functional enrichment.</p>
+</section>
+<section id="construct-sites-functional-enrichment">
+<h2><a class="toc-backref" href="#id2">Construct Ψ-sites functional enrichment</a><a class="headerlink" href="#construct-sites-functional-enrichment" title="Permalink to this heading"></a></h2>
+<p>Once click <code class="docutils literal notranslate"><span class="pre">START</span></code>, psiFindeer will run <code class="docutils literal notranslate"><span class="pre">pseUfun.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">pseUfun.r</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pseUfun.sh</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+Help<span class="o">()</span> <span class="o">{</span>
+<span class="nb">echo</span>
+<span class="s2">&quot;pseUfun_wrap.sh example:</span>
+<span class="s2"> bash pseUfun_wrap.sh -c cmd -o outfile_path</span>
+<span class="s2">&quot;</span>
+<span class="o">}</span>
+
+
+usage<span class="o">()</span> <span class="o">{</span>                                      <span class="c1"># Function: Print a help message.</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [ -h help] [ -c cmd ] [ -l filelist_join2 ] [ -o outfile_path ]&quot;</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="o">}</span>
+exit_abnormal<span class="o">()</span> <span class="o">{</span>                              <span class="c1"># Function: Exit with error.</span>
+  usage
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="o">}</span>
+
+
+<span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;:h:c:l:o:&quot;</span> options<span class="p">;</span> <span class="k">do</span>
+
+  <span class="k">case</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">in</span>
+    h<span class="p">|</span>:<span class="o">)</span>
+      usage
+      Help
+      <span class="nb">exit</span> <span class="m">0</span>
+      <span class="p">;;</span>
+    c<span class="o">)</span>
+      <span class="nv">cmd</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$cmd</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the cmd&quot;</span>
+      <span class="k">fi</span>
+      <span class="p">;;</span>
+    l<span class="o">)</span>
+      <span class="nv">filelist_join2</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$filelist_join2</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the filelist_join2&quot;</span>
+      <span class="k">fi</span>
+      <span class="p">;;</span>
+    o<span class="o">)</span>
+      <span class="nv">outfile_path</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$outfile_path</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the outfile_path&quot;</span>
+      <span class="k">fi</span>
+      <span class="p">;;</span>
+    <span class="se">\?</span><span class="o">)</span> <span class="c1"># incorrect option</span>
+      <span class="nb">echo</span> <span class="s2">&quot;Error: -</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2"> Invalid option&quot;</span>
+      exit_abnormal
+      <span class="p">;;</span>
+  <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="nb">shift</span> <span class="k">$((</span><span class="nv">$OPTIND</span> <span class="o">-</span> <span class="m">1</span><span class="k">))</span>
+date  <span class="c1">## echo the date at start</span>
+<span class="nb">echo</span> <span class="s2">&quot;Starting: one pseUfun diagram job is starting...&quot;</span>
+
+<span class="nb">eval</span> <span class="nv">$cmd</span>
+<span class="nb">echo</span> <span class="s1">&#39;pseUfun diagram plotting is done!&#39;</span>
+
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span><span class="s2">.pdf&quot;</span>  <span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span><span class="s2">.pdf not exist&quot;</span>
+<span class="k">else</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;browse </span><span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span><span class="s2">.pdf&quot;</span>
+mupdf-x11 <span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span>.pdf <span class="p">&amp;</span>&gt; /dev/null
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span><span class="s2">.txt&quot;</span>  <span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span><span class="s2">.pdf not exist&quot;</span>
+<span class="k">else</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;browse pdf in </span><span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span><span class="s2">.txt&quot;</span>
+<span class="nv">txt_var</span><span class="o">=</span><span class="sb">`</span>awk <span class="s1">&#39;BEGIN{ORS=&quot;&quot;;}{ for (i=NF; i&gt;0; i--) print $i,&quot; &quot;; }&#39;</span> <span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span>.txt<span class="sb">`</span>
+<span class="c1"># echo $txt_var</span>
+mutool merge -o <span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span>_pathview.pdf <span class="nv">$txt_var</span> <span class="p">&amp;</span>&gt; /dev/null
+mupdf-x11 <span class="si">${</span><span class="nv">outfile_path</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filelist_join2</span><span class="si">}</span>_pathview.pdf <span class="p">&amp;</span>&gt; /dev/null
+<span class="k">fi</span>
+
+<span class="nb">exit</span> <span class="m">0</span>  <span class="c1"># Exit normally.</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pseUfun.r</span></code></p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;gprofiler2&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;gridExtra&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;RColorBrewer&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;ggplot2&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;ggrepel&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;dplyr&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;optparse&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;stringr&quot;</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;pathview&quot;</span><span class="p">))</span>
+
+<span class="n">option_list</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+  <span class="nf">make_option</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span><span class="s">&quot;--filelist&quot;</span><span class="p">),</span><span class="n">default</span><span class="o">=</span><span class="s">&quot;geneset1.txt&quot;</span><span class="p">,</span>
+               <span class="n">help</span><span class="o">=</span><span class="s">&quot;comma separated list of files (default %default)&quot;</span><span class="p">),</span>
+  <span class="nf">make_option</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;-s&quot;</span><span class="p">,</span><span class="s">&quot;--species&quot;</span><span class="p">),</span><span class="n">default</span><span class="o">=</span><span class="s">&quot;hsapiens&quot;</span><span class="p">,</span>
+               <span class="n">help</span><span class="o">=</span><span class="s">&quot;Species choice (default %default)&quot;</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="n">opt_parser</span> <span class="o">=</span> <span class="nf">OptionParser</span><span class="p">(</span><span class="n">option_list</span><span class="o">=</span><span class="n">option_list</span><span class="p">);</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="nf">parse_args</span><span class="p">(</span><span class="n">opt_parser</span><span class="p">);</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">opt</span><span class="o">$</span><span class="n">filelist</span><span class="p">)</span> <span class="o">||</span> <span class="nf">is.null</span><span class="p">(</span><span class="n">opt</span><span class="o">$</span><span class="n">species</span><span class="p">)</span> <span class="p">){</span>
+  <span class="nf">print_help</span><span class="p">(</span><span class="n">opt_parser</span><span class="p">);</span>
+  <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;Please provide -f group1_name, -s species option&quot;</span><span class="p">,</span> <span class="n">call.</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">filelist</span> <span class="o">&lt;-</span> <span class="nf">as.list</span><span class="p">(</span><span class="nf">unlist</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">opt</span><span class="o">$</span><span class="n">filelist</span><span class="p">,</span> <span class="s">&quot;,&quot;</span><span class="p">)))</span>
+
+
+<span class="c1">####pathview2####</span>
+<span class="n">pathview2</span><span class="o">&lt;-</span><span class="nf">function </span><span class="p">(</span><span class="n">gene.data</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">cpd.data</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">pathway.id</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="s">&quot;hsa&quot;</span><span class="p">,</span>
+                     <span class="n">kegg.dir</span> <span class="o">=</span> <span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="n">cpd.idtype</span> <span class="o">=</span> <span class="s">&quot;kegg&quot;</span><span class="p">,</span> <span class="n">gene.idtype</span> <span class="o">=</span> <span class="s">&quot;entrez&quot;</span><span class="p">,</span>
+                     <span class="n">gene.annotpkg</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">min.nnodes</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">kegg.native</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+                     <span class="n">map.null</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">expand.node</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">split.group</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+                     <span class="n">map.symbol</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">map.cpdname</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">node.sum</span> <span class="o">=</span> <span class="s">&quot;sum&quot;</span><span class="p">,</span>
+                     <span class="n">discrete</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">cpd</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">),</span> <span class="n">limit</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
+                                                                              <span class="n">cpd</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span> <span class="n">bins</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">cpd</span> <span class="o">=</span> <span class="m">10</span><span class="p">),</span> <span class="n">both.dirs</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>
+                                                                                                                                           <span class="n">cpd</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="n">trans.fun</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">cpd</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">),</span>
+                     <span class="n">low</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="s">&quot;green&quot;</span><span class="p">,</span> <span class="n">cpd</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">),</span> <span class="n">mid</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="s">&quot;gray&quot;</span><span class="p">,</span>
+                                                                          <span class="n">cpd</span> <span class="o">=</span> <span class="s">&quot;gray&quot;</span><span class="p">),</span> <span class="n">high</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="n">cpd</span> <span class="o">=</span> <span class="s">&quot;yellow&quot;</span><span class="p">),</span>
+                     <span class="n">na.col</span> <span class="o">=</span> <span class="s">&quot;transparent&quot;</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">dtypes</span> <span class="o">=</span> <span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span> <span class="o">+</span> <span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span>
+  <span class="n">cond0</span> <span class="o">=</span> <span class="n">dtypes</span> <span class="o">==</span> <span class="m">1</span> <span class="o">&amp;</span> <span class="nf">is.numeric</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nf">length</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span> <span class="o">&gt;</span>
+    <span class="m">1</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">cond0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">limit</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">limit</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nf">is.null</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">limit</span><span class="p">)))</span>
+      <span class="n">limit</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="n">limit</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span> <span class="n">cpd</span> <span class="o">=</span> <span class="n">limit</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">trans.fun</span><span class="p">))</span>
+    <span class="n">trans.fun</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">cpd</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+  <span class="n">arg.len2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;discrete&quot;</span><span class="p">,</span> <span class="s">&quot;limit&quot;</span><span class="p">,</span> <span class="s">&quot;bins&quot;</span><span class="p">,</span> <span class="s">&quot;both.dirs&quot;</span><span class="p">,</span> <span class="s">&quot;trans.fun&quot;</span><span class="p">,</span>
+               <span class="s">&quot;low&quot;</span><span class="p">,</span> <span class="s">&quot;mid&quot;</span><span class="p">,</span> <span class="s">&quot;high&quot;</span><span class="p">)</span>
+  <span class="nf">for </span><span class="p">(</span><span class="n">arg</span> <span class="n">in</span> <span class="n">arg.len2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">obj1</span> <span class="o">=</span> <span class="nf">eval</span><span class="p">(</span><span class="nf">as.name</span><span class="p">(</span><span class="n">arg</span><span class="p">))</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">obj1</span><span class="p">)</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span>
+      <span class="n">obj1</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="n">obj1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">obj1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">2</span><span class="p">)</span>
+      <span class="n">obj1</span> <span class="o">=</span> <span class="n">obj1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>
+    <span class="n">obj1</span> <span class="o">=</span> <span class="nf">as.list</span><span class="p">(</span><span class="n">obj1</span><span class="p">)</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">obj1</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span> <span class="o">==</span> <span class="m">0</span> <span class="o">|</span> <span class="o">!</span><span class="nf">all</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;gene&quot;</span><span class="p">,</span> <span class="s">&quot;cpd&quot;</span><span class="p">)</span> <span class="o">%in%</span> <span class="n">ns</span><span class="p">))</span>
+      <span class="nf">names</span><span class="p">(</span><span class="n">obj1</span><span class="p">)</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;gene&quot;</span><span class="p">,</span> <span class="s">&quot;cpd&quot;</span><span class="p">)</span>
+    <span class="nf">assign</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">obj1</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">is.character</span><span class="p">(</span><span class="n">gene.data</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">gd.names</span> <span class="o">=</span> <span class="n">gene.data</span>
+    <span class="n">gene.data</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">gene.data</span><span class="p">))</span>
+    <span class="nf">names</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span> <span class="o">=</span> <span class="n">gd.names</span>
+    <span class="n">both.dirs</span><span class="o">$</span><span class="n">gene</span> <span class="o">=</span> <span class="kc">FALSE</span>
+    <span class="n">ng</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span>
+    <span class="n">nsamp.g</span> <span class="o">=</span> <span class="m">1</span>
+  <span class="p">}</span>
+  <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">gene.data</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">gene.data</span><span class="p">))</span> <span class="o">==</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">gd.names</span> <span class="o">=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span>
+      <span class="n">ng</span> <span class="o">=</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span>
+      <span class="n">nsamp.g</span> <span class="o">=</span> <span class="m">2</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nf">is.null</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)))</span> <span class="p">{</span>
+      <span class="n">gd.names</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span>
+      <span class="n">ng</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span>
+      <span class="n">nsamp.g</span> <span class="o">=</span> <span class="m">1</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;wrong gene.data format!&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;gene.data and cpd.data are both NULL!&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">gene.idtype</span> <span class="o">=</span> <span class="nf">toupper</span><span class="p">(</span><span class="n">gene.idtype</span><span class="p">)</span>
+  <span class="nf">data</span><span class="p">(</span><span class="n">bods</span><span class="p">)</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">species</span> <span class="o">!=</span> <span class="s">&quot;ko&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">species.data</span> <span class="o">=</span> <span class="nf">kegg.species.code</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>
+                                     <span class="n">code.only</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">else</span> <span class="p">{</span>
+    <span class="n">species.data</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">kegg.code</span> <span class="o">=</span> <span class="s">&quot;ko&quot;</span><span class="p">,</span> <span class="n">entrez.gnodes</span> <span class="o">=</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+                     <span class="n">kegg.geneid</span> <span class="o">=</span> <span class="s">&quot;K01488&quot;</span><span class="p">,</span> <span class="n">ncbi.geneid</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span> <span class="n">ncbi.proteinid</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span>
+                     <span class="n">uniprot</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">)</span>
+    <span class="n">gene.idtype</span> <span class="o">=</span> <span class="s">&quot;KEGG&quot;</span>
+    <span class="n">msg.fmt</span> <span class="o">=</span> <span class="s">&quot;Only KEGG ortholog gene ID is supported, make sure it looks like \&quot;%s\&quot;!&quot;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="n">msg.fmt</span><span class="p">,</span> <span class="n">species.data</span><span class="p">[</span><span class="s">&quot;kegg.geneid&quot;</span><span class="p">])</span>
+    <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Note: &quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">species.data</span><span class="p">))</span> <span class="o">==</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Note: &quot;</span><span class="p">,</span> <span class="s">&quot;More than two valide species!&quot;</span><span class="p">)</span>
+    <span class="n">species.data</span> <span class="o">=</span> <span class="n">species.data</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]</span>
+  <span class="p">}</span>
+  <span class="n">species</span> <span class="o">=</span> <span class="n">species.data</span><span class="p">[</span><span class="s">&quot;kegg.code&quot;</span><span class="p">]</span>
+  <span class="n">entrez.gnodes</span> <span class="o">=</span> <span class="n">species.data</span><span class="p">[</span><span class="s">&quot;entrez.gnodes&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="m">1</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">species.data</span><span class="p">[</span><span class="s">&quot;ncbi.geneid&quot;</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">species.data</span><span class="p">[</span><span class="s">&quot;kegg.geneid&quot;</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="n">msg.fmt</span> <span class="o">=</span> <span class="s">&quot;Mapping via KEGG gene ID (not Entrez) is supported for this species,\nit looks like \&quot;%s\&quot;!&quot;</span>
+      <span class="n">msg</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="n">msg.fmt</span><span class="p">,</span> <span class="n">species.data</span><span class="p">[</span><span class="s">&quot;kegg.geneid&quot;</span><span class="p">])</span>
+      <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Note: &quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="p">{</span>
+      <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;This species is not annotated in KEGG!&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">gene.annotpkg</span><span class="p">))</span>
+    <span class="n">gene.annotpkg</span> <span class="o">=</span> <span class="n">bods</span><span class="p">[</span><span class="nf">match</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">bods</span><span class="p">[,</span> <span class="m">3</span><span class="p">]),</span> <span class="m">1</span><span class="p">]</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="nf">grep</span><span class="p">(</span><span class="s">&quot;ENTREZ|KEGG|NCBIPROT|UNIPROT&quot;</span><span class="p">,</span> <span class="n">gene.idtype</span><span class="p">))</span> <span class="o">&lt;</span>
+      <span class="m">1</span> <span class="o">&amp;</span> <span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">gene.data</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">gene.annotpkg</span><span class="p">))</span>
+      <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;No proper gene annotation package available!&quot;</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="n">gene.idtype</span> <span class="o">%in%</span> <span class="n">gene.idtype.bods</span><span class="p">[[</span><span class="n">species</span><span class="p">]])</span>
+      <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;Wrong input gene ID type!&quot;</span><span class="p">)</span>
+    <span class="n">gene.idmap</span> <span class="o">=</span> <span class="nf">id2eg</span><span class="p">(</span><span class="n">gd.names</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="n">gene.idtype</span><span class="p">,</span>
+                       <span class="n">pkg.name</span> <span class="o">=</span> <span class="n">gene.annotpkg</span><span class="p">,</span> <span class="n">unique.map</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+    <span class="n">gene.data</span> <span class="o">=</span> <span class="nf">mol.sum</span><span class="p">(</span><span class="n">gene.data</span><span class="p">,</span> <span class="n">gene.idmap</span><span class="p">)</span>
+    <span class="n">gene.idtype</span> <span class="o">=</span> <span class="s">&quot;ENTREZ&quot;</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">gene.idtype</span> <span class="o">!=</span> <span class="s">&quot;KEGG&quot;</span> <span class="o">&amp;</span> <span class="o">!</span><span class="n">entrez.gnodes</span> <span class="o">&amp;</span> <span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">gene.data</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">id.type</span> <span class="o">=</span> <span class="n">gene.idtype</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">id.type</span> <span class="o">==</span> <span class="s">&quot;ENTREZ&quot;</span><span class="p">)</span>
+      <span class="n">id.type</span> <span class="o">=</span> <span class="s">&quot;ENTREZID&quot;</span>
+    <span class="n">kid.map</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">species.data</span><span class="p">)[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">)]</span>
+    <span class="n">kid.types</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">kid.map</span><span class="p">)</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;KEGG&quot;</span><span class="p">,</span> <span class="s">&quot;ENTREZID&quot;</span><span class="p">,</span> <span class="s">&quot;NCBIPROT&quot;</span><span class="p">,</span>
+                                   <span class="s">&quot;UNIPROT&quot;</span><span class="p">)</span>
+    <span class="n">kid.map2</span> <span class="o">=</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;[.]&quot;</span><span class="p">,</span> <span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="n">kid.map</span><span class="p">)</span>
+    <span class="n">kid.map2</span><span class="p">[</span><span class="s">&quot;UNIPROT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;up&quot;</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">kid.map</span><span class="p">[</span><span class="n">id.type</span><span class="p">]))</span>
+      <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;Wrong input gene ID type for the species!&quot;</span><span class="p">)</span>
+    <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Info: Getting gene ID data from KEGG...&quot;</span><span class="p">)</span>
+    <span class="n">gene.idmap</span> <span class="o">=</span> <span class="nf">keggConv</span><span class="p">(</span><span class="n">kid.map2</span><span class="p">[</span><span class="n">id.type</span><span class="p">],</span> <span class="n">species</span><span class="p">)</span>
+    <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Info: Done with data retrieval!&quot;</span><span class="p">)</span>
+    <span class="n">kegg.ids</span> <span class="o">=</span> <span class="nf">gsub</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="s">&quot;:&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">),</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="n">gene.idmap</span><span class="p">))</span>
+    <span class="n">in.ids</span> <span class="o">=</span> <span class="nf">gsub</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">kid.map2</span><span class="p">[</span><span class="n">id.type</span><span class="p">],</span> <span class="s">&quot;:&quot;</span><span class="p">),</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">gene.idmap</span><span class="p">)</span>
+    <span class="n">gene.idmap</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">in.ids</span><span class="p">,</span> <span class="n">kegg.ids</span><span class="p">)</span>
+    <span class="n">gene.data</span> <span class="o">=</span> <span class="nf">mol.sum</span><span class="p">(</span><span class="n">gene.data</span><span class="p">,</span> <span class="n">gene.idmap</span><span class="p">)</span>
+    <span class="n">gene.idtype</span> <span class="o">=</span> <span class="s">&quot;KEGG&quot;</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">is.character</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">cpdd.names</span> <span class="o">=</span> <span class="n">cpd.data</span>
+    <span class="n">cpd.data</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">))</span>
+    <span class="nf">names</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span> <span class="o">=</span> <span class="n">cpdd.names</span>
+    <span class="n">both.dirs</span><span class="o">$</span><span class="n">cpd</span> <span class="o">=</span> <span class="kc">FALSE</span>
+    <span class="n">ncpd</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">))</span> <span class="o">==</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">cpdd.names</span> <span class="o">=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span>
+      <span class="n">ncpd</span> <span class="o">=</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nf">is.null</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)))</span> <span class="p">{</span>
+      <span class="n">cpdd.names</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span>
+      <span class="n">ncpd</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;wrong cpd.data format!&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="nf">grep</span><span class="p">(</span><span class="s">&quot;kegg&quot;</span><span class="p">,</span> <span class="n">cpd.idtype</span><span class="p">))</span> <span class="o">&lt;</span> <span class="m">1</span> <span class="o">&amp;</span> <span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">data</span><span class="p">(</span><span class="n">rn.list</span><span class="p">)</span>
+    <span class="n">cpd.types</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">rn.list</span><span class="p">),</span> <span class="s">&quot;name&quot;</span><span class="p">)</span>
+    <span class="n">cpd.types</span> <span class="o">=</span> <span class="nf">tolower</span><span class="p">(</span><span class="n">cpd.types</span><span class="p">)</span>
+    <span class="n">cpd.types</span> <span class="o">=</span> <span class="n">cpd.types</span><span class="p">[</span><span class="o">-</span><span class="nf">grep</span><span class="p">(</span><span class="s">&quot;kegg&quot;</span><span class="p">,</span> <span class="n">cpd.types</span><span class="p">)]</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">tolower</span><span class="p">(</span><span class="n">cpd.idtype</span><span class="p">)</span> <span class="o">%in%</span> <span class="n">cpd.types</span><span class="p">)</span>
+      <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;Wrong input cpd ID type!&quot;</span><span class="p">)</span>
+    <span class="n">cpd.idmap</span> <span class="o">=</span> <span class="nf">cpd2kegg</span><span class="p">(</span><span class="n">cpdd.names</span><span class="p">,</span> <span class="n">in.type</span> <span class="o">=</span> <span class="n">cpd.idtype</span><span class="p">)</span>
+    <span class="n">cpd.data</span> <span class="o">=</span> <span class="nf">mol.sum</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">,</span> <span class="n">cpd.idmap</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">warn.fmt</span> <span class="o">=</span> <span class="s">&quot;Parsing %s file failed, please check the file!&quot;</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="nf">grep</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">pathway.id</span><span class="p">))</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pathway.name</span> <span class="o">=</span> <span class="n">pathway.id</span>
+    <span class="n">pathway.id</span> <span class="o">=</span> <span class="nf">gsub</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">pathway.id</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">else</span> <span class="n">pathway.name</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">pathway.id</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+  <span class="n">kfiles</span> <span class="o">=</span> <span class="nf">list.files</span><span class="p">(</span><span class="n">path</span> <span class="o">=</span> <span class="n">kegg.dir</span><span class="p">,</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&quot;[.]xml|[.]png&quot;</span><span class="p">)</span>
+  <span class="n">npath</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">pathway.id</span><span class="p">)</span>
+  <span class="n">out.list</span> <span class="o">=</span> <span class="nf">list</span><span class="p">()</span>
+  <span class="n">tfiles.xml</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">pathway.name</span><span class="p">,</span> <span class="s">&quot;xml&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+  <span class="n">tfiles.png</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">pathway.name</span><span class="p">,</span> <span class="s">&quot;png&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">kegg.native</span><span class="p">)</span>
+    <span class="n">ttype</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;xml&quot;</span><span class="p">,</span> <span class="s">&quot;png&quot;</span><span class="p">)</span>
+  <span class="n">else</span> <span class="n">ttype</span> <span class="o">=</span> <span class="s">&quot;xml&quot;</span>
+  <span class="n">xml.file</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span><span class="n">kegg.dir</span><span class="p">,</span> <span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">tfiles.xml</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+  <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">npath</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">kegg.native</span><span class="p">)</span>
+      <span class="n">tfiles</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">tfiles.xml</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tfiles.png</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">else</span> <span class="n">tfiles</span> <span class="o">=</span> <span class="n">tfiles.xml</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">all</span><span class="p">(</span><span class="n">tfiles</span> <span class="o">%in%</span> <span class="n">kfiles</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">dstatus</span> <span class="o">=</span> <span class="nf">download.kegg</span><span class="p">(</span><span class="n">pathway.id</span> <span class="o">=</span> <span class="n">pathway.id</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                              <span class="n">species</span> <span class="o">=</span> <span class="n">species</span><span class="p">,</span> <span class="n">kegg.dir</span> <span class="o">=</span> <span class="n">kegg.dir</span><span class="p">,</span> <span class="n">file.type</span> <span class="o">=</span> <span class="n">ttype</span><span class="p">)</span>
+      <span class="nf">if </span><span class="p">(</span><span class="n">dstatus</span> <span class="o">==</span> <span class="s">&quot;failed&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">warn.fmt</span> <span class="o">=</span> <span class="s">&quot;Failed to download KEGG xml/png files, %s skipped!&quot;</span>
+        <span class="n">warn.msg</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="n">warn.fmt</span><span class="p">,</span> <span class="n">pathway.name</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Warning: &quot;</span><span class="p">,</span> <span class="n">warn.msg</span><span class="p">)</span>
+        <span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">kegg.native</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">node.data</span> <span class="o">=</span> <span class="nf">try</span><span class="p">(</span><span class="nf">node.info</span><span class="p">(</span><span class="n">xml.file</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">silent</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nf">class</span><span class="p">(</span><span class="n">node.data</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;try-error&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">warn.msg</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="n">warn.fmt</span><span class="p">,</span> <span class="n">xml.file</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Warning: &quot;</span><span class="p">,</span> <span class="n">warn.msg</span><span class="p">)</span>
+        <span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
+      <span class="p">}</span>
+      <span class="n">node.type</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;gene&quot;</span><span class="p">,</span> <span class="s">&quot;enzyme&quot;</span><span class="p">,</span> <span class="s">&quot;compound&quot;</span><span class="p">,</span> <span class="s">&quot;ortholog&quot;</span><span class="p">)</span>
+      <span class="n">sel.idx</span> <span class="o">=</span> <span class="n">node.data</span><span class="o">$</span><span class="n">type</span> <span class="o">%in%</span> <span class="n">node.type</span>
+      <span class="n">nna.idx</span> <span class="o">=</span> <span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">node.data</span><span class="o">$</span><span class="n">x</span> <span class="o">+</span> <span class="n">node.data</span><span class="o">$</span><span class="n">y</span> <span class="o">+</span> <span class="n">node.data</span><span class="o">$</span><span class="n">width</span> <span class="o">+</span>
+                         <span class="n">node.data</span><span class="o">$</span><span class="n">height</span><span class="p">)</span>
+      <span class="n">sel.idx</span> <span class="o">=</span> <span class="n">sel.idx</span> <span class="o">&amp;</span> <span class="n">nna.idx</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">sel.idx</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min.nnodes</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">warn.fmt</span> <span class="o">=</span> <span class="s">&quot;Number of mappable nodes is below %d, %s skipped!&quot;</span>
+        <span class="n">warn.msg</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="n">warn.fmt</span><span class="p">,</span> <span class="n">min.nnodes</span><span class="p">,</span> <span class="n">pathway.name</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Warning: &quot;</span><span class="p">,</span> <span class="n">warn.msg</span><span class="p">)</span>
+        <span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
+      <span class="p">}</span>
+      <span class="n">node.data</span> <span class="o">=</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">node.data</span><span class="p">,</span> <span class="s">&quot;[&quot;</span><span class="p">,</span> <span class="n">sel.idx</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="p">{</span>
+      <span class="n">gR1</span> <span class="o">=</span> <span class="nf">try</span><span class="p">(</span><span class="nf">parseKGML2Graph2</span><span class="p">(</span><span class="n">xml.file</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">genes</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span>
+                                 <span class="n">expand</span> <span class="o">=</span> <span class="n">expand.node</span><span class="p">,</span> <span class="n">split.group</span> <span class="o">=</span> <span class="n">split.group</span><span class="p">),</span>
+                <span class="n">silent</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+      <span class="n">node.data</span> <span class="o">=</span> <span class="nf">try</span><span class="p">(</span><span class="nf">node.info</span><span class="p">(</span><span class="n">gR1</span><span class="p">),</span> <span class="n">silent</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nf">class</span><span class="p">(</span><span class="n">node.data</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;try-error&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">warn.msg</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="n">warn.fmt</span><span class="p">,</span> <span class="n">xml.file</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Warning: &quot;</span><span class="p">,</span> <span class="n">warn.msg</span><span class="p">)</span>
+        <span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">species</span> <span class="o">==</span> <span class="s">&quot;ko&quot;</span><span class="p">)</span>
+      <span class="n">gene.node.type</span> <span class="o">=</span> <span class="s">&quot;ortholog&quot;</span>
+    <span class="n">else</span> <span class="n">gene.node.type</span> <span class="o">=</span> <span class="s">&quot;gene&quot;</span>
+    <span class="nf">if </span><span class="p">((</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">gene.data</span><span class="p">)</span> <span class="o">|</span> <span class="n">map.null</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nf">sum</span><span class="p">(</span><span class="n">node.data</span><span class="o">$</span><span class="n">type</span> <span class="o">==</span>
+                                               <span class="n">gene.node.type</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">plot.data.gene</span> <span class="o">=</span> <span class="nf">node.map</span><span class="p">(</span><span class="n">gene.data</span><span class="p">,</span> <span class="n">node.data</span><span class="p">,</span> <span class="n">node.types</span> <span class="o">=</span> <span class="n">gene.node.type</span><span class="p">,</span>
+                                <span class="n">node.sum</span> <span class="o">=</span> <span class="n">node.sum</span><span class="p">,</span> <span class="n">entrez.gnodes</span> <span class="o">=</span> <span class="n">entrez.gnodes</span><span class="p">)</span>
+      <span class="n">plot.data.gene</span><span class="o">&lt;-</span><span class="n">plot.data.gene</span><span class="p">[</span><span class="nf">rowSums</span><span class="p">(</span><span class="n">plot.data.gene</span><span class="p">[,</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">,</span><span class="s">&quot;width&quot;</span><span class="p">,</span><span class="s">&quot;height&quot;</span><span class="p">)])</span><span class="o">!=</span><span class="m">4</span><span class="p">,]</span>
+      <span class="n">kng</span> <span class="o">=</span> <span class="n">plot.data.gene</span><span class="o">$</span><span class="n">kegg.names</span>
+      <span class="n">kng.char</span> <span class="o">=</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;[0-9]&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="nf">unlist</span><span class="p">(</span><span class="n">kng</span><span class="p">))</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="n">kng.char</span> <span class="o">&gt;</span> <span class="s">&quot;&quot;</span><span class="p">))</span>
+        <span class="n">entrez.gnodes</span> <span class="o">=</span> <span class="kc">FALSE</span>
+      <span class="nf">if </span><span class="p">(</span><span class="n">map.symbol</span> <span class="o">&amp;</span> <span class="n">species</span> <span class="o">!=</span> <span class="s">&quot;ko&quot;</span> <span class="o">&amp;</span> <span class="n">entrez.gnodes</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">gene.annotpkg</span><span class="p">))</span> <span class="p">{</span>
+          <span class="n">warn.fmt</span> <span class="o">=</span> <span class="s">&quot;No annotation package for the species %s, gene symbols not mapped!&quot;</span>
+          <span class="n">warn.msg</span> <span class="o">=</span> <span class="nf">sprintf</span><span class="p">(</span><span class="n">warn.fmt</span><span class="p">,</span> <span class="n">species</span><span class="p">)</span>
+          <span class="nf">message</span><span class="p">(</span><span class="s">&quot;Warning: &quot;</span><span class="p">,</span> <span class="n">warn.msg</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">else</span> <span class="p">{</span>
+          <span class="n">plot.data.gene</span><span class="o">$</span><span class="n">labels</span> <span class="o">=</span> <span class="nf">eg2id</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span><span class="n">plot.data.gene</span><span class="o">$</span><span class="n">kegg.names</span><span class="p">),</span>
+                                        <span class="n">category</span> <span class="o">=</span> <span class="s">&quot;SYMBOL&quot;</span><span class="p">,</span> <span class="n">pkg.name</span> <span class="o">=</span> <span class="n">gene.annotpkg</span><span class="p">)[,</span>
+                                                                                       <span class="m">2</span><span class="p">]</span>
+          <span class="n">mapped.gnodes</span> <span class="o">=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">plot.data.gene</span><span class="p">)</span>
+          <span class="n">node.data</span><span class="o">$</span><span class="n">labels</span><span class="p">[</span><span class="n">mapped.gnodes</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot.data.gene</span><span class="o">$</span><span class="n">labels</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="n">cols.ts.gene</span> <span class="o">=</span> <span class="nf">node.color</span><span class="p">(</span><span class="n">plot.data.gene</span><span class="p">,</span> <span class="n">limit</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span>
+                                <span class="n">bins</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span> <span class="n">both.dirs</span> <span class="o">=</span> <span class="n">both.dirs</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span> <span class="n">trans.fun</span> <span class="o">=</span> <span class="n">trans.fun</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span>
+                                <span class="n">discrete</span> <span class="o">=</span> <span class="n">discrete</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span> <span class="n">low</span> <span class="o">=</span> <span class="n">low</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">mid</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span>
+                                <span class="n">high</span> <span class="o">=</span> <span class="n">high</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span> <span class="n">na.col</span> <span class="o">=</span> <span class="n">na.col</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="n">plot.data.gene</span> <span class="o">=</span> <span class="n">cols.ts.gene</span> <span class="o">=</span> <span class="kc">NULL</span>
+    <span class="nf">if </span><span class="p">((</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">)</span> <span class="o">|</span> <span class="n">map.null</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nf">sum</span><span class="p">(</span><span class="n">node.data</span><span class="o">$</span><span class="n">type</span> <span class="o">==</span>
+                                              <span class="s">&quot;compound&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">plot.data.cpd</span> <span class="o">=</span> <span class="nf">node.map</span><span class="p">(</span><span class="n">cpd.data</span><span class="p">,</span> <span class="n">node.data</span><span class="p">,</span> <span class="n">node.types</span> <span class="o">=</span> <span class="s">&quot;compound&quot;</span><span class="p">,</span>
+                               <span class="n">node.sum</span> <span class="o">=</span> <span class="n">node.sum</span><span class="p">)</span>
+      <span class="nf">if </span><span class="p">(</span><span class="n">map.cpdname</span> <span class="o">&amp;</span> <span class="o">!</span><span class="n">kegg.native</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">plot.data.cpd</span><span class="o">$</span><span class="n">labels</span> <span class="o">=</span> <span class="nf">cpdkegg2name</span><span class="p">(</span><span class="n">plot.data.cpd</span><span class="o">$</span><span class="n">labels</span><span class="p">)[,</span>
+                                                                  <span class="m">2</span><span class="p">]</span>
+        <span class="n">mapped.cnodes</span> <span class="o">=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">plot.data.cpd</span><span class="p">)</span>
+        <span class="n">node.data</span><span class="o">$</span><span class="n">labels</span><span class="p">[</span><span class="n">mapped.cnodes</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot.data.cpd</span><span class="o">$</span><span class="n">labels</span>
+      <span class="p">}</span>
+      <span class="n">cols.ts.cpd</span> <span class="o">=</span> <span class="nf">node.color</span><span class="p">(</span><span class="n">plot.data.cpd</span><span class="p">,</span> <span class="n">limit</span><span class="o">$</span><span class="n">cpd</span><span class="p">,</span>
+                               <span class="n">bins</span><span class="o">$</span><span class="n">cpd</span><span class="p">,</span> <span class="n">both.dirs</span> <span class="o">=</span> <span class="n">both.dirs</span><span class="o">$</span><span class="n">cpd</span><span class="p">,</span> <span class="n">trans.fun</span> <span class="o">=</span> <span class="n">trans.fun</span><span class="o">$</span><span class="n">cpd</span><span class="p">,</span>
+                               <span class="n">discrete</span> <span class="o">=</span> <span class="n">discrete</span><span class="o">$</span><span class="n">cpd</span><span class="p">,</span> <span class="n">low</span> <span class="o">=</span> <span class="n">low</span><span class="o">$</span><span class="n">cpd</span><span class="p">,</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">mid</span><span class="o">$</span><span class="n">cpd</span><span class="p">,</span>
+                               <span class="n">high</span> <span class="o">=</span> <span class="n">high</span><span class="o">$</span><span class="n">cpd</span><span class="p">,</span> <span class="n">na.col</span> <span class="o">=</span> <span class="n">na.col</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="n">plot.data.cpd</span> <span class="o">=</span> <span class="n">cols.ts.cpd</span> <span class="o">=</span> <span class="kc">NULL</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">kegg.native</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">pv.pars</span> <span class="o">=</span> <span class="nf">keggview.native</span><span class="p">(</span><span class="n">plot.data.gene</span> <span class="o">=</span> <span class="n">plot.data.gene</span><span class="p">,</span>
+                                <span class="n">cols.ts.gene</span> <span class="o">=</span> <span class="n">cols.ts.gene</span><span class="p">,</span> <span class="n">plot.data.cpd</span> <span class="o">=</span> <span class="n">plot.data.cpd</span><span class="p">,</span>
+                                <span class="n">cols.ts.cpd</span> <span class="o">=</span> <span class="n">cols.ts.cpd</span><span class="p">,</span> <span class="n">node.data</span> <span class="o">=</span> <span class="n">node.data</span><span class="p">,</span>
+                                <span class="n">pathway.name</span> <span class="o">=</span> <span class="n">pathway.name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">kegg.dir</span> <span class="o">=</span> <span class="n">kegg.dir</span><span class="p">,</span>
+                                <span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">,</span> <span class="n">both.dirs</span> <span class="o">=</span> <span class="n">both.dirs</span><span class="p">,</span>
+                                <span class="n">discrete</span> <span class="o">=</span> <span class="n">discrete</span><span class="p">,</span> <span class="n">low</span> <span class="o">=</span> <span class="n">low</span><span class="p">,</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">high</span><span class="p">,</span>
+                                <span class="n">na.col</span> <span class="o">=</span> <span class="n">na.col</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="p">{</span>
+      <span class="n">pv.pars</span> <span class="o">=</span> <span class="nf">keggview.graph</span><span class="p">(</span><span class="n">plot.data.gene</span> <span class="o">=</span> <span class="n">plot.data.gene</span><span class="p">,</span>
+                               <span class="n">cols.ts.gene</span> <span class="o">=</span> <span class="n">cols.ts.gene</span><span class="p">,</span> <span class="n">plot.data.cpd</span> <span class="o">=</span> <span class="n">plot.data.cpd</span><span class="p">,</span>
+                               <span class="n">cols.ts.cpd</span> <span class="o">=</span> <span class="n">cols.ts.cpd</span><span class="p">,</span> <span class="n">node.data</span> <span class="o">=</span> <span class="n">node.data</span><span class="p">,</span>
+                               <span class="n">path.graph</span> <span class="o">=</span> <span class="n">gR1</span><span class="p">,</span> <span class="n">pathway.name</span> <span class="o">=</span> <span class="n">pathway.name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                               <span class="n">map.cpdname</span> <span class="o">=</span> <span class="n">map.cpdname</span><span class="p">,</span> <span class="n">split.group</span> <span class="o">=</span> <span class="n">split.group</span><span class="p">,</span>
+                               <span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">,</span> <span class="n">both.dirs</span> <span class="o">=</span> <span class="n">both.dirs</span><span class="p">,</span>
+                               <span class="n">discrete</span> <span class="o">=</span> <span class="n">discrete</span><span class="p">,</span> <span class="n">low</span> <span class="o">=</span> <span class="n">low</span><span class="p">,</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">high</span><span class="p">,</span>
+                               <span class="n">na.col</span> <span class="o">=</span> <span class="n">na.col</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">plot.data.gene</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">plot.data.gene</span><span class="p">,</span> <span class="n">cols.ts.gene</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">plot.data.gene</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">cnames</span> <span class="o">=</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">plot.data.gene</span><span class="p">)[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">)]</span>
+      <span class="n">nsamp</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">cnames</span><span class="p">)</span><span class="o">/</span><span class="m">2</span>
+      <span class="nf">if </span><span class="p">(</span><span class="n">nsamp</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cnames</span><span class="p">[(</span><span class="n">nsamp</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">2</span> <span class="o">*</span> <span class="n">nsamp</span><span class="p">)]</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">cnames</span><span class="p">[(</span><span class="n">nsamp</span> <span class="o">+</span>
+                                                          <span class="m">1</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">2</span> <span class="o">*</span> <span class="n">nsamp</span><span class="p">)],</span> <span class="s">&quot;col&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="n">else</span> <span class="n">cnames</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;mol.col&quot;</span>
+      <span class="nf">colnames</span><span class="p">(</span><span class="n">plot.data.gene</span><span class="p">)[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">)]</span> <span class="o">=</span> <span class="n">cnames</span>
+    <span class="p">}</span>
+    <span class="n">plot.data.cpd</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">plot.data.cpd</span><span class="p">,</span> <span class="n">cols.ts.cpd</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">plot.data.cpd</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">cnames</span> <span class="o">=</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">plot.data.cpd</span><span class="p">)[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">)]</span>
+      <span class="n">nsamp</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">cnames</span><span class="p">)</span><span class="o">/</span><span class="m">2</span>
+      <span class="nf">if </span><span class="p">(</span><span class="n">nsamp</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cnames</span><span class="p">[(</span><span class="n">nsamp</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">2</span> <span class="o">*</span> <span class="n">nsamp</span><span class="p">)]</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">cnames</span><span class="p">[(</span><span class="n">nsamp</span> <span class="o">+</span>
+                                                          <span class="m">1</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">2</span> <span class="o">*</span> <span class="n">nsamp</span><span class="p">)],</span> <span class="s">&quot;col&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="n">else</span> <span class="n">cnames</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;mol.col&quot;</span>
+      <span class="nf">colnames</span><span class="p">(</span><span class="n">plot.data.cpd</span><span class="p">)[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">)]</span> <span class="o">=</span> <span class="n">cnames</span>
+    <span class="p">}</span>
+    <span class="n">out.list</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">plot.data.gene</span> <span class="o">=</span> <span class="n">plot.data.gene</span><span class="p">,</span>
+                         <span class="n">plot.data.cpd</span> <span class="o">=</span> <span class="n">plot.data.cpd</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">npath</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span>
+    <span class="n">out.list</span> <span class="o">=</span> <span class="n">out.list</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+  <span class="n">else</span> <span class="nf">names</span><span class="p">(</span><span class="n">out.list</span><span class="p">)</span> <span class="o">=</span> <span class="n">pathway.name</span>
+  <span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="n">out.list</span><span class="p">))</span>
+<span class="p">}</span>
+
+
+<span class="c1">####publish_gostplot_repel####</span>
+<span class="n">publish_gostplot_repel</span><span class="o">&lt;-</span><span class="nf">function </span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">highlight_terms</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span>
+                                  <span class="n">height</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;ggplot&quot;</span> <span class="o">%in%</span> <span class="nf">class</span><span class="p">(</span><span class="n">p</span><span class="p">)))</span> <span class="p">{</span>
+    <span class="nf">warning</span><span class="p">(</span><span class="s">&quot;Highlighting terms in a Manhattan plot is available for a ggplot object only.\nPlease set &#39;interactive = F&#39; in the gostplot() function and try again.&quot;</span><span class="p">)</span>
+    <span class="nf">return</span><span class="p">(</span><span class="kc">NULL</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">term_id</span> <span class="o">&lt;-</span> <span class="n">logpval</span> <span class="o">&lt;-</span> <span class="n">term_size_scaled</span> <span class="o">&lt;-</span> <span class="n">id</span> <span class="o">&lt;-</span> <span class="n">query</span> <span class="o">&lt;-</span> <span class="n">p_value</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+  <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">highlight_terms</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">is.data.frame</span><span class="p">(</span><span class="n">highlight_terms</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nf">message</span><span class="p">(</span><span class="s">&quot;The input &#39;highlight_terms&#39; is a data.frame and therefore the column &#39;term_id&#39; will be used for detection.&quot;</span><span class="p">)</span>
+      <span class="nf">if </span><span class="p">(</span><span class="s">&quot;term_id&quot;</span> <span class="o">%in%</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">highlight_terms</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">highlight_terms</span> <span class="o">&lt;-</span> <span class="n">highlight_terms</span><span class="o">$</span><span class="n">term_id</span>
+      <span class="p">}</span>
+      <span class="n">else</span> <span class="p">{</span>
+        <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;No column named &#39;term_id&#39;.&quot;</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">df</span> <span class="o">&lt;-</span> <span class="n">p</span><span class="o">$</span><span class="n">data</span>
+    <span class="n">subdf</span> <span class="o">&lt;-</span> <span class="n">base</span><span class="o">::</span><span class="nf">subset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">term_id</span> <span class="o">%in%</span> <span class="n">highlight_terms</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">subdf</span><span class="p">)</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">message</span><span class="p">(</span><span class="s">&quot;None of the term IDs in the &#39;highlight_terms&#39; was found from the results.&quot;</span><span class="p">)</span>
+      <span class="nf">return</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">highlight_terms</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="n">highlight_terms</span><span class="p">)</span>
+    <span class="n">subdf</span><span class="o">$</span><span class="n">id</span> <span class="o">&lt;-</span> <span class="nf">match</span><span class="p">(</span><span class="n">subdf</span><span class="o">$</span><span class="n">term_id</span><span class="p">,</span> <span class="n">highlight_terms</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="n">ggplot2</span><span class="o">::</span><span class="nf">geom_point</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">subdf</span><span class="p">,</span> <span class="n">ggplot2</span><span class="o">::</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">order</span><span class="p">,</span>
+                                                            <span class="n">y</span> <span class="o">=</span> <span class="n">logpval</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">term_size_scaled</span><span class="p">),</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">21</span><span class="p">,</span>
+                                 <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span>  <span class="o">+</span> <span class="n">ggrepel</span><span class="o">::</span><span class="nf">geom_text_repel</span><span class="p">(</span><span class="n">box.padding</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">max.overlaps</span> <span class="o">=</span> <span class="kc">Inf</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">subdf</span><span class="p">,</span><span class="n">arrow</span> <span class="o">=</span> <span class="nf">arrow</span><span class="p">(</span><span class="n">length</span> <span class="o">=</span> <span class="nf">unit</span><span class="p">(</span><span class="m">0.008</span><span class="p">,</span> <span class="s">&quot;npc&quot;</span><span class="p">),</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;closed&quot;</span><span class="p">,</span> <span class="n">ends</span> <span class="o">=</span> <span class="s">&quot;first&quot;</span><span class="p">),</span><span class="n">force</span> <span class="o">=</span> <span class="m">40</span><span class="p">,</span>
+                                                                                <span class="n">size</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="n">fontface</span> <span class="o">=</span> <span class="s">&quot;bold&quot;</span><span class="p">,</span> <span class="n">ggplot2</span><span class="o">::</span><span class="nf">aes</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">id</span><span class="p">)),</span>
+                                                                                <span class="n">hjust</span> <span class="o">=</span> <span class="m">-1.2</span><span class="p">,</span> <span class="n">vjust</span> <span class="o">=</span> <span class="m">-0.05</span><span class="p">)</span>
+    <span class="n">pseudo_gostres</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">result</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">subdf</span><span class="p">),</span> <span class="n">meta</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">query_metadata</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">queries</span> <span class="o">=</span> <span class="nf">sapply</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">subdf</span><span class="o">$</span><span class="n">query</span><span class="p">),</span>
+                                                                                                          <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kc">NULL</span><span class="p">))))</span>
+    <span class="n">tb</span> <span class="o">&lt;-</span> <span class="nf">publish_gosttable</span><span class="p">(</span><span class="n">pseudo_gostres</span><span class="p">,</span> <span class="n">highlight_terms</span> <span class="o">=</span> <span class="n">highlight_terms</span><span class="p">,</span>
+                            <span class="n">use_colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">show_columns</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;source&quot;</span><span class="p">,</span> <span class="s">&quot;term_name&quot;</span><span class="p">,</span>
+                                                                <span class="s">&quot;term_size&quot;</span><span class="p">,</span><span class="s">&quot;intersection_size&quot;</span><span class="p">),</span> <span class="n">filename</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">ggplot</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">&lt;-</span> <span class="n">grid</span><span class="o">::</span><span class="nf">unit.c</span><span class="p">(</span><span class="n">grid</span><span class="o">::</span><span class="nf">unit</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">&quot;null&quot;</span><span class="p">),</span> <span class="nf">sum</span><span class="p">(</span><span class="n">tb</span><span class="o">$</span><span class="n">heights</span><span class="p">)</span> <span class="o">+</span>
+                        <span class="n">grid</span><span class="o">::</span><span class="nf">unit</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="s">&quot;mm&quot;</span><span class="p">))</span>
+    <span class="n">w</span> <span class="o">&lt;-</span> <span class="n">grid</span><span class="o">::</span><span class="nf">unit.c</span><span class="p">(</span><span class="n">grid</span><span class="o">::</span><span class="nf">unit</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">&quot;null&quot;</span><span class="p">))</span>
+    <span class="n">tg</span> <span class="o">&lt;-</span> <span class="n">gridExtra</span><span class="o">::</span><span class="nf">grid.arrange</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">heights</span> <span class="o">=</span> <span class="n">h</span><span class="p">,</span>
+                                  <span class="n">widths</span> <span class="o">=</span> <span class="n">w</span><span class="p">,</span> <span class="n">newpage</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot2</span><span class="o">::</span><span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">ggplot2</span><span class="o">::</span><span class="nf">annotation_custom</span><span class="p">(</span><span class="n">tg</span><span class="p">)</span> <span class="o">+</span>
+      <span class="n">ggplot2</span><span class="o">::</span><span class="nf">geom_blank</span><span class="p">()</span> <span class="o">+</span> <span class="n">ggplot2</span><span class="o">::</span><span class="nf">theme_void</span><span class="p">()</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">else</span> <span class="p">{</span>
+    <span class="n">imgtype</span> <span class="o">&lt;-</span> <span class="nf">strsplit</span><span class="p">(</span><span class="nf">basename</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="n">split</span> <span class="o">=</span> <span class="s">&quot;\\.&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]][</span><span class="m">-1</span><span class="p">]</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">imgtype</span><span class="p">)</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">filename</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&quot;.pdf&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">tolower</span><span class="p">(</span><span class="n">imgtype</span><span class="p">)</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;png&quot;</span><span class="p">,</span> <span class="s">&quot;pdf&quot;</span><span class="p">,</span> <span class="s">&quot;jpeg&quot;</span><span class="p">,</span> <span class="s">&quot;tiff&quot;</span><span class="p">,</span>
+                                <span class="s">&quot;bmp&quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">width</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">grDevices</span><span class="o">::</span><span class="nf">dev.size</span><span class="p">()[</span><span class="m">1</span><span class="p">],</span> <span class="m">8</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">height</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">grDevices</span><span class="o">::</span><span class="nf">dev.size</span><span class="p">()[</span><span class="m">2</span><span class="p">],</span> <span class="m">6</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="n">ggplot2</span><span class="o">::</span><span class="nf">ggsave</span><span class="p">(</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span>
+                      <span class="n">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">,</span> <span class="n">limitsize</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+      <span class="nf">message</span><span class="p">(</span><span class="s">&quot;The image is saved to &quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+      <span class="nf">return</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="p">{</span>
+      <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;The given file format is not supported.\nPlease use one of the following extensions: .png, .pdf, .jpeg, .tiff, .bmp&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">####merge.png.pdf####</span>
+<span class="n">merge.png.pdf</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">pdfFile</span><span class="p">,</span> <span class="n">pngFiles</span><span class="p">,</span><span class="n">imagename</span><span class="p">,</span> <span class="n">deletePngFiles</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">#### Package Install ####</span>
+  <span class="n">pngPackageExists</span> <span class="o">&lt;-</span> <span class="nf">require </span><span class="p">(</span><span class="s">&quot;png&quot;</span><span class="p">)</span>
+  <span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;grid&quot;</span><span class="p">))</span>
+
+  <span class="nf">if </span><span class="p">(</span> <span class="o">!</span><span class="n">pngPackageExists</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nf">install.packages </span><span class="p">(</span><span class="s">&quot;png&quot;</span><span class="p">)</span>
+    <span class="nf">library </span><span class="p">(</span><span class="s">&quot;png&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nf">pdf</span><span class="p">(</span><span class="n">pdfFile</span><span class="p">)</span>
+  <span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">pngFiles</span><span class="p">)</span>
+  <span class="nf">plot.new</span><span class="p">()</span>
+  <span class="nf">for</span><span class="p">(</span> <span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pngFile</span> <span class="o">&lt;-</span> <span class="n">pngFiles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">pngRaster</span> <span class="o">&lt;-</span> <span class="nf">readPNG</span><span class="p">(</span><span class="n">pngFile</span><span class="p">)</span>
+    <span class="nf">grid.raster</span><span class="p">(</span><span class="n">pngRaster</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="nf">unit</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span> <span class="s">&quot;npc&quot;</span><span class="p">),</span><span class="n">height</span><span class="o">=</span> <span class="nf">unit</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span> <span class="s">&quot;npc&quot;</span><span class="p">))</span>
+    <span class="nf">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="m">0.25</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">imagename</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="nf">plot.new</span><span class="p">()</span>
+  <span class="p">}</span>
+  <span class="nf">dev.off</span><span class="p">()</span>
+
+  <span class="nf">if </span><span class="p">(</span><span class="n">deletePngFiles</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">unlink</span><span class="p">(</span><span class="n">pngFiles</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">f</span> <span class="o">&lt;-</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">filelist</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">read.table</span><span class="p">)</span>
+<span class="c1"># lapply(query, names)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;.*/(.*)\\..*&quot;</span><span class="p">,</span> <span class="s">&quot;\\1&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="nf">lapply</span><span class="p">(</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">query</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="o">$</span><span class="n">V1</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">pp</span><span class="o">&lt;-</span><span class="nf">list</span><span class="p">()</span>
+<span class="n">pdfFiles</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;start for loop for graphs saving...&quot;</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">query</span><span class="p">)){</span>
+  <span class="c1"># names(query[[i]][,1])&lt;-names(query[i])</span>
+  <span class="n">tmp_list</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">genes</span><span class="o">=</span><span class="n">query</span><span class="p">[[</span><span class="n">i</span><span class="p">]][,</span><span class="m">1</span><span class="p">])</span>
+  <span class="nf">names</span><span class="p">(</span><span class="n">tmp_list</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="n">gostres</span> <span class="o">&lt;-</span> <span class="nf">gost</span><span class="p">(</span><span class="n">query</span> <span class="o">=</span> <span class="n">tmp_list</span><span class="p">,</span>
+                  <span class="n">organism</span> <span class="o">=</span> <span class="n">species</span><span class="p">,</span> <span class="n">ordered_query</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+                  <span class="n">multi_query</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">significant</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">exclude_iea</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+                  <span class="n">measure_underrepresentation</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">evcodes</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+                  <span class="n">user_threshold</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span> <span class="n">correction_method</span> <span class="o">=</span> <span class="s">&quot;g_SCS&quot;</span><span class="p">,</span>
+                  <span class="n">domain_scope</span> <span class="o">=</span> <span class="s">&quot;annotated&quot;</span><span class="p">,</span> <span class="n">custom_bg</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
+                  <span class="n">numeric_ns</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">sources</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+  <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">gostres</span><span class="p">)){</span>
+    <span class="n">highlight_terms</span><span class="o">&lt;-</span> <span class="n">gostres</span><span class="o">$</span><span class="n">result</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">source</span> <span class="o">==</span> <span class="s">&quot;REAC&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">term_id</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">gostplot</span><span class="p">(</span><span class="n">gostres</span><span class="p">,</span> <span class="n">capped</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">interactive</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+    <span class="nf">pdf</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="s">&quot;_gprofiler.pdf&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">width</span> <span class="o">=</span> <span class="m">12</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="m">8</span><span class="p">)</span>
+    <span class="n">pp</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">publish_gostplot_repel</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">highlight_terms</span> <span class="o">=</span><span class="n">highlight_terms</span><span class="o">$</span><span class="n">term_id</span> <span class="p">,</span><span class="n">width</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="kc">NULL</span> <span class="p">)</span>
+    <span class="nf">dev.off</span><span class="p">()</span>
+
+    <span class="n">gostres</span><span class="o">$</span><span class="n">result</span><span class="o">$</span><span class="n">parents</span><span class="o">&lt;-</span><span class="nf">unlist</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">gostres</span><span class="o">$</span><span class="n">result</span><span class="o">$</span><span class="n">parents</span><span class="p">),</span><span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span><span class="nf">paste</span><span class="p">(</span><span class="n">gostres</span><span class="o">$</span><span class="n">result</span><span class="o">$</span><span class="n">parents</span><span class="p">[[</span><span class="n">i</span><span class="p">]],</span><span class="n">collapse</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">)}))</span>
+    <span class="nf">write.csv</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">gostres</span><span class="o">$</span><span class="n">result</span><span class="p">),</span><span class="nf">paste</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="s">&quot;_gprofiler.csv&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">row.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+
+    <span class="c1">####add a GO bubble plot####</span>
+    <span class="n">to_bubble</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">gostres</span><span class="o">$</span><span class="n">result</span><span class="p">)</span>
+    <span class="n">to_bubble</span><span class="o">&lt;-</span><span class="n">to_bubble</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">source</span><span class="o">==</span><span class="s">&quot;REAC&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">term_name</span><span class="p">,</span> <span class="n">intersection_size</span><span class="p">,</span><span class="n">p_value</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+    <span class="n">to_bubble</span><span class="o">$</span><span class="n">p_value</span><span class="o">&lt;-</span><span class="nf">log10</span><span class="p">(</span><span class="n">to_bubble</span><span class="o">$</span><span class="n">p_value</span><span class="p">)</span>
+    <span class="n">to_bubble</span><span class="o">$</span><span class="n">p_value</span><span class="o">&lt;-</span><span class="p">(</span><span class="o">-</span><span class="n">to_bubble</span><span class="o">$</span><span class="n">p_value</span><span class="p">)</span>
+    <span class="nf">colnames</span><span class="p">(</span><span class="n">to_bubble</span><span class="p">)[</span><span class="m">3</span><span class="p">]</span><span class="o">&lt;-</span><span class="s">&quot;-log10_p_val&quot;</span>
+    <span class="n">mycol</span><span class="o">=</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span> <span class="s">&quot;Set1&quot;</span><span class="p">)</span>
+    <span class="n">p_bubble</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">to_bubble</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">`-log10_p_val`</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="nf">reorder</span><span class="p">(</span><span class="n">term_name</span><span class="p">,</span><span class="n">`-log10_p_val`</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">intersection_size</span><span class="p">,</span><span class="n">colour</span> <span class="o">=</span><span class="n">`-log10_p_val`</span><span class="p">))</span> <span class="o">+</span>
+      <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;term name&quot;</span><span class="p">)</span><span class="o">+</span>
+      <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="o">+</span>
+      <span class="nf">geom_point</span><span class="p">()</span><span class="o">+</span>
+      <span class="nf">theme_bw</span><span class="p">()</span><span class="o">+</span>
+      <span class="nf">theme</span><span class="p">(</span><span class="n">plot.margin</span> <span class="o">=</span> <span class="nf">unit</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">4</span><span class="p">),</span> <span class="s">&quot;cm&quot;</span><span class="p">))</span><span class="o">+</span>
+      <span class="nf">scale_color_gradient</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="n">mycol</span><span class="p">[</span><span class="m">2</span><span class="p">],</span><span class="n">high</span> <span class="o">=</span> <span class="n">mycol</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+
+    <span class="n">p_bubble</span>
+    <span class="nf">ggsave</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="s">&quot;_top10_REAC_bubble.pdf&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">width</span> <span class="o">=</span> <span class="m">12</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+    <span class="c1"># dev.off()</span>
+
+    <span class="n">to_bubble</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">gostres</span><span class="o">$</span><span class="n">result</span><span class="p">)</span>
+    <span class="n">to_bubble_list</span><span class="o">&lt;-</span><span class="nf">split</span><span class="p">(</span><span class="n">to_bubble</span><span class="p">,</span> <span class="n">to_bubble</span><span class="o">$</span><span class="n">source</span><span class="p">)</span>
+    <span class="nf">lapply</span><span class="p">(</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">to_bubble_list</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
+      <span class="n">to_bubble_list</span><span class="p">[[</span><span class="n">x</span><span class="p">]]</span><span class="o">&lt;&lt;-</span><span class="nf">head</span><span class="p">(</span><span class="n">to_bubble_list</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span><span class="m">4</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="n">to_bubble</span><span class="o">&lt;-</span><span class="nf">rbind</span><span class="p">(</span><span class="n">to_bubble_list</span><span class="o">$</span><span class="n">`GO:CC`</span><span class="p">,</span><span class="n">to_bubble_list</span><span class="o">$</span><span class="n">`GO:BP`</span><span class="p">,</span><span class="n">to_bubble_list</span><span class="o">$</span><span class="n">`GO:MF`</span><span class="p">)</span>
+    <span class="n">to_bubble</span><span class="o">&lt;-</span><span class="n">to_bubble</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">term_name</span><span class="p">,</span> <span class="n">intersection_size</span><span class="p">,</span><span class="n">p_value</span><span class="p">,</span><span class="n">source</span><span class="p">)</span>
+    <span class="n">to_bubble</span><span class="o">$</span><span class="n">p_value</span><span class="o">&lt;-</span><span class="nf">log10</span><span class="p">(</span><span class="n">to_bubble</span><span class="o">$</span><span class="n">p_value</span><span class="p">)</span>
+    <span class="n">to_bubble</span><span class="o">$</span><span class="n">p_value</span><span class="o">&lt;-</span><span class="p">(</span><span class="o">-</span><span class="n">to_bubble</span><span class="o">$</span><span class="n">p_value</span><span class="p">)</span>
+    <span class="nf">colnames</span><span class="p">(</span><span class="n">to_bubble</span><span class="p">)[</span><span class="m">3</span><span class="p">]</span><span class="o">&lt;-</span><span class="s">&quot;-log10_p_val&quot;</span>
+    <span class="n">mycol</span><span class="o">=</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span> <span class="s">&quot;Set1&quot;</span><span class="p">)</span>
+    <span class="n">p_bubble</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">to_bubble</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">`-log10_p_val`</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="nf">reorder</span><span class="p">(</span><span class="n">term_name</span><span class="p">,</span><span class="n">`-log10_p_val`</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">intersection_size</span><span class="p">,</span><span class="n">colour</span> <span class="o">=</span><span class="n">`-log10_p_val`</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="n">source</span><span class="p">))</span> <span class="o">+</span>
+      <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;term name&quot;</span><span class="p">)</span><span class="o">+</span>
+      <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="o">+</span>
+      <span class="nf">geom_point</span><span class="p">()</span><span class="o">+</span>
+      <span class="nf">theme_bw</span><span class="p">()</span><span class="o">+</span>
+      <span class="nf">theme</span><span class="p">(</span>
+        <span class="n">plot.margin</span> <span class="o">=</span> <span class="nf">unit</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="s">&quot;cm&quot;</span><span class="p">)</span>
+      <span class="p">)</span><span class="o">+</span>
+      <span class="nf">scale_color_gradient</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="n">mycol</span><span class="p">[</span><span class="m">2</span><span class="p">],</span>
+                           <span class="n">high</span> <span class="o">=</span> <span class="n">mycol</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+
+    <span class="n">p_bubble</span>
+    <span class="nf">ggsave</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="s">&quot;_top12GO_CC_BP_MF_bubble.pdf&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">width</span> <span class="o">=</span> <span class="m">12</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+
+    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;No results to show for &quot;</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="s">&quot;. reasons: 1)wrong input gene set, check your input gene set 2)No functional enrichment result for the input genes in deed&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+  <span class="p">}</span>
+
+  <span class="c1">## KEGG for target genes##</span>
+  <span class="n">top_KEGG_id</span><span class="o">&lt;-</span><span class="n">gostres</span><span class="o">$</span><span class="n">result</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">source</span> <span class="o">==</span> <span class="s">&quot;KEGG&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">term_id</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+
+  <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">top_KEGG_id</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nf">length</span><span class="p">(</span><span class="n">query</span><span class="p">[[</span><span class="n">i</span><span class="p">]])</span><span class="o">==</span><span class="m">2</span><span class="p">){</span>
+    <span class="nf">if</span><span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">query</span><span class="p">[[</span><span class="n">i</span><span class="p">]][,</span><span class="m">2</span><span class="p">])){</span>
+      <span class="n">top_KEGG_id</span><span class="o">$</span><span class="n">term_id</span><span class="o">&lt;-</span><span class="nf">gsub</span><span class="p">(</span><span class="s">&#39;KEGG:&#39;</span><span class="p">,</span><span class="s">&#39;hsa&#39;</span><span class="p">,</span><span class="n">top_KEGG_id</span><span class="o">$</span><span class="n">term_id</span><span class="p">)</span>
+      <span class="n">top_KEGG</span><span class="o">&lt;-</span><span class="n">gostres</span><span class="o">$</span><span class="n">result</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">source</span> <span class="o">==</span> <span class="s">&quot;KEGG&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;term_id&quot;</span><span class="p">,</span><span class="s">&quot;term_name&quot;</span><span class="p">,</span><span class="s">&quot;intersection&quot;</span><span class="p">))</span><span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+      <span class="nf">write.csv</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">top_KEGG</span><span class="p">),</span><span class="nf">paste</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="s">&quot;_topKEGG.csv&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">row.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+      <span class="n">top_KEGG</span><span class="o">$</span><span class="n">term_id</span><span class="o">&lt;-</span><span class="n">top_KEGG_id</span><span class="o">$</span><span class="n">term_id</span>
+
+      <span class="n">gene_list</span><span class="o">&lt;-</span><span class="nf">as.list</span><span class="p">(</span><span class="n">top_KEGG</span><span class="o">$</span><span class="n">intersection</span><span class="p">)</span>
+      <span class="nf">names</span><span class="p">(</span><span class="n">gene_list</span><span class="p">)</span><span class="o">&lt;-</span><span class="n">top_KEGG</span><span class="o">$</span><span class="n">term_id</span>
+
+      <span class="n">toppathway</span><span class="o">&lt;-</span><span class="n">top_KEGG_id</span><span class="o">$</span><span class="n">term_id</span>
+
+      <span class="n">pngFiles</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+      <span class="nf">lapply</span><span class="p">(</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">toppathway</span><span class="p">),</span><span class="nf">function</span><span class="p">(</span><span class="n">k</span><span class="p">){</span>
+
+        <span class="n">eg</span><span class="o">&lt;-</span><span class="nf">id2eg</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="nf">unlist</span><span class="p">(</span><span class="nf">str_split</span><span class="p">(</span><span class="n">gene_list</span><span class="p">[[</span><span class="n">toppathway</span><span class="p">[</span><span class="n">k</span><span class="p">]]],</span><span class="s">&quot;,&quot;</span><span class="p">)),</span> <span class="n">category</span><span class="o">=</span><span class="s">&#39;SYMBOL&#39;</span><span class="p">,</span> <span class="n">org</span><span class="o">=</span><span class="s">&#39;Hs&#39;</span><span class="p">)[,</span><span class="s">&quot;ENTREZID&quot;</span><span class="p">]</span>
+        <span class="c1"># FC&lt;-rnorm(length(eg),-0.5,1)</span>
+        <span class="n">FC</span><span class="o">&lt;-</span><span class="n">query</span><span class="p">[[</span><span class="n">i</span><span class="p">]][,</span><span class="m">2</span><span class="p">]</span>
+        <span class="nf">names</span><span class="p">(</span><span class="n">FC</span><span class="p">)</span><span class="o">&lt;-</span><span class="n">eg</span>
+        <span class="nf">pathview2</span><span class="p">(</span><span class="n">gene.data</span> <span class="o">=</span> <span class="n">FC</span><span class="p">,</span>
+                  <span class="n">kegg.dir</span> <span class="o">=</span> <span class="n">args</span><span class="p">,</span>
+                  <span class="n">pathway</span> <span class="o">=</span> <span class="n">toppathway</span><span class="p">[</span><span class="n">k</span><span class="p">],</span>
+                  <span class="n">species</span> <span class="o">=</span> <span class="s">&quot;hsa&quot;</span><span class="p">,</span>
+                  <span class="n">out.suffix</span> <span class="o">=</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="s">&quot;_&quot;</span><span class="p">,</span><span class="n">top_KEGG</span><span class="o">$</span><span class="n">term_name</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                  <span class="n">kegg.native</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+        <span class="n">flist</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="s">&quot;./&quot;</span><span class="p">,</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&quot;hsa.*.&quot;</span><span class="p">,</span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="s">&quot;_&quot;</span><span class="p">,</span><span class="n">top_KEGG</span><span class="o">$</span><span class="n">term_name</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="n">full.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+        <span class="nf">file.copy</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span><span class="n">args</span><span class="p">)</span>
+        <span class="nf">file.remove</span><span class="p">(</span><span class="n">flist</span><span class="p">)</span>
+
+
+        <span class="n">pngFile</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="n">toppathway</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="s">&quot;_&quot;</span><span class="p">,</span><span class="n">top_KEGG</span><span class="o">$</span><span class="n">term_name</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span><span class="s">&quot;png&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;.&quot;</span><span class="p">)</span>
+        <span class="n">pngFiles</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;&lt;-</span> <span class="n">pngFile</span>
+
+      <span class="p">})</span>
+      <span class="n">kegg_pathname</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="s">&quot;_pathview&quot;</span><span class="p">,</span><span class="s">&quot;.pdf&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+      <span class="n">pdfFiles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">kegg_pathname</span>
+      <span class="nf">merge.png.pdf</span><span class="p">(</span><span class="n">pdfFile</span> <span class="o">=</span> <span class="n">kegg_pathname</span><span class="p">,</span> <span class="n">pngFiles</span> <span class="o">=</span> <span class="n">pngFiles</span><span class="p">,</span><span class="n">imagename</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">deletePngFiles</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">&quot;column 2 of input genes is not numeric! Please set them as numeric, such as the stop rate fold change or others.&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+
+
+<span class="p">}</span>
+
+
+<span class="n">pp</span><span class="o">&lt;-</span> <span class="n">pp</span><span class="p">[</span><span class="nf">lapply</span><span class="p">(</span><span class="n">pp</span><span class="p">,</span><span class="n">length</span><span class="p">)</span><span class="o">&gt;</span><span class="m">0</span><span class="p">]</span>
+<span class="nf">ggsave</span><span class="p">(</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="nf">paste</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">),</span><span class="n">collapse</span> <span class="o">=</span> <span class="s">&quot;_&quot;</span><span class="p">),</span><span class="s">&quot;.pdf&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span>
+  <span class="n">plot</span> <span class="o">=</span> <span class="nf">marrangeGrob</span><span class="p">(</span><span class="n">pp</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">1</span><span class="p">),</span>
+  <span class="n">width</span> <span class="o">=</span> <span class="m">12</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="m">8</span>
+<span class="p">)</span>
+
+<span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">pdfFiles</span><span class="p">)){</span>
+  <span class="nf">write.table</span><span class="p">(</span><span class="n">pdfFiles</span><span class="p">,</span><span class="nf">paste</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="nf">paste</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">query</span><span class="p">),</span><span class="n">collapse</span> <span class="o">=</span> <span class="s">&quot;_&quot;</span><span class="p">),</span><span class="s">&quot;.txt&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">),</span><span class="n">row.names</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span><span class="n">col.names</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span><span class="n">quote</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="output">
+<h2><a class="toc-backref" href="#id3">Output</a><a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
+<section id="information">
+<h3><a class="toc-backref" href="#id4">Information</a><a class="headerlink" href="#information" title="Permalink to this heading"></a></h3>
+<p>Result with <code class="docutils literal notranslate"><span class="pre">_gprofiler.csv</span></code> suffix is the final functional enrichment result.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
+$ tree -L <span class="m">1</span>
+.
+├── Day4_com_gprofiler.csv
+├── Day4_com_gprofiler.pdf
+├── Day4_com.pdf
+├── Day4_com_top10_REAC_bubble.pdf
+├── Day4_com_top12GO_CC_BP_MF_bubble.pdf
+└── Day4_com.txt
+
+<span class="m">0</span> directories, <span class="m">6</span> files
+</pre></div>
+</div>
+</section>
+<section id="diagram">
+<h3><a class="toc-backref" href="#id5">Diagram</a><a class="headerlink" href="#diagram" title="Permalink to this heading"></a></h3>
+<p>File with suffix <code class="docutils literal notranslate"><span class="pre">_gprofiler.pdf</span></code> is a gprofiler graphical summary of Ψ-sites functional enrichment on input gene id.</p>
+<img alt="../_images/Functional_Enrichment_gprofiler.png" src="../_images/Functional_Enrichment_gprofiler.png" />
+<p>File with suffix <code class="docutils literal notranslate"><span class="pre">_top10_REAC_bubble.pdf</span></code> is a bubble plot of Ψ-sites functional enrichment on input gene id.</p>
+<img alt="../_images/Functional_Enrichment_REAC_bubble.png" src="../_images/Functional_Enrichment_REAC_bubble.png" />
+<p>File with suffix <code class="docutils literal notranslate"><span class="pre">_top12GO_CC_BP_MF_bubble.pdf</span></code> is a bubble plot of Ψ-sites functional enrichment on input gene id.</p>
+<img alt="../_images/Functional_Enrichment_GO_bubble.png" src="../_images/Functional_Enrichment_GO_bubble.png" />
+<p>File with suffix <code class="docutils literal notranslate"><span class="pre">_pathview.pdf</span></code> is a KEGG pathway summary plot of Ψ-sites functional enrichment on input gene id.</p>
+<img alt="../_images/Functional_Enrichment_pathview.png" src="../_images/Functional_Enrichment_pathview.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All user input will be recorded in a plain text file with suffix <code class="docutils literal notranslate"><span class="pre">_pseUfun_config.txt</span></code> in psiFinder/config and help users to easily reload the previous config (by simply clicking <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> button).</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%CE%A8-sites%20Differential%20Modification.html" class="btn btn-neutral float-left" title="Ψ-sites Differential Modification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="snakemake%20pipline.html" class="btn btn-neutral float-right" title="snakemake pipline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, chenzhr23.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
