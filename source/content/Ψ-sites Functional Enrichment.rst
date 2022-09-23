@@ -155,6 +155,8 @@ Once click ``START``, psiFindeer will run ``pseUfun.sh`` and ``pseUfun.r``.
 
 .. code:: R
 
+    #!/usr/bin/env Rscript
+
     suppressMessages(library("gprofiler2"))
     suppressMessages(library("gridExtra"))
     suppressMessages(library("RColorBrewer"))

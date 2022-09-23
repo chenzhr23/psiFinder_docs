@@ -9,7 +9,9 @@ psiFinder ``Transcripts Alignment`` utilized `STAR <https://physiology.med.corne
 -  ``Generating genome indexes``
 -  ``Running mapping jobs``
 
-Once click ``BUILD``, then psiFinder will run ``2.0_STAR_index.sh``.
+.. image:: /images/Transcripts_Alignment.png
+
+Once click ``BUILD``, then psiFinder will run ``2.0_STAR_index.sh`` to generate genome indexes.
 
 .. code:: bash
 
@@ -84,10 +86,7 @@ Once click ``BUILD``, then psiFinder will run ``2.0_STAR_index.sh``.
     echo star indexing end
 
 
-Once click ``START``, then psiFinder will run ``2.1_STAR_align.sh``.
-
-.. image:: /images/Transcripts_Alignment.png
-
+Once click ``START``, then psiFinder will run ``2.1_STAR_align.sh`` to run mapping jobs.
 
 Input
 *************************

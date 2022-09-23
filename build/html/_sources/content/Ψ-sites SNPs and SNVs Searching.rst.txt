@@ -12,7 +12,7 @@ Input
 ------
 Users should choose to upload files (i.e. rtsSeeker result) in bed format, SNPs/SNVs reference annotation in bed format, and genome fasta file, to search SNPs/SNVs around Ψ-sites.
 
-Predict Ψ-sites miRNA target
+Search Ψ-sites SNPs/SNVs
 ---------------------------------------------
 Once click ``START``, psiFindeer will run ``SNPSNVsearch.sh``. `bedtools <https://buildmedia.readthedocs.org/media/pdf/bedtools/latest/bedtools.pdf>`_ will firstly extend the sequence of the input sites to 21 nt length long (with ``_win21.bed`` suffix), then run ``bedtools intersect`` based on the extended sequence file and the input SNPs/SNVs annotation file.
 

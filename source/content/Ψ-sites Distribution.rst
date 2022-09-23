@@ -64,8 +64,16 @@ Once click ``START``, psiFindeer will run ``metagene.sh``.
         echo "genePredfile exist"
         fi
         echo "generate metagene annotation bed"
-        echo -e "perl $(dirname "$0")/make_annot_bed.pl --genomeDir ./script/genome/ --genePred ${gtf%.gtf}.genePred > ${gtf%.gtf}_annot.bed"
-        perl $(dirname "$0")/make_annot_bed.pl --genomeDir ./script/genome/ --genePred ${gtf%.gtf}.genePred > ${gtf%.gtf}_annot.bed
+        if [ -d "$(dirname ${gtf%.gtf})/genome" ]
+        then
+        echo "generate $(dirname ${gtf%.gtf})/genome directory"
+        rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/ $(dirname ${gtf%.gtf})/genome
+        gunzip $(dirname ${gtf%.gtf})/genome/*.fa.gz
+        else
+        echo "$(dirname ${gtf%.gtf})/genome directory exist"
+        fi
+        echo -e "perl $(dirname "$0")/make_annot_bed.pl --genomeDir $(dirname ${gtf%.gtf})/genome/ --genePred ${gtf%.gtf}.genePred > ${gtf%.gtf}_annot.bed"
+        perl $(dirname "$0")/make_annot_bed.pl --genomeDir $(dirname ${gtf%.gtf})/genome/ --genePred ${gtf%.gtf}.genePred > ${gtf%.gtf}_annot.bed
 
         bedtools sort -i ${gtf%.gtf}_annot.bed > ${gtf%.gtf}_annot_sorted.bed
         rm ${gtf%.gtf}_annot.bed
@@ -86,6 +94,19 @@ Once click ``START``, psiFindeer will run ``metagene.sh``.
 
     echo "metagene plot end"
     echo -e "metagene result in ./$(dirname ${bedfile%.bed})"
+
+
+make_annot_bed.pl creates a master annotation file (bed format) of every nucleotide in the transcriptome. The script is supplied with the locations of the genome directory (``genome/``) and the gene prediction table (``hg38_gencode.genePred``):
+
+.. code:: perl
+
+    perl make_annot_bed.pl --genomeDir genome/ --genePred hg38_gencode.genePred > hg38_annot.bed
+
+The ``genome/`` can be downloaded from `UCSC chromosomes directory <https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/>`_. Automaticall, if ``genome/`` not exist in the same path of the input annotation gtf file, then ``metagene.sh`` will download it:
+
+.. code:: bash
+
+    rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/ $(dirname ${gtf%.gtf})/genome/
 
 ``metagene.r``
 
@@ -218,6 +239,41 @@ Output
 
 Information
 ************
+
+In the same directory of the input annotation gtf file, following prerequisite files will be outputed first:
+
+.. code:: bash
+
+    $ cd psiFinder/snakemake/script/metagene
+
+    $ tree -L 1
+    .
+    ├── annotate_bed_file.pl
+    ├── gencode.v32.chr_patch_hapl_scaff.annotation_annot_sorted.bed
+    ├── gencode.v32.chr_patch_hapl_scaff.annotation.genePred
+    ├── gencode.v32.chr_patch_hapl_scaff.annotation.gtf
+    ├── gencode.v32.chr_patch_hapl_scaff.annotation_region_sizes.txt
+    ├── genome
+    ├── make_annot_bed.pl
+    ├── metagene.r
+    ├── metagene.sh
+    ├── rel_and_abs_dist_calc.pl
+    └── size_of_cds_utrs.pl
+
+    1 directory, 10 files
+
+    $ du -h *
+    4.0K    annotate_bed_file.pl
+    21G     gencode.v32.chr_patch_hapl_scaff.annotation_annot_sorted.bed
+    50M     gencode.v32.chr_patch_hapl_scaff.annotation.genePred
+    1.4G    gencode.v32.chr_patch_hapl_scaff.annotation.gtf
+    11M     gencode.v32.chr_patch_hapl_scaff.annotation_region_sizes.txt
+    3.1G    genome
+    4.0K    make_annot_bed.pl
+    8.0K    metagene.r
+    4.0K    metagene.sh
+    4.0K    rel_and_abs_dist_calc.pl
+    4.0K    size_of_cds_utrs.pl
 
 Result with ``_pseudoU.dist.uniq.txt`` suffix is the final MetaGene result.
 

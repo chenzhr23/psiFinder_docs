@@ -64,7 +64,16 @@ Once click ``START``, psiFindeer will run ``codon_preference.sh``.
         echo "genePredfile exist"
         fi
         echo "generate metagene annotation bed"
-        perl $(dirname "$0")/make_annot_bed.pl --genomeDir ${genome%.fa}_metagene --genePred ${gtf%.gtf}.genePred > ${gtf%.gtf}_annot.bed
+        echo "generate metagene annotation bed"
+        if [ -d "$(dirname ${gtf%.gtf})/genome" ]
+        then
+        echo "generate $(dirname ${gtf%.gtf})/genome directory"
+        rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/ $(dirname ${gtf%.gtf})/genome
+        gunzip $(dirname ${gtf%.gtf})/genome/*.fa.gz
+        else
+        echo "$(dirname ${gtf%.gtf})/genome directory exist"
+        fi
+        perl $(dirname "$0")/make_annot_bed.pl --genomeDir $(dirname ${gtf%.gtf})/genome/ --genePred ${gtf%.gtf}.genePred > ${gtf%.gtf}_annot.bed
         bedtools sort -i ${gtf%.gtf}_annot.bed > ${gtf%.gtf}_annot_sorted.bed
         rm ${gtf%.gtf}_annot.bed
         echo "generate region sizes data"
@@ -87,6 +96,7 @@ Once click ``START``, psiFindeer will run ``codon_preference.sh``.
     mupdf-x11 ${bedfile%.bed}_codon_preference.pdf &> /dev/null
 
     echo "codon_preference plot end"
+
 
 ``codon_preference.r``
 
@@ -176,6 +186,41 @@ Output
 
 Information
 ************
+
+In the same directory of the input annotation gtf file, following prerequisite files will be outputed first:
+
+.. code:: bash
+
+    $ cd psiFinder/snakemake/script/metagene
+
+    $ tree -L 1
+    .
+    ├── annotate_bed_file.pl
+    ├── gencode.v32.chr_patch_hapl_scaff.annotation_annot_sorted.bed
+    ├── gencode.v32.chr_patch_hapl_scaff.annotation.genePred
+    ├── gencode.v32.chr_patch_hapl_scaff.annotation.gtf
+    ├── gencode.v32.chr_patch_hapl_scaff.annotation_region_sizes.txt
+    ├── genome
+    ├── make_annot_bed.pl
+    ├── metagene.r
+    ├── metagene.sh
+    ├── rel_and_abs_dist_calc.pl
+    └── size_of_cds_utrs.pl
+
+    1 directory, 10 files
+
+    $ du -h *
+    4.0K    annotate_bed_file.pl
+    21G     gencode.v32.chr_patch_hapl_scaff.annotation_annot_sorted.bed
+    50M     gencode.v32.chr_patch_hapl_scaff.annotation.genePred
+    1.4G    gencode.v32.chr_patch_hapl_scaff.annotation.gtf
+    11M     gencode.v32.chr_patch_hapl_scaff.annotation_region_sizes.txt
+    3.1G    genome
+    4.0K    make_annot_bed.pl
+    8.0K    metagene.r
+    4.0K    metagene.sh
+    4.0K    rel_and_abs_dist_calc.pl
+    4.0K    size_of_cds_utrs.pl
 
 Result with ``_codon_preference.txt`` suffix is the final CodonPre result.
 

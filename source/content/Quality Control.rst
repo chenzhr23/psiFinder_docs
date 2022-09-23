@@ -33,3 +33,4 @@ Results in fastq fromat (with ``.trimmed.fastq`` suffix) will be output to the t
 
 .. note:: All user input will be recorded in a plain text file with suffix ``_cutadapt_SE_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
 
+.. note:: Files with ``_statistics.txt`` suffix is the summary statistics of corresponding trimmed input files.
