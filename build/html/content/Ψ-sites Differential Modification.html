@@ -1,105 +1,44 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ψ-sites Differential Modification &mdash; psiFinder v1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-    <script src="../_static/js/theme.js"></script>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Ψ-sites Differential Modification &#8212; psiFinder v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/haiku.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Ψ-sites Functional Enrichment" href="%CE%A8-sites%20Functional%20Enrichment.html" />
     <link rel="prev" title="Ψ-sites SNPs and SNVs Searching" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> psiFinder
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Quality%20Control.html">Quality Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transcripts%20Alignment.html">Transcripts Alignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Identification.html">Ψ-sites Identification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Distribution.html">Ψ-sites Distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Codon%20Preference.html">Ψ-sites Codon Preference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html">Ψ-sites snoRNA Target Prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20miRNA%20Target%20Prediction.html">Ψ-sites miRNA Target Prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html">Ψ-sites and snoRNA Interaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Motif%20Searching.html">Ψ-sites Motif Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Ψ-sites Differential Modification</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#input">Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#compare-sites-modification-abundance">Compare Ψ-sites modification abundance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#up-log2fc">up-log2FC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#down-log2fc">down-log2FC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#p-value">P.Value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#min-fold">min-fold</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#output">Output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#information">Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#diagram">Diagram</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="snakemake%20pipline.html">snakemake pipline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Accessory%20Tools.html">Accessory Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
-</ul>
-
-        </div>
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>psiFinder v1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>Ψ-sites Differential Modification</span></h2>
       </div>
-    </nav>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a>&#160;&#160;»
+        </p>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">psiFinder</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Ψ-sites Differential Modification</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/content/Ψ-sites Differential Modification.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+      </div>
+      <div class="content" role="main">
+        
+        
   <section id="sites-differential-modification">
-<h1>Ψ-sites Differential Modification<a class="headerlink" href="#sites-differential-modification" title="Permalink to this heading"></a></h1>
+<h1>Ψ-sites Differential Modification<a class="headerlink" href="#sites-differential-modification" title="Permalink to this heading">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#input" id="id1">Input</a></p></li>
@@ -123,7 +62,7 @@
 <p>psiFinder <code class="docutils literal notranslate"><span class="pre">Ψ-sites</span> <span class="pre">Differential</span> <span class="pre">Modification</span></code> utilize <a class="reference external" href="https://www.bioconductor.org/packages/devel/bioc/vignettes/limma/inst/doc/usersguide.pdf">limma</a> to generate result for Ψ-sites differential modification based on <code class="docutils literal notranslate"><span class="pre">stopRatioFC</span></code> of input rtsSeeker result files.</p>
 <img alt="../_images/Differential_Modification.png" src="../_images/Differential_Modification.png" />
 <section id="input">
-<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading">¶</a></h2>
 <p>Users should choose to upload files (i.e. rtsSeeker result with <code class="docutils literal notranslate"><span class="pre">_all.bed</span></code> suffix) to <code class="docutils literal notranslate"><span class="pre">pseUdiff</span></code> QT widget in bed format, , to construct Ψ-sites differential modification comparison.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -131,7 +70,7 @@
 </div>
 </section>
 <section id="compare-sites-modification-abundance">
-<h2><a class="toc-backref" href="#id2">Compare Ψ-sites modification abundance</a><a class="headerlink" href="#compare-sites-modification-abundance" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2">Compare Ψ-sites modification abundance</a><a class="headerlink" href="#compare-sites-modification-abundance" title="Permalink to this heading">¶</a></h2>
 <p>Once click <code class="docutils literal notranslate"><span class="pre">START</span></code>, psiFindeer will run <code class="docutils literal notranslate"><span class="pre">pseUdiff.sh</span></code>, <code class="docutils literal notranslate"><span class="pre">pseUdiff.r</span></code>, <code class="docutils literal notranslate"><span class="pre">limma_bed_annotation.sh</span></code>, and <code class="docutils literal notranslate"><span class="pre">limma_remove_redundancy.r</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pseUdiff.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
@@ -872,28 +811,28 @@ mupdf-x11 <span class="si">${</span><span class="nv">bedfile</span><span class="
 </div>
 </section>
 <section id="optional-parameters">
-<h2><a class="toc-backref" href="#id3">Optional Parameters</a><a class="headerlink" href="#optional-parameters" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3">Optional Parameters</a><a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
 <section id="up-log2fc">
-<h3><a class="toc-backref" href="#id4">up-log2FC</a><a class="headerlink" href="#up-log2fc" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id4">up-log2FC</a><a class="headerlink" href="#up-log2fc" title="Permalink to this heading">¶</a></h3>
 <p>Users can customize the up-regulated fold change threshold by setting <code class="docutils literal notranslate"><span class="pre">up-log2FC</span></code>, for example, if <code class="docutils literal notranslate"><span class="pre">up-log2FC</span></code> is set as <code class="docutils literal notranslate"><span class="pre">1.00</span></code>, then result with log2(fold change) &gt; 1.00 is retained.</p>
 </section>
 <section id="down-log2fc">
-<h3><a class="toc-backref" href="#id5">down-log2FC</a><a class="headerlink" href="#down-log2fc" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5">down-log2FC</a><a class="headerlink" href="#down-log2fc" title="Permalink to this heading">¶</a></h3>
 <p>Users can customize the down-regulated fold change threshold by setting <code class="docutils literal notranslate"><span class="pre">down-log2FC</span></code>, for example, if <code class="docutils literal notranslate"><span class="pre">down-log2FC</span></code> is set as <code class="docutils literal notranslate"><span class="pre">-1.00</span></code>, then result with log2(fold change) &lt; -1.00 is retained.</p>
 </section>
 <section id="p-value">
-<h3><a class="toc-backref" href="#id6">P.Value</a><a class="headerlink" href="#p-value" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6">P.Value</a><a class="headerlink" href="#p-value" title="Permalink to this heading">¶</a></h3>
 <p>Users can customize the statistical test threshold by setting <code class="docutils literal notranslate"><span class="pre">P.Value</span></code>, for example, if <code class="docutils literal notranslate"><span class="pre">P.Value</span></code> is set as <code class="docutils literal notranslate"><span class="pre">0.05</span></code>, then result with p value &lt; 0.05 is retained.</p>
 </section>
 <section id="min-fold">
-<h3><a class="toc-backref" href="#id7">min-fold</a><a class="headerlink" href="#min-fold" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7">min-fold</a><a class="headerlink" href="#min-fold" title="Permalink to this heading">¶</a></h3>
 <p>Users can customize the minimum stopRatioFC threshold of each group by setting <code class="docutils literal notranslate"><span class="pre">min-fold</span></code>, for example, if <code class="docutils literal notranslate"><span class="pre">min-fold</span></code> is set as <code class="docutils literal notranslate"><span class="pre">2.00</span></code>, then result with minimum <code class="docutils literal notranslate"><span class="pre">stopRatioFC</span> <span class="pre">&gt;</span> <span class="pre">2.00</span></code> (each sample) is retained.</p>
 </section>
 </section>
 <section id="output">
-<h2><a class="toc-backref" href="#id8">Output</a><a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8">Output</a><a class="headerlink" href="#output" title="Permalink to this heading">¶</a></h2>
 <section id="information">
-<h3><a class="toc-backref" href="#id9">Information</a><a class="headerlink" href="#information" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9">Information</a><a class="headerlink" href="#information" title="Permalink to this heading">¶</a></h3>
 <p>Result with <code class="docutils literal notranslate"><span class="pre">_group_redundance_high_confid.xlsx</span></code> suffix is the final differential modification result, which is a filter result of <code class="docutils literal notranslate"><span class="pre">_group_redundance.xlsx</span></code> (filter by <code class="docutils literal notranslate"><span class="pre">Optional</span> <span class="pre">Parameters</span></code>).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
 $ tree -L <span class="m">1</span>
@@ -936,7 +875,7 @@ $ tree -L <span class="m">1</span>
 </div>
 </section>
 <section id="diagram">
-<h3><a class="toc-backref" href="#id10">Diagram</a><a class="headerlink" href="#diagram" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id10">Diagram</a><a class="headerlink" href="#diagram" title="Permalink to this heading">¶</a></h3>
 <p>File with suffix <code class="docutils literal notranslate"><span class="pre">_volcano_plot.pdf</span></code> is a volcano plot of Ψ-sites differential modification on input Ψ-sites file (rtsSeeker result).</p>
 <img alt="../_images/Differential_Modification_volcano_plot.png" src="../_images/Differential_Modification_volcano_plot.png" />
 <div class="admonition note">
@@ -948,34 +887,22 @@ $ tree -L <span class="m">1</span>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html" class="btn btn-neutral float-left" title="Ψ-sites SNPs and SNVs Searching" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="%CE%A8-sites%20Functional%20Enrichment.html" class="btn btn-neutral float-right" title="Ψ-sites Functional Enrichment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, chenzhr23.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a>&#160;&#160;»
+        </p>
 
-</body>
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, chenzhr23.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+  </body>
 </html>

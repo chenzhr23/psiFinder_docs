@@ -25,7 +25,7 @@ Data upload
 Users should ``browse`` and locate `fastq|fasta fastq.gz/fasta.gz fq/fa fq.gz/fa.gz` file for both CMC-input and CMC-treated samples.
 
 -  If ``Barcode removal`` is checked, it will enable 5'/3' barcode setting, remove ``LENGTH`` (`cutadapt <https://cutadapt.readthedocs.io/en/stable/guide.html>`_) bases from reads.
--  If ``Adapter removal`` is checked, it will enable 5'/3' adapter setting, sequence of an adapter ligated to the 5'/3' end will be trimmed.
+-  If ``Adapter removal`` is checked, it will enable 5'/3' adapter setting, sequence of an adapter ligated to the 5'/3' end will be cutadapt.
 
 Basic analyses
 **************
@@ -273,21 +273,21 @@ Once click ``START``, psiFindeer will firstly run ``cp_unzip.sh`` to unzip and r
     echo -e "ad_remove_input:${quickstart_array[41]}"
     if [[ "${quickstart_array[41]}" =~ "true"  ]] ;
     then
-        echo -e "Getting input trimmed fastq...\n"
-        snakemake -s snakemake/Snakefile --cores 8 snakemake/trimmed/input/"${input}".fastq
+        echo -e "Getting input cutadapt fastq...\n"
+        snakemake -s snakemake/Snakefile --cores 8 snakemake/cutadapt/input/"${input}".fastq
     else
-        echo -e "Moving input trimmed fastq...\n"
-        mv snakemake/reads/input/"${input}".fastq snakemake/trimmed/input
+        echo -e "Moving input cutadapt fastq...\n"
+        mv snakemake/reads/input/"${input}".fastq snakemake/cutadapt/input
     fi
 
     echo -e "ad_remove_treat:${quickstart_array[43]}"
     if [[ "${quickstart_array[43]}" =~ "true"  ]] ;
     then
-        echo -e "Getting treat trimmed fastq...\n"
-        snakemake -s snakemake/Snakefile --cores 8 snakemake/trimmed/treat/"${treat}".fastq
+        echo -e "Getting treat cutadapt fastq...\n"
+        snakemake -s snakemake/Snakefile --cores 8 snakemake/cutadapt/treat/"${treat}".fastq
     else
-        echo -e "Moving treat trimmed fastq...\n"
-        mv snakemake/reads/treat/"${treat}".fastq snakemake/trimmed/treat
+        echo -e "Moving treat cutadapt fastq...\n"
+        mv snakemake/reads/treat/"${treat}".fastq snakemake/cutadapt/treat
     fi
 
     #STAR-index
@@ -415,7 +415,7 @@ snakemake result are output to specific directory where psiFinder package is unz
     ├── script
     ├── Snakefile
     ├── star
-    └── trimmed
+    └── cutadapt
 
     7 directories, 3 files
 

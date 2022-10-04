@@ -10,7 +10,7 @@ psiFinder ``Ψ-sites SNPs and SNVs Searching`` was developed for searching Ψ-si
 
 Input
 ------
-Users should choose to upload files (i.e. rtsSeeker result) in bed format, SNPs/SNVs reference annotation in bed format, and genome fasta file, to search SNPs/SNVs around Ψ-sites.
+Users should choose to upload files (i.e. rtsSeeker result) in bed format, SNPs/SNVs reference annotation in bed format (`click me to download <https://mega.nz/fm/dWtxhQYB>`_), and genome fasta file, to search SNPs/SNVs around Ψ-sites.
 
 Search Ψ-sites SNPs/SNVs
 ---------------------------------------------

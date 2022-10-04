@@ -1,101 +1,44 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>snakemake pipline &mdash; psiFinder v1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-    <script src="../_static/js/theme.js"></script>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>snakemake pipline &#8212; psiFinder v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/haiku.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Accessory Tools" href="Accessory%20Tools.html" />
     <link rel="prev" title="Ψ-sites Functional Enrichment" href="%CE%A8-sites%20Functional%20Enrichment.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> psiFinder
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Quality%20Control.html">Quality Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transcripts%20Alignment.html">Transcripts Alignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Identification.html">Ψ-sites Identification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Distribution.html">Ψ-sites Distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Codon%20Preference.html">Ψ-sites Codon Preference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html">Ψ-sites snoRNA Target Prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20miRNA%20Target%20Prediction.html">Ψ-sites miRNA Target Prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html">Ψ-sites and snoRNA Interaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Motif%20Searching.html">Ψ-sites Motif Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Differential%20Modification.html">Ψ-sites Differential Modification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">snakemake pipline</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#input">Input</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#select-genome">Select Genome</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-upload">Data upload</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#basic-analyses">Basic analyses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mode-options">Mode options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filter-threshold">Filter threshold</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#snakemake-rules">snakemake rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Accessory%20Tools.html">Accessory Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
-</ul>
-
-        </div>
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>psiFinder v1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>snakemake pipline</span></h2>
       </div>
-    </nav>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Accessory%20Tools.html">Accessory Tools</a>&#160;&#160;»
+        </p>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">psiFinder</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>snakemake pipline</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/content/snakemake pipline.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+      </div>
+      <div class="content" role="main">
+        
+        
   <section id="snakemake-pipline">
-<h1>snakemake pipline<a class="headerlink" href="#snakemake-pipline" title="Permalink to this heading"></a></h1>
+<h1>snakemake pipline<a class="headerlink" href="#snakemake-pipline" title="Permalink to this heading">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#input" id="id1">Input</a></p>
@@ -114,34 +57,34 @@
 <p>For a quick start of Ψ-sites data analyses, we developed a snakemake pipline and designed corresponding QT widget for easy running.</p>
 <img alt="../_images/quickstart_snakemake.png" src="../_images/quickstart_snakemake.png" />
 <section id="input">
-<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading">¶</a></h2>
 <section id="select-genome">
-<h3><a class="toc-backref" href="#id2">Select Genome</a><a class="headerlink" href="#select-genome" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id2">Select Genome</a><a class="headerlink" href="#select-genome" title="Permalink to this heading">¶</a></h3>
 <p>Current version of psiFinder snakemake pipline mainly support <span class="red">Group: Mammal-&gt;Genome: Homo_sapiens-&gt;Assembly: hg38</span>, more support for other species will coming soon.</p>
 </section>
 <section id="data-upload">
-<h3><a class="toc-backref" href="#id3">Data upload</a><a class="headerlink" href="#data-upload" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id3">Data upload</a><a class="headerlink" href="#data-upload" title="Permalink to this heading">¶</a></h3>
 <p>Users should <code class="docutils literal notranslate"><span class="pre">browse</span></code> and locate <cite>fastq|fasta fastq.gz/fasta.gz fq/fa fq.gz/fa.gz</cite> file for both CMC-input and CMC-treated samples.</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">Barcode</span> <span class="pre">removal</span></code> is checked, it will enable 5’/3’ barcode setting, remove <code class="docutils literal notranslate"><span class="pre">LENGTH</span></code> (<a class="reference external" href="https://cutadapt.readthedocs.io/en/stable/guide.html">cutadapt</a>) bases from reads.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">Adapter</span> <span class="pre">removal</span></code> is checked, it will enable 5’/3’ adapter setting, sequence of an adapter ligated to the 5’/3’ end will be trimmed.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">Adapter</span> <span class="pre">removal</span></code> is checked, it will enable 5’/3’ adapter setting, sequence of an adapter ligated to the 5’/3’ end will be cutadapt.</p></li>
 </ul>
 </section>
 <section id="basic-analyses">
-<h3><a class="toc-backref" href="#id4">Basic analyses</a><a class="headerlink" href="#basic-analyses" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id4">Basic analyses</a><a class="headerlink" href="#basic-analyses" title="Permalink to this heading">¶</a></h3>
 <p>Current version of psiFinder snakemake pipline provides four basic analysis module of Ψ-sites: (1) identification; (2) annotation; (3) distribution; (4) snoRNA-guided target.</p>
 </section>
 <section id="mode-options">
-<h3><a class="toc-backref" href="#id5">Mode options</a><a class="headerlink" href="#mode-options" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5">Mode options</a><a class="headerlink" href="#mode-options" title="Permalink to this heading">¶</a></h3>
 <p>Different mode options are provided for selection on SVM/ANN/User-defined approaches.</p>
 </section>
 <section id="filter-threshold">
-<h3><a class="toc-backref" href="#id6">Filter threshold</a><a class="headerlink" href="#filter-threshold" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6">Filter threshold</a><a class="headerlink" href="#filter-threshold" title="Permalink to this heading">¶</a></h3>
 <p>If User-defined <code class="docutils literal notranslate"><span class="pre">Mode</span> <span class="pre">options</span></code> is checked, then <code class="docutils literal notranslate"><span class="pre">Filter</span> <span class="pre">thresholds</span></code> is enable to customize the threshold of the six key metrics.</p>
 </section>
 </section>
 <section id="snakemake-rules">
-<h2><a class="toc-backref" href="#id7">snakemake rules</a><a class="headerlink" href="#snakemake-rules" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7">snakemake rules</a><a class="headerlink" href="#snakemake-rules" title="Permalink to this heading">¶</a></h2>
 <p>Once click <code class="docutils literal notranslate"><span class="pre">START</span></code>, psiFindeer will firstly run <code class="docutils literal notranslate"><span class="pre">cp_unzip.sh</span></code> to unzip and redirect the input sequencing reads files. Then, <code class="docutils literal notranslate"><span class="pre">psiFinder.sh</span></code> will be secondly run to apply snakemake rules selected by <code class="docutils literal notranslate"><span class="pre">quickstart_config.yml</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cp_unzip.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
@@ -366,21 +309,21 @@ exit_abnormal<span class="o">()</span> <span class="o">{</span>                 
 <span class="nb">echo</span> -e <span class="s2">&quot;ad_remove_input:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[41]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[41]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting input trimmed fastq...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/trimmed/input/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>.fastq
+    <span class="nb">echo</span> -e <span class="s2">&quot;Getting input cutadapt fastq...\n&quot;</span>
+    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/cutadapt/input/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>.fastq
 <span class="k">else</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Moving input trimmed fastq...\n&quot;</span>
-    mv snakemake/reads/input/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>.fastq snakemake/trimmed/input
+    <span class="nb">echo</span> -e <span class="s2">&quot;Moving input cutadapt fastq...\n&quot;</span>
+    mv snakemake/reads/input/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>.fastq snakemake/cutadapt/input
 <span class="k">fi</span>
 
 <span class="nb">echo</span> -e <span class="s2">&quot;ad_remove_treat:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[43]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[43]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting treat trimmed fastq...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/trimmed/treat/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.fastq
+    <span class="nb">echo</span> -e <span class="s2">&quot;Getting treat cutadapt fastq...\n&quot;</span>
+    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/cutadapt/treat/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.fastq
 <span class="k">else</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Moving treat trimmed fastq...\n&quot;</span>
-    mv snakemake/reads/treat/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.fastq snakemake/trimmed/treat
+    <span class="nb">echo</span> -e <span class="s2">&quot;Moving treat cutadapt fastq...\n&quot;</span>
+    mv snakemake/reads/treat/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.fastq snakemake/cutadapt/treat
 <span class="k">fi</span>
 
 <span class="c1">#STAR-index</span>
@@ -490,7 +433,7 @@ treatstoprate_thres: <span class="s2">&quot;0&quot;</span>
 </div>
 </section>
 <section id="output">
-<h2><a class="toc-backref" href="#id8">Output</a><a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8">Output</a><a class="headerlink" href="#output" title="Permalink to this heading">¶</a></h2>
 <p>snakemake result are output to specific directory where psiFinder package is unziped.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/psiFinder/snakemake/
 $ tree -L <span class="m">1</span>
@@ -504,7 +447,7 @@ $ tree -L <span class="m">1</span>
 ├── script
 ├── Snakefile
 ├── star
-└── trimmed
+└── cutadapt
 
 <span class="m">7</span> directories, <span class="m">3</span> files
 
@@ -530,34 +473,22 @@ $ tree -L <span class="m">1</span>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="%CE%A8-sites%20Functional%20Enrichment.html" class="btn btn-neutral float-left" title="Ψ-sites Functional Enrichment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Accessory%20Tools.html" class="btn btn-neutral float-right" title="Accessory Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, chenzhr23.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Accessory%20Tools.html">Accessory Tools</a>&#160;&#160;»
+        </p>
 
-</body>
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, chenzhr23.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+  </body>
 </html>

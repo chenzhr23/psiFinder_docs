@@ -21,8 +21,14 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-# html_theme = 'alabaster'
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinxdoc' #nice
+# html_theme = 'pyramid' #nice
+# html_theme = 'nature' #nice
+html_theme = 'haiku' #nice
+# html_theme = 'classic' #nice
+# html_theme = 'bizstyle' #nice
+# html_theme = 'alabaster' #nice
+
 
 # For md files
 source_suffix = {

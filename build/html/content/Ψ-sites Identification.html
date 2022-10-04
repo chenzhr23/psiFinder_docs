@@ -1,117 +1,44 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ψ-sites Identification &mdash; psiFinder v1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-    <script src="../_static/js/theme.js"></script>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Ψ-sites Identification &#8212; psiFinder v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/haiku.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Ψ-sites Annotation" href="%CE%A8-sites%20Annotation.html" />
     <link rel="prev" title="Transcripts Alignment" href="Transcripts%20Alignment.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> psiFinder
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Quality%20Control.html">Quality Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transcripts%20Alignment.html">Transcripts Alignment</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Ψ-sites Identification</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#input">Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#optional">Optional</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#customize-rtsseeker-argument">customize rtsSeeker argument</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#get-all-psi-information">get all psi information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#plot-roc">plot ROC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#search-psi-sites">search psi sites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#skip-read-with-soft-clip">skip read with soft clip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#normalized-reads-to-the-locus-number">normalized reads to the locus number</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#keep-duplication">keep duplication</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#detail">Detail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#identify-sites-using-different-approaches">Identify Ψ-sites using different approaches</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#svm-support-vector-machine">(1) SVM: Support Vector Machine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ann-artificial-neural-network">(2) ANN: Artificial Neural Network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#roc-receiver-operating-characteristic">(3) ROC: Receiver Operating Characteristic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#user-defined-customize-key-thresholds">(4) User-defined: Customize key thresholds</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#output">Output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rtsseeker-result">rtsSeeker result</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#roc-evaluation">ROC evaluation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#model-building">Model Building</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#model-prediction">Model Prediction</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Distribution.html">Ψ-sites Distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Codon%20Preference.html">Ψ-sites Codon Preference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html">Ψ-sites snoRNA Target Prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20miRNA%20Target%20Prediction.html">Ψ-sites miRNA Target Prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html">Ψ-sites and snoRNA Interaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Motif%20Searching.html">Ψ-sites Motif Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Differential%20Modification.html">Ψ-sites Differential Modification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="snakemake%20pipline.html">snakemake pipline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Accessory%20Tools.html">Accessory Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
-</ul>
-
-        </div>
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>psiFinder v1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>Ψ-sites Identification</span></h2>
       </div>
-    </nav>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="Transcripts%20Alignment.html">Transcripts Alignment</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a>&#160;&#160;»
+        </p>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">psiFinder</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Ψ-sites Identification</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/content/Ψ-sites Identification.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+      </div>
+      <div class="content" role="main">
+        
+        
   <section id="sites-identification">
-<h1>Ψ-sites Identification<a class="headerlink" href="#sites-identification" title="Permalink to this heading"></a></h1>
+<h1>Ψ-sites Identification<a class="headerlink" href="#sites-identification" title="Permalink to this heading">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#input" id="id1">Input</a></p></li>
@@ -149,20 +76,16 @@
 <img alt="../_images/Identification.png" src="../_images/Identification.png" />
 <p>To build rRNA datasets for overall Ψ identification, we first download files from three databases: Modomics, snOPY, and snoRNABase. Since human 5.8s rRNA (chr21:8212571-8212727), 18s rRNA (chr21:8209631-8211499), and 28s rRNA (chr21:8213888-8218941) have multiple copies in the genome, we extracted one of the copies for subsequent analyses. We calculate and gain the relative position of Ψ sites on each rRNA. Centering on these sites and extending 10 nt of upstream and downstream, we then extract 21 nt sequences in bulk and map them to human genome (-v 0 -a -m 1000 –best –strata) using bowtie. A total of 96 Ψ sites were obtained in the above copy and used as a positive subset of the dataset to perform ROC evaluation or SVM modeling. Meanwhile, using bedtools (v2.30.0) intersect tools (-v -s), the sites that were identified as not Ψ sites were extracted from the above copy and used as a negative subset of the dataset.</p>
 <img alt="../_images/identification_rtsSeeker_workflow.svg" src="../_images/identification_rtsSeeker_workflow.svg" /><section id="input">
-<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading">¶</a></h2>
 <p>Users should choose to upload files in bam format for both CMC-input and CMC-treated groups. Upload reference genome file in fasta format and set the output path of directory. Input the file name for the output information (i.e. file name with <code class="docutils literal notranslate"><span class="pre">.bed</span></code> suffix).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>STAR input/treat alignment Uniquely mapped reads % should be greater than 30%, or the rtsSeeker may fail to calculate the valid information.</p>
-</div>
 <p>To set the output path of directory, users can right click in the pop up file chooser (click <code class="docutils literal notranslate"><span class="pre">browse</span></code>) of <code class="docutils literal notranslate"><span class="pre">Out</span> <span class="pre">file</span> <span class="pre">dir&lt;path&gt;</span></code></p>
 <img alt="../_images/newfolder.png" src="../_images/newfolder.png" />
 </section>
 <section id="optional">
-<h2><a class="toc-backref" href="#id2">Optional</a><a class="headerlink" href="#optional" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2">Optional</a><a class="headerlink" href="#optional" title="Permalink to this heading">¶</a></h2>
 <p>Multiple option are provided for rtsSeeker argument control.</p>
 <section id="customize-rtsseeker-argument">
-<h3><a class="toc-backref" href="#id3">customize rtsSeeker argument</a><a class="headerlink" href="#customize-rtsseeker-argument" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id3">customize rtsSeeker argument</a><a class="headerlink" href="#customize-rtsseeker-argument" title="Permalink to this heading">¶</a></h3>
 <p>if your want to customize the rtsSeeker argument, do not check <span class="red">get all psi information</span> or check <span class="red">plot ROC</span> option. Once <code class="docutils literal notranslate"><span class="pre">START</span></code>, psiFinder will run <code class="docutils literal notranslate"><span class="pre">3.0_rtsSeeker.sh</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">3.0_rtsSeeker.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -235,7 +158,7 @@ samtools faidx <span class="nv">$genome</span>
 </div>
 </section>
 <section id="get-all-psi-information">
-<h3><a class="toc-backref" href="#id4">get all psi information</a><a class="headerlink" href="#get-all-psi-information" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id4">get all psi information</a><a class="headerlink" href="#get-all-psi-information" title="Permalink to this heading">¶</a></h3>
 <p>If this option is checked, <code class="docutils literal notranslate"><span class="pre">Detail</span></code> argument input will be blocked and psiFinder will run <code class="docutils literal notranslate"><span class="pre">get_all.sh</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">get_all.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
@@ -269,7 +192,7 @@ awk <span class="s1">&#39;FS=OFS=&quot;\t&quot; {$25=sprintf(&quot;%.2f&quot;,$2
 </div>
 </section>
 <section id="plot-roc">
-<h3><a class="toc-backref" href="#id5">plot ROC</a><a class="headerlink" href="#plot-roc" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5">plot ROC</a><a class="headerlink" href="#plot-roc" title="Permalink to this heading">¶</a></h3>
 <p>If this option is checked, <code class="docutils literal notranslate"><span class="pre">Detail</span></code> argument input will be blocked and psiFinder will run <code class="docutils literal notranslate"><span class="pre">3.1_rtsSeeker_roc.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">roc.r</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">3.1_rtsSeeker_roc.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
@@ -920,24 +843,24 @@ mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span cla
 </div>
 </section>
 <section id="search-psi-sites">
-<h3><a class="toc-backref" href="#id6">search psi sites</a><a class="headerlink" href="#search-psi-sites" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6">search psi sites</a><a class="headerlink" href="#search-psi-sites" title="Permalink to this heading">¶</a></h3>
 <p>Correspond to rtsSeeker <code class="docutils literal notranslate"><span class="pre">-U/--psi</span></code> argument.</p>
 </section>
 <section id="skip-read-with-soft-clip">
-<h3><a class="toc-backref" href="#id7">skip read with soft clip</a><a class="headerlink" href="#skip-read-with-soft-clip" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7">skip read with soft clip</a><a class="headerlink" href="#skip-read-with-soft-clip" title="Permalink to this heading">¶</a></h3>
 <p>Default is false, correspond to rtsSeeker <code class="docutils literal notranslate"><span class="pre">-S/--soft</span></code> argument.</p>
 </section>
 <section id="normalized-reads-to-the-locus-number">
-<h3><a class="toc-backref" href="#id8">normalized reads to the locus number</a><a class="headerlink" href="#normalized-reads-to-the-locus-number" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id8">normalized reads to the locus number</a><a class="headerlink" href="#normalized-reads-to-the-locus-number" title="Permalink to this heading">¶</a></h3>
 <p>Correspond to rtsSeeker <code class="docutils literal notranslate"><span class="pre">-n/--norm</span></code> argument.</p>
 </section>
 <section id="keep-duplication">
-<h3><a class="toc-backref" href="#id9">keep duplication</a><a class="headerlink" href="#keep-duplication" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9">keep duplication</a><a class="headerlink" href="#keep-duplication" title="Permalink to this heading">¶</a></h3>
 <p>Default is false, correspond to rtsSeeker <code class="docutils literal notranslate"><span class="pre">-c/--collapser</span></code> argument.</p>
 </section>
 </section>
 <section id="detail">
-<h2><a class="toc-backref" href="#id10">Detail</a><a class="headerlink" href="#detail" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10">Detail</a><a class="headerlink" href="#detail" title="Permalink to this heading">¶</a></h2>
 <p>Detailed argume
 nt for <code class="docutils literal notranslate"><span class="pre">rtsSeeker</span></code> output information control.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Usage:  rtsSeeker <span class="o">[</span>options<span class="o">]</span> --fa &lt;genome seq&gt; --fai &lt;fai file&gt; --gene &lt;bed12 gene file&gt; --treat &lt;treat alignments&gt; --input &lt;input alignments&gt;
@@ -968,9 +891,9 @@ rtsSeeker: <span class="k">for</span> seeking the reverse transcriptase stop sit
 </div>
 </section>
 <section id="identify-sites-using-different-approaches">
-<h2><a class="toc-backref" href="#id11">Identify Ψ-sites using different approaches</a><a class="headerlink" href="#identify-sites-using-different-approaches" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id11">Identify Ψ-sites using different approaches</a><a class="headerlink" href="#identify-sites-using-different-approaches" title="Permalink to this heading">¶</a></h2>
 <section id="svm-support-vector-machine">
-<h3><a class="toc-backref" href="#id12">(1) SVM: Support Vector Machine</a><a class="headerlink" href="#svm-support-vector-machine" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id12">(1) SVM: Support Vector Machine</a><a class="headerlink" href="#svm-support-vector-machine" title="Permalink to this heading">¶</a></h3>
 <p>If <code class="docutils literal notranslate"><span class="pre">SVM</span></code> QT wideget is clicked and popouped:</p>
 <ul class="simple">
 <li><p>press <code class="docutils literal notranslate"><span class="pre">BUILD</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">svm.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">svm_build_totalRNA.r</span></code> to generate file with <code class="docutils literal notranslate"><span class="pre">_SVM_model.RData</span></code> suffix, which is the support vector model built by SVM algorithm.</p></li>
@@ -1676,7 +1599,7 @@ cat <span class="si">${</span><span class="nv">input</span><span class="p">%.bed
 </div>
 </section>
 <section id="ann-artificial-neural-network">
-<h3><a class="toc-backref" href="#id13">(2) ANN: Artificial Neural Network</a><a class="headerlink" href="#ann-artificial-neural-network" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id13">(2) ANN: Artificial Neural Network</a><a class="headerlink" href="#ann-artificial-neural-network" title="Permalink to this heading">¶</a></h3>
 <p>If <code class="docutils literal notranslate"><span class="pre">ANN</span></code> QT wideget is clicked and popouped:</p>
 <ul class="simple">
 <li><p>press <code class="docutils literal notranslate"><span class="pre">Build</span></code> buttor will run <code class="docutils literal notranslate"><span class="pre">ann.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">ann_build_totalRNA.r</span></code> to generate file with <code class="docutils literal notranslate"><span class="pre">_ANN_model.RData</span></code> suffix, which is the artifical neuralnet model (resilient backpropagation with weight backtracking, two layers, each 12 neuron).</p></li>
@@ -2362,11 +2285,11 @@ cat <span class="si">${</span><span class="nv">input</span><span class="p">%.bed
 </div>
 </section>
 <section id="roc-receiver-operating-characteristic">
-<h3><a class="toc-backref" href="#id14">(3) ROC: Receiver Operating Characteristic</a><a class="headerlink" href="#roc-receiver-operating-characteristic" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id14">(3) ROC: Receiver Operating Characteristic</a><a class="headerlink" href="#roc-receiver-operating-characteristic" title="Permalink to this heading">¶</a></h3>
 <p>If <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ROC</span></code> option is checked,  <code class="docutils literal notranslate"><span class="pre">3.1_rtsSeeker_roc.sh</span></code> will run <code class="docutils literal notranslate"><span class="pre">roc.r</span></code> to generate file with <code class="docutils literal notranslate"><span class="pre">_roc_psi_prediction.bed</span></code> suffix, which is the candidate Ψ-sites gained by ROC best threshold (determined by one of the six variables with the highest F1 score).</p>
 </section>
 <section id="user-defined-customize-key-thresholds">
-<h3><a class="toc-backref" href="#id15">(4) User-defined: Customize key thresholds</a><a class="headerlink" href="#user-defined-customize-key-thresholds" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15">(4) User-defined: Customize key thresholds</a><a class="headerlink" href="#user-defined-customize-key-thresholds" title="Permalink to this heading">¶</a></h3>
 <p>By user-defined thresholds with stringent statistical controls, psiFinder allows users to filter and preserve highly reliable true positive Ψ sites (expertise of threshold determination is needed).</p>
 <p>Once click <code class="docutils literal notranslate"><span class="pre">FILT</span></code>, <code class="docutils literal notranslate"><span class="pre">User-defined</span></code> QT widget will run <code class="docutils literal notranslate"><span class="pre">user_defined.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">user_defined_evaluation.r</span></code></p>
 <img alt="../_images/User-defined.png" src="../_images/User-defined.png" />
@@ -2767,9 +2690,9 @@ mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span cla
 </section>
 </section>
 <section id="output">
-<h2><a class="toc-backref" href="#id16">Output</a><a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id16">Output</a><a class="headerlink" href="#output" title="Permalink to this heading">¶</a></h2>
 <section id="rtsseeker-result">
-<h3><a class="toc-backref" href="#id17">rtsSeeker result</a><a class="headerlink" href="#rtsseeker-result" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id17">rtsSeeker result</a><a class="headerlink" href="#rtsseeker-result" title="Permalink to this heading">¶</a></h3>
 <p>rtsSeeker result will be well-organized as a bed file with 36 <code class="docutils literal notranslate"><span class="pre">(-M</span> <span class="pre">0)</span></code> or 39 <code class="docutils literal notranslate"><span class="pre">(-M</span> <span class="pre">1)</span></code> column.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#run with -M 0, rtsSeeker will output below file information</span>
 <span class="c1">##column description</span>
@@ -2855,7 +2778,7 @@ mupdf-x11 <span class="si">${</span><span class="nv">outFileName</span><span cla
 </div>
 </section>
 <section id="roc-evaluation">
-<h3><a class="toc-backref" href="#id18">ROC evaluation</a><a class="headerlink" href="#roc-evaluation" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id18">ROC evaluation</a><a class="headerlink" href="#roc-evaluation" title="Permalink to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ROC</span></code> function return information and plot for ROC evaluation. File with <code class="docutils literal notranslate"><span class="pre">_roc_psi_prediction.bed</span></code> suffix is the filter result by the best ROC threshold (with best F1 score). Running Information will be recorded in a log file, e.g. <code class="docutils literal notranslate"><span class="pre">A1_A2_roc_bestthres.log</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
 $ tree -L <span class="m">1</span>
@@ -2919,7 +2842,7 @@ $ tree -L <span class="m">1</span>
 <img alt="../_images/ROC_best_threshold.png" src="../_images/ROC_best_threshold.png" />
 </section>
 <section id="model-building">
-<h3><a class="toc-backref" href="#id19">Model Building</a><a class="headerlink" href="#model-building" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id19">Model Building</a><a class="headerlink" href="#model-building" title="Permalink to this heading">¶</a></h3>
 <p>Different identification approaches bring different sensitivity and specificity. For <code class="docutils literal notranslate"><span class="pre">SVM/ANN/ROC/User-defined</span></code>, ROC evaluation running information will be recorded in a log file, e.g. <code class="docutils literal notranslate"><span class="pre">A1_A2_svm_evaluation_totalRNA.log</span></code> and corresponding ROC plot will popup if your input is validated by programs.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">SVM</span></code> QT widget model building result example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
@@ -2964,7 +2887,7 @@ $ tree -L <span class="m">1</span>
 <img alt="../_images/SVM_evaluation.png" src="../_images/SVM_evaluation.png" />
 </section>
 <section id="model-prediction">
-<h3><a class="toc-backref" href="#id20">Model Prediction</a><a class="headerlink" href="#model-prediction" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id20">Model Prediction</a><a class="headerlink" href="#model-prediction" title="Permalink to this heading">¶</a></h3>
 <p>After <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">Building</span></code>, users can use <code class="docutils literal notranslate"><span class="pre">PREDICT</span></code> in <code class="docutils literal notranslate"><span class="pre">SVM/ANN</span></code> QT widget to predict Ψ-sites by a built <code class="docutils literal notranslate"><span class="pre">SVM/ANN</span> <span class="pre">model</span></code>.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">SVM</span></code> QT widget model prediction result example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/out_file_dir
@@ -2989,34 +2912,22 @@ $ tree -L <span class="m">1</span>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Transcripts%20Alignment.html" class="btn btn-neutral float-left" title="Transcripts Alignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="%CE%A8-sites%20Annotation.html" class="btn btn-neutral float-right" title="Ψ-sites Annotation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, chenzhr23.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="Transcripts%20Alignment.html">Transcripts Alignment</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a>&#160;&#160;»
+        </p>
 
-</body>
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, chenzhr23.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+  </body>
 </html>

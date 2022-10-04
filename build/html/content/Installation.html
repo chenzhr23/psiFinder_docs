@@ -1,99 +1,45 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; psiFinder v1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-    <script src="../_static/js/theme.js"></script>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Installation &#8212; psiFinder v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/haiku.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Quality Control" href="Quality%20Control.html" />
     <link rel="prev" title="psiFinder" href="../index.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> psiFinder
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#download-psifinder">Download psiFinder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#download-genome-sequence-and-annotation-file">Download genome sequence and annotation file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#download-example-data">Download example data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-conda">Install conda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#starting-the-software">Starting the software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Quality%20Control.html">Quality Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transcripts%20Alignment.html">Transcripts Alignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Identification.html">Ψ-sites Identification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Annotation.html">Ψ-sites Annotation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Distribution.html">Ψ-sites Distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Codon%20Preference.html">Ψ-sites Codon Preference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20snoRNA%20Target%20Prediction.html">Ψ-sites snoRNA Target Prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20miRNA%20Target%20Prediction.html">Ψ-sites miRNA Target Prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20and%20snoRNA%20Interaction.html">Ψ-sites and snoRNA Interaction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Motif%20Searching.html">Ψ-sites Motif Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20SNPs%20and%20SNVs%20Searching.html">Ψ-sites SNPs and SNVs Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Differential%20Modification.html">Ψ-sites Differential Modification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%CE%A8-sites%20Functional%20Enrichment.html">Ψ-sites Functional Enrichment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="snakemake%20pipline.html">snakemake pipline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Accessory%20Tools.html">Accessory Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="About%20psiFinder.html">About psiFinder</a></li>
-</ul>
-
-        </div>
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>psiFinder v1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>Installation</span></h2>
       </div>
-    </nav>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="../index.html">psiFinder</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Quality%20Control.html">Quality Control</a>&#160;&#160;»
+        </p>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">psiFinder</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Installation</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/content/Installation.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+      </div>
+      <div class="content" role="main">
+        
+        
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Remember</span></code> – psiFinder are available for <strong>Linux os</strong> as well as for
-<strong>Mac os</strong>!</p>
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Remember</span></code> – psiFinder are available for <strong>Unix-based</strong> system!</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#download-psifinder" id="id2">Download psiFinder</a></p></li>
@@ -105,19 +51,17 @@
 </ul>
 </div>
 <section id="download-psifinder">
-<h2><a class="toc-backref" href="#id2">Download psiFinder</a><a class="headerlink" href="#download-psifinder" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2">Download psiFinder</a><a class="headerlink" href="#download-psifinder" title="Permalink to this heading">¶</a></h2>
 <p><em>psiFinder is free and open to all users.</em></p>
 <p>If you’re here for the first time, download psiFinder first, and decompress it into a directory whatever you like.</p>
-<p><a class="reference external" href="https://mega.nz/file/wDdwyCZY#KasVu7WPJfKLDpSh_nnGfrBk5ho14QWnToQDHgraqaU">Download psiFinder v.0.1 for Linux x64</a></p>
-<p><a class="reference external" href="https://mega.nz/file/ROsBkYiY#IFZ56zYR-3j7dCuz-34UF3r-LU7GZx-TkHdURTJ-5zI">Download psiFinder v.0.1 for Mac OSX</a></p>
-<p>Windows support is currently a work-in-progress. Stay tuned and visit back for a Windows compatible executable.</p>
+<p><a class="reference external" href="https://mega.nz/fm/5CsUVbKC">Download psiFinder v.0.1 for Linux x64</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For users who want to remote operation a linux system in windows, the SSH client must be capable of X11-Forwarding, such as <a class="reference external" href="https://mobaxterm.mobatek.net/">MobaXterm</a> et al.</p>
 </div>
 </section>
 <section id="download-genome-sequence-and-annotation-file">
-<h2><a class="toc-backref" href="#id3">Download genome sequence and annotation file</a><a class="headerlink" href="#download-genome-sequence-and-annotation-file" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3">Download genome sequence and annotation file</a><a class="headerlink" href="#download-genome-sequence-and-annotation-file" title="Permalink to this heading">¶</a></h2>
 <p>Users should download the genome file and annotation file for the species of interest.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -127,12 +71,12 @@
 <p><a class="reference external" href="https://www.gencodegenes.org/human/">Download hg38 annotation &lt;gtf&gt;</a></p>
 </section>
 <section id="download-example-data">
-<h2><a class="toc-backref" href="#id4">Download example data</a><a class="headerlink" href="#download-example-data" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4">Download example data</a><a class="headerlink" href="#download-example-data" title="Permalink to this heading">¶</a></h2>
 <p>psiFinder provide some example data (human) for the user to test. If want to do so, you should download the example data.</p>
 <p><a class="reference external" href="https://mega.nz/fm/wacTDQQK">Download example data</a></p>
 </section>
 <section id="install-conda">
-<h2><a class="toc-backref" href="#id5">Install conda</a><a class="headerlink" href="#install-conda" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5">Install conda</a><a class="headerlink" href="#install-conda" title="Permalink to this heading">¶</a></h2>
 <p>psiFinder needs to use <code class="docutils literal notranslate"><span class="pre">conda</span></code> to configure the environment, please install conda first:</p>
 <ul class="simple">
 <li><p><em>Linux</em></p></li>
@@ -143,66 +87,70 @@ bash Miniconda3-latest-Linux-x86_64.sh
 <span class="nb">source</span> ~/.bashrc
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><em>Mac OS</em></p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-chmod <span class="m">777</span> Miniconda3-latest-MacOSX-x86_64.sh
-sh Miniconda3-latest-MacOSX-x86_64.sh
-<span class="nb">source</span> ~/.bash_profile
-</pre></div>
-</div>
 </section>
 <section id="starting-the-software">
-<h2><a class="toc-backref" href="#id6">Starting the software</a><a class="headerlink" href="#starting-the-software" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6">Starting the software</a><a class="headerlink" href="#starting-the-software" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><em>Linux</em></p></li>
 </ul>
 <p>Once the psiFinder mian program and the Genome annotation are downloaded and unzipped properly, go to the directory of psiFinder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/unzipped_psiFinder
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gunzip psiFinder.zip
+$ <span class="nb">cd</span> /the/directory/of/unzipped_psiFinder
 $ tree -L <span class="m">1</span>
 .
-├── AppRun -&gt; psiFinder
-├── CPAT-3.0.0
-├── genome
-├── default.desktop
-├── psiFinder
-├── psiFinder.sh
+├── config
 ├── lib
-├── libexec
-├── libXss.so.1
-├── pack.sh
-├── plugins
-├── qss
-├── qt.conf
-├── resources
-├── snakemake
-└── translations
+├── log
+├── psiFinder
+├── script
+└── snakemake
 
-<span class="m">9</span> directories, <span class="m">7</span> files
+<span class="m">5</span> directories, <span class="m">2</span> files
 </pre></div>
 </div>
 <p>The operation of psiFinder needs to grant executable permission to the script of the software. Please execute the following code before running the software:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chmod <span class="m">777</span> ./snakemake/script/*
-$ chmod <span class="m">777</span> ./psiFinder
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/unzipped_psiFinder
+$ chmod <span class="m">777</span> *
 </pre></div>
 </div>
-<p>Then, upon executed the ./psiFinder, the following window appears:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./psiFinder.sh
+<p>Then, upon executed the <code class="docutils literal notranslate"><span class="pre">./psiFinder</span></code>, the following window appears:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./psiFinder
 </pre></div>
 </div>
 <img alt="../_images/psiFinder_window.png" src="../_images/psiFinder_window.png" />
 <ul class="simple">
-<li><p><em>Mac OS</em></p></li>
+<li><p><em>Windows WSL</em></p></li>
 </ul>
-<p>For Mac users, after decompressing the file, open the <code class="docutils literal notranslate"><span class="pre">Command</span> <span class="pre">Line</span></code> file, cd to the <code class="docutils literal notranslate"><span class="pre">psiFinder.app</span> <span class="pre">directory</span></code>, and input <code class="docutils literal notranslate"><span class="pre">./psiFinder.app/Content/Macos/psiFinder</span></code> at Command file to run.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For Mac, you should place the downloaded genome file and/or the example data in the same directory of <code class="docutils literal notranslate"><span class="pre">psiFinder</span></code> flie mentioned above. (like <code class="docutils literal notranslate"><span class="pre">psiFinder/genome</span></code> and/or <code class="docutils literal notranslate"><span class="pre">psiFinder/data</span></code>)</p>
+<p>For Windows operate system that equipped with WSL (<a class="reference external" href="https://learn.microsoft.com/en-us/windows/wsl/install-manual">Windows Subsystem for Linux</a>), users should firstly install <a class="reference external" href="https://sourceforge.net/projects/xming/">Xming</a> software in your personal computer. Each time before running <code class="docutils literal notranslate"><span class="pre">./psiFinder</span></code>, launch Xming and run <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">DISPLAY=:0</span></code> (to ensure and render display device working) in WSL terminal.</p>
+<img alt="../_images/WSL.png" src="../_images/WSL.png" />
+<p>In some cases, when we run <code class="docutils literal notranslate"><span class="pre">bedAnnotator</span></code> (<code class="docutils literal notranslate"><span class="pre">Ψ-sites</span> <span class="pre">Annotation</span></code>) of psiFinder in WSL, the following error may occurred:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./bedAnnotator
+$ ./bedAnnotator: error <span class="k">while</span> loading shared libraries: libssl.so.10: cannot open shared object file: No such file or directory
+
+$ ldd bedAnnotator
+linux-vdso.so.1 <span class="o">(</span>0x00007fffcca6f000<span class="o">)</span>
+libssl.so.10 <span class="o">=</span>&gt; not found
+libcrypto.so.10 <span class="o">=</span>&gt; not found
+libpng12.so.0 <span class="o">=</span>&gt; not found
+libz.so.1 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libz.so.1 <span class="o">(</span>0x00007f41b60c0000<span class="o">)</span>
+libstdc++.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libstdc++.so.6 <span class="o">(</span>0x00007f41b5ed0000<span class="o">)</span>
+libm.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libm.so.6 <span class="o">(</span>0x00007f41b5d81000<span class="o">)</span>
+libgcc_s.so.1 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 <span class="o">(</span>0x00007f41b5d50000<span class="o">)</span>
+libpthread.so.0 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libpthread.so.0 <span class="o">(</span>0x00007f41b5d2d000<span class="o">)</span>
+libc.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libc.so.6 <span class="o">(</span>0x00007f41b5b30000<span class="o">)</span>
+/lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f41b60f3000<span class="o">)</span>
+</pre></div>
+</div>
+<p>This error occurred due to the loss of the <code class="docutils literal notranslate"><span class="pre">libssl.so.10</span></code>, <code class="docutils literal notranslate"><span class="pre">libcrypto.so.10</span></code>, and <code class="docutils literal notranslate"><span class="pre">libpng12.so.0</span></code>, To avoid this error, we can copy these shared library to the <code class="docutils literal notranslate"><span class="pre">/lib</span></code> directory (Therefore, make sure the <code class="docutils literal notranslate"><span class="pre">bedAnnotator</span></code> can be run in your terminal, e.g. run <code class="docutils literal notranslate"><span class="pre">./bedAnnotator</span></code> to see if help information is showed).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/unzipped_psiFinder
+$ sudo cp script/lib/libssl.so.10 /lib
+$ sudo cp script/lib/libcrypto.so.10 /lib
+$ sudo cp script/lib/libpng12.so.0 /lib
+</pre></div>
 </div>
 </section>
 <section id="configuration">
-<h2><a class="toc-backref" href="#id7">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
 <p>Before uploading data, you should first configure the operating environment of the software, this step can be achieved through clicking the option <code class="docutils literal notranslate"><span class="pre">global-&gt;configuration</span></code> at the upper of the main window.</p>
 <img alt="../_images/configuration.png" src="../_images/configuration.png" />
 <p>Once click <code class="docutils literal notranslate"><span class="pre">CHECK</span></code>, psiFindeer will run <code class="docutils literal notranslate"><span class="pre">0_configuration.sh</span></code>.</p>
@@ -576,6 +524,7 @@ conda install --yes -c bioconda viennarna
 <p class="admonition-title">Note</p>
 <p>This step will automatically install some software through <a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>.</p>
 </div>
+<img alt="../_images/WSL_conda.png" src="../_images/WSL_conda.png" />
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>For support or questions please make a post on <a class="reference external" href="http://biostars.org">Biostars</a>. For feature requests or bug reports please open an issue on <a class="reference external" href="https://github.com/worsteggs/psiFinder_readthedocs/issues">github</a>.</p>
@@ -584,34 +533,22 @@ conda install --yes -c bioconda viennarna
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="psiFinder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Quality%20Control.html" class="btn btn-neutral float-right" title="Quality Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, chenzhr23.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="../index.html">psiFinder</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Quality%20Control.html">Quality Control</a>&#160;&#160;»
+        </p>
 
-</body>
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, chenzhr23.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+  </body>
 </html>

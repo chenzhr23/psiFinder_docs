@@ -9,7 +9,7 @@ psiFinder ``Transcripts Alignment`` utilized `STAR <https://physiology.med.corne
 -  ``Generating genome indexes``
 -  ``Running mapping jobs``
 
-.. image:: /images/Transcripts_Alignment.png
+.. image:: /images/Transcripts_Index_Alignment.png
 
 Once click ``BUILD``, then psiFinder will run ``2.0_STAR_index.sh`` to generate genome indexes.
 
@@ -90,7 +90,7 @@ Once click ``START``, then psiFinder will run ``2.1_STAR_align.sh`` to run mappi
 
 Input
 *************************
-Firstly, upload downloaded genome sequence and annotation file to build genome indexes. Next, locate the directory where your indexes were generated, and ``browse`` the syntropic read (the sequencing reads with the same strand direction as the genome) file for both CMC-input and CMC-treat samples.
+Firstly, upload downloaded genome sequence and annotation file to build genome indexes. Next, locate the directory where your indexes were generated, and ``browse`` the syntropic read (the sequencing reads with the same strand direction as the genome) file for both CMC-input and CMC-treat samples. Finally, output file will be generated at the target out directory.
 
 Perform transcripts mapping
 *********************************

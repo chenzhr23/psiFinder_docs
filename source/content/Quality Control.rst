@@ -29,8 +29,8 @@ Simple clicking of ``START`` button after uploading the data and setting the ada
 
 Output
 *************************
-Results in fastq fromat (with ``.trimmed.fastq`` suffix) will be output to the target directory.
+Results in fastq fromat (with ``.cutadapt.fastq`` suffix) will be output to the target directory.
 
-.. note:: All user input will be recorded in a plain text file with suffix ``_cutadapt_SE_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
+.. note:: All user input will be recorded in a plain text file with suffix ``_cutadapt_SE_config.txt`` or ``_cutadapt_PE_config.txt`` in psiFinder/config and help users to easily reload the previous config (by simply clicking ``CONFIG`` button).
 
-.. note:: Files with ``_statistics.txt`` suffix is the summary statistics of corresponding trimmed input files.
+.. note:: Files with ``_statistics.txt`` suffix is the summary statistics of corresponding cutadapt input files.

@@ -19,8 +19,6 @@ Input
 
 Users should choose to upload files in bam format for both CMC-input and CMC-treated groups. Upload reference genome file in fasta format and set the output path of directory. Input the file name for the output information (i.e. file name with ``.bed`` suffix).
 
-.. note:: STAR input/treat alignment Uniquely mapped reads % should be greater than 30%, or the rtsSeeker may fail to calculate the valid information.
-
 To set the output path of directory, users can right click in the pop up file chooser (click ``browse``) of ``Out file dir<path>``
 
 .. image:: /images/newfolder.png
