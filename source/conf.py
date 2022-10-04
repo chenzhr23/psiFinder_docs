@@ -24,11 +24,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # html_theme = 'sphinxdoc' #nice
 # html_theme = 'pyramid' #nice
 # html_theme = 'nature' #nice
-html_theme = 'haiku' #nice
+# html_theme = 'haiku' #OK
 # html_theme = 'classic' #nice
-# html_theme = 'bizstyle' #nice
+html_theme = 'bizstyle' #nice
 # html_theme = 'alabaster' #nice
 
+html_theme_options = {'body_max_width': '90%'}
 
 # For md files
 source_suffix = {
