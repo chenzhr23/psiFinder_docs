@@ -31,6 +31,12 @@ html_theme = 'bizstyle' #nice
 
 html_theme_options = {'body_max_width': '90%'}
 
+html_sidebars = {
+    '**': [
+        'globaltoc.html',
+    ]
+}
+
 # For md files
 source_suffix = {
     '.rst': 'restructuredtext',
