@@ -7,7 +7,7 @@
 
 psiFinder ``Ψ-sites Annotation`` was developed with a core C program--``bedAnnotator``, for Ψ-sites annotation.
 
-.. image:: /images/Annotation.png
+.. image:: /images/annotation.png
 
 Users should choose to upload files (i.e. rtsSeeker result) in bed format to generate non-redundant Ψ-sites and get corresponding annotation files.
 
