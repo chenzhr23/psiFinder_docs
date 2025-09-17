@@ -12,7 +12,7 @@ Download psiFinder
 
 If you're here for the first time, download psiFinder first, and decompress it into a directory whatever you like.
 
-`Download psiFinder v.0.1 for Linux x64 <https://mega.nz/fm/5CsUVbKC>`_
+`Download psiFinder v.0.1 for Linux x64 (chen, zhirong (2025). Deciphering pseudouridylation profiles and their biogenesis from deep sequencing data using psiFinder. figshare. Dataset. https://doi.org/10.6084/m9.figshare.30129355.v1) <https://doi.org/10.6084/m9.figshare.30129355.v1>`_
 
 .. note:: For users who want to remote operation a linux system in windows, the SSH client must be capable of X11-Forwarding, such as `MobaXterm <https://mobaxterm.mobatek.net/>`_ et al.
 
@@ -26,13 +26,6 @@ Users should download the genome file and annotation file for the species of int
 `Download hg38 genome <fa> <https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/>`_
 
 `Download hg38 annotation <gtf> <https://www.gencodegenes.org/human/>`_
-
-Download example data
------------------------
-
-psiFinder provide some example data (human) for the user to test. If want to do so, you should download the example data.
-
-`Download example data <https://mega.nz/fm/wacTDQQK>`_
 
 
 Install conda

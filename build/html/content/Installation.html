@@ -1,21 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Installation &#8212; psiFinder v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <script src="../_static/documentation_options.js?v=e160b93e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -26,7 +23,7 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -49,30 +46,29 @@
           <div class="body" role="main">
             
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Remember</span></code> – psiFinder are available for <strong>Unix-based</strong> system!</p>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#download-psifinder" id="id2">Download psiFinder</a></p></li>
-<li><p><a class="reference internal" href="#download-genome-sequence-and-annotation-file" id="id3">Download genome sequence and annotation file</a></p></li>
-<li><p><a class="reference internal" href="#download-example-data" id="id4">Download example data</a></p></li>
-<li><p><a class="reference internal" href="#install-conda" id="id5">Install conda</a></p></li>
-<li><p><a class="reference internal" href="#starting-the-software" id="id6">Starting the software</a></p></li>
-<li><p><a class="reference internal" href="#configuration" id="id7">Configuration</a></p></li>
+<li><p><a class="reference internal" href="#download-psifinder" id="id1">Download psiFinder</a></p></li>
+<li><p><a class="reference internal" href="#download-genome-sequence-and-annotation-file" id="id2">Download genome sequence and annotation file</a></p></li>
+<li><p><a class="reference internal" href="#install-conda" id="id3">Install conda</a></p></li>
+<li><p><a class="reference internal" href="#starting-the-software" id="id4">Starting the software</a></p></li>
+<li><p><a class="reference internal" href="#configuration" id="id5">Configuration</a></p></li>
 </ul>
-</div>
+</nav>
 <section id="download-psifinder">
-<h2><a class="toc-backref" href="#id2">Download psiFinder</a><a class="headerlink" href="#download-psifinder" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Download psiFinder</a><a class="headerlink" href="#download-psifinder" title="Link to this heading">¶</a></h2>
 <p><em>psiFinder is free and open to all users.</em></p>
 <p>If you’re here for the first time, download psiFinder first, and decompress it into a directory whatever you like.</p>
-<p><a class="reference external" href="https://mega.nz/fm/5CsUVbKC">Download psiFinder v.0.1 for Linux x64</a></p>
+<p><a class="reference external" href="https://doi.org/10.6084/m9.figshare.30129355.v1">Download psiFinder v.0.1 for Linux x64 (chen, zhirong (2025). Deciphering pseudouridylation profiles and their biogenesis from deep sequencing data using psiFinder. figshare. Dataset. https://doi.org/10.6084/m9.figshare.30129355.v1)</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For users who want to remote operation a linux system in windows, the SSH client must be capable of X11-Forwarding, such as <a class="reference external" href="https://mobaxterm.mobatek.net/">MobaXterm</a> et al.</p>
 </div>
 </section>
 <section id="download-genome-sequence-and-annotation-file">
-<h2><a class="toc-backref" href="#id3">Download genome sequence and annotation file</a><a class="headerlink" href="#download-genome-sequence-and-annotation-file" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Download genome sequence and annotation file</a><a class="headerlink" href="#download-genome-sequence-and-annotation-file" title="Link to this heading">¶</a></h2>
 <p>Users should download the genome file and annotation file for the species of interest.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -81,51 +77,46 @@
 <p><a class="reference external" href="https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/">Download hg38 genome &lt;fa&gt;</a></p>
 <p><a class="reference external" href="https://www.gencodegenes.org/human/">Download hg38 annotation &lt;gtf&gt;</a></p>
 </section>
-<section id="download-example-data">
-<h2><a class="toc-backref" href="#id4">Download example data</a><a class="headerlink" href="#download-example-data" title="Permalink to this heading">¶</a></h2>
-<p>psiFinder provide some example data (human) for the user to test. If want to do so, you should download the example data.</p>
-<p><a class="reference external" href="https://mega.nz/fm/wacTDQQK">Download example data</a></p>
-</section>
 <section id="install-conda">
-<h2><a class="toc-backref" href="#id5">Install conda</a><a class="headerlink" href="#install-conda" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Install conda</a><a class="headerlink" href="#install-conda" title="Link to this heading">¶</a></h2>
 <p>psiFinder needs to use <code class="docutils literal notranslate"><span class="pre">conda</span></code> to configure the environment, please install conda first:</p>
 <ul class="simple">
 <li><p><em>Linux</em></p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget -c https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-chmod <span class="m">777</span> Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-<span class="nb">source</span> ~/.bashrc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>-c<span class="w"> </span>https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>Miniconda3-latest-Linux-x86_64.sh
+bash<span class="w"> </span>Miniconda3-latest-Linux-x86_64.sh
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
 </pre></div>
 </div>
 </section>
 <section id="starting-the-software">
-<h2><a class="toc-backref" href="#id6">Starting the software</a><a class="headerlink" href="#starting-the-software" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Starting the software</a><a class="headerlink" href="#starting-the-software" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><em>Linux</em></p></li>
 </ul>
 <p>Once the psiFinder mian program and the Genome annotation are downloaded and unzipped properly, go to the directory of psiFinder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gunzip psiFinder.zip
-$ <span class="nb">cd</span> /the/directory/of/unzipped_psiFinder
-$ tree -L <span class="m">1</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gunzip<span class="w"> </span>psiFinder.zip
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/the/directory/of/unzipped_psiFinder
+$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
 .
-├── config
-├── lib
-├── log
-├── psiFinder
-├── script
-└── snakemake
+├──<span class="w"> </span>config
+├──<span class="w"> </span>lib
+├──<span class="w"> </span>log
+├──<span class="w"> </span>psiFinder
+├──<span class="w"> </span>script
+└──<span class="w"> </span>snakemake
 
-<span class="m">5</span> directories, <span class="m">2</span> files
+<span class="m">5</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">2</span><span class="w"> </span>files
 </pre></div>
 </div>
 <p>The operation of psiFinder needs to grant executable permission to the script of the software. Please execute the following code before running the software:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/unzipped_psiFinder
-$ chmod <span class="m">777</span> *
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/the/directory/of/unzipped_psiFinder
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>*
 </pre></div>
 </div>
 <p>Then, upon executed the <code class="docutils literal notranslate"><span class="pre">./psiFinder</span></code>, the following window appears:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./psiFinder
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./psiFinder
 </pre></div>
 </div>
 <img alt="../_images/psiFinder_window.png" src="../_images/psiFinder_window.png" />
@@ -135,40 +126,40 @@ $ chmod <span class="m">777</span> *
 <p>For Windows operate system that equipped with WSL (<a class="reference external" href="https://learn.microsoft.com/en-us/windows/wsl/install-manual">Windows Subsystem for Linux</a>), users should firstly install <a class="reference external" href="https://sourceforge.net/projects/xming/">Xming</a> software in your personal computer. Each time before running <code class="docutils literal notranslate"><span class="pre">./psiFinder</span></code>, launch Xming and run <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">DISPLAY=:0</span></code> (to ensure and render display device working) in WSL terminal.</p>
 <img alt="../_images/WSL.png" src="../_images/WSL.png" />
 <p>In some cases, when we run <code class="docutils literal notranslate"><span class="pre">bedAnnotator</span></code> (<code class="docutils literal notranslate"><span class="pre">Ψ-sites</span> <span class="pre">Annotation</span></code>) of psiFinder in WSL, the following error may occurred:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./bedAnnotator
-$ ./bedAnnotator: error <span class="k">while</span> loading shared libraries: libssl.so.10: cannot open shared object file: No such file or directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./bedAnnotator
+$<span class="w"> </span>./bedAnnotator:<span class="w"> </span>error<span class="w"> </span><span class="k">while</span><span class="w"> </span>loading<span class="w"> </span>shared<span class="w"> </span>libraries:<span class="w"> </span>libssl.so.10:<span class="w"> </span>cannot<span class="w"> </span>open<span class="w"> </span>shared<span class="w"> </span>object<span class="w"> </span>file:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 
-$ ldd bedAnnotator
-linux-vdso.so.1 <span class="o">(</span>0x00007fffcca6f000<span class="o">)</span>
-libssl.so.10 <span class="o">=</span>&gt; not found
-libcrypto.so.10 <span class="o">=</span>&gt; not found
-libpng12.so.0 <span class="o">=</span>&gt; not found
-libz.so.1 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libz.so.1 <span class="o">(</span>0x00007f41b60c0000<span class="o">)</span>
-libstdc++.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libstdc++.so.6 <span class="o">(</span>0x00007f41b5ed0000<span class="o">)</span>
-libm.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libm.so.6 <span class="o">(</span>0x00007f41b5d81000<span class="o">)</span>
-libgcc_s.so.1 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 <span class="o">(</span>0x00007f41b5d50000<span class="o">)</span>
-libpthread.so.0 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libpthread.so.0 <span class="o">(</span>0x00007f41b5d2d000<span class="o">)</span>
-libc.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libc.so.6 <span class="o">(</span>0x00007f41b5b30000<span class="o">)</span>
-/lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f41b60f3000<span class="o">)</span>
+$<span class="w"> </span>ldd<span class="w"> </span>bedAnnotator
+linux-vdso.so.1<span class="w"> </span><span class="o">(</span>0x00007fffcca6f000<span class="o">)</span>
+libssl.so.10<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>not<span class="w"> </span>found
+libcrypto.so.10<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>not<span class="w"> </span>found
+libpng12.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>not<span class="w"> </span>found
+libz.so.1<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib/x86_64-linux-gnu/libz.so.1<span class="w"> </span><span class="o">(</span>0x00007f41b60c0000<span class="o">)</span>
+libstdc++.so.6<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib/x86_64-linux-gnu/libstdc++.so.6<span class="w"> </span><span class="o">(</span>0x00007f41b5ed0000<span class="o">)</span>
+libm.so.6<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib/x86_64-linux-gnu/libm.so.6<span class="w"> </span><span class="o">(</span>0x00007f41b5d81000<span class="o">)</span>
+libgcc_s.so.1<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib/x86_64-linux-gnu/libgcc_s.so.1<span class="w"> </span><span class="o">(</span>0x00007f41b5d50000<span class="o">)</span>
+libpthread.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib/x86_64-linux-gnu/libpthread.so.0<span class="w"> </span><span class="o">(</span>0x00007f41b5d2d000<span class="o">)</span>
+libc.so.6<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib/x86_64-linux-gnu/libc.so.6<span class="w"> </span><span class="o">(</span>0x00007f41b5b30000<span class="o">)</span>
+/lib64/ld-linux-x86-64.so.2<span class="w"> </span><span class="o">(</span>0x00007f41b60f3000<span class="o">)</span>
 </pre></div>
 </div>
 <p>This error occurred due to the loss of the <code class="docutils literal notranslate"><span class="pre">libssl.so.10</span></code>, <code class="docutils literal notranslate"><span class="pre">libcrypto.so.10</span></code>, and <code class="docutils literal notranslate"><span class="pre">libpng12.so.0</span></code>, To avoid this error, we can copy these shared library to the <code class="docutils literal notranslate"><span class="pre">/lib</span></code> directory (Therefore, make sure the <code class="docutils literal notranslate"><span class="pre">bedAnnotator</span></code> can be run in your terminal, e.g. run <code class="docutils literal notranslate"><span class="pre">./bedAnnotator</span></code> to see if help information is showed).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/unzipped_psiFinder
-$ sudo cp script/lib/libssl.so.10 /lib
-$ sudo cp script/lib/libcrypto.so.10 /lib
-$ sudo cp script/lib/libpng12.so.0 /lib
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/the/directory/of/unzipped_psiFinder
+$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>script/lib/libssl.so.10<span class="w"> </span>/lib
+$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>script/lib/libcrypto.so.10<span class="w"> </span>/lib
+$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>script/lib/libpng12.so.0<span class="w"> </span>/lib
 </pre></div>
 </div>
 </section>
 <section id="configuration">
-<h2><a class="toc-backref" href="#id7">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Configuration</a><a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <p>Before uploading data, you should first configure the operating environment of the software, this step can be achieved through clicking the option <code class="docutils literal notranslate"><span class="pre">global-&gt;configuration</span></code> at the upper of the main window.</p>
 <img alt="../_images/configuration.png" src="../_images/configuration.png" />
 <p>Once click <code class="docutils literal notranslate"><span class="pre">CHECK</span></code>, psiFindeer will run <code class="docutils literal notranslate"><span class="pre">0_configuration.sh</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">0_configuration.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-Help<span class="o">()</span> <span class="o">{</span>
+Help<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="nb">echo</span>
 <span class="s2">&quot;0_software_test.sh example:</span>
 <span class="s2"> bash 0_software_test.sh</span>
@@ -176,12 +167,12 @@ Help<span class="o">()</span> <span class="o">{</span>
 <span class="o">}</span>
 
 
-usage<span class="o">()</span> <span class="o">{</span>                                      <span class="c1"># Function: Print a help message.</span>
-  <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [ -h help]&quot;</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+usage<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">                                      </span><span class="c1"># Function: Print a help message.</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [ -h help]&quot;</span><span class="w"> </span><span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="o">}</span>
-exit_abnormal<span class="o">()</span> <span class="o">{</span>                              <span class="c1"># Function: Exit with error.</span>
-  usage
-  <span class="nb">exit</span> <span class="m">1</span>
+exit_abnormal<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">                              </span><span class="c1"># Function: Exit with error.</span>
+<span class="w">  </span>usage
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="o">}</span>
 
 
@@ -190,222 +181,222 @@ exit_abnormal<span class="o">()</span> <span class="o">{</span>                 
 <span class="c1"># miranda, homer, gtftogenepred, bedtools, minion, please click &#39;CHECK&#39; button to check if it is already installed; if not installed, required softwares will be installed or set into environment</span>
 <span class="c1"># variables by conda.</span>
 
-<span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;:h:&quot;</span> options<span class="p">;</span> <span class="k">do</span>
+<span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span><span class="s2">&quot;:h:&quot;</span><span class="w"> </span>options<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 
-  <span class="k">case</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">in</span>
-    h<span class="p">|</span>:<span class="o">)</span>
-      usage
-      Help
-      <span class="nb">exit</span> <span class="m">0</span>
-      <span class="p">;;</span>
-    <span class="se">\?</span><span class="o">)</span> <span class="c1"># incorrect option</span>
-      <span class="nb">echo</span> <span class="s2">&quot;Error: -</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2"> Invalid option&quot;</span>
-      exit_abnormal
-      <span class="p">;;</span>
-  <span class="k">esac</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span>h<span class="p">|</span>:<span class="o">)</span>
+<span class="w">      </span>usage
+<span class="w">      </span>Help
+<span class="w">      </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span><span class="se">\?</span><span class="o">)</span><span class="w"> </span><span class="c1"># incorrect option</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: -</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2"> Invalid option&quot;</span>
+<span class="w">      </span>exit_abnormal
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">  </span><span class="k">esac</span>
 <span class="k">done</span>
 
-<span class="nb">shift</span> <span class="k">$((</span><span class="nv">$OPTIND</span> <span class="o">-</span> <span class="m">1</span><span class="k">))</span>
-date  <span class="c1">## echo the date at start</span>
-<span class="nb">echo</span> <span class="s2">&quot;Starting: software checking...&quot;</span>
+<span class="nb">shift</span><span class="w"> </span><span class="k">$((</span><span class="nv">$OPTIND</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+date<span class="w">  </span><span class="c1">## echo the date at start</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Starting: software checking...&quot;</span>
 
 <span class="c1">#install conda</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which conda<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>conda<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;conda is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
-<span class="nb">eval</span> <span class="s2">&quot;cd pipline_script/&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;conda is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;cd pipline_script/&quot;</span>
 <span class="nv">conda_setup</span><span class="o">=</span><span class="s2">&quot;bash conda_setup.sh&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_setup</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_setup</span>
 <span class="nb">wait</span>
-<span class="nb">eval</span> <span class="s2">&quot;cd ../&quot;</span>
+<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;cd ../&quot;</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;conda(miniconda3) is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;conda(miniconda3) is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install perl</span>
-<span class="k">if</span> <span class="o">[</span> <span class="sb">`</span>which perl <span class="p">|</span> grep -c <span class="s2">&quot;miniconda3/bin/perl&quot;</span><span class="sb">`</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>which<span class="w"> </span>perl<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;miniconda3/bin/perl&quot;</span><span class="sb">`</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;perl is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;perl is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_perl</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c anaconda perl&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_perl</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_perl</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;perl(miniconda3) is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;perl(miniconda3) is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install R</span>
-<span class="k">if</span> <span class="o">[</span> <span class="sb">`</span>which R <span class="p">|</span> grep -c <span class="s2">&quot;miniconda3/bin/R&quot;</span><span class="sb">`</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>which<span class="w"> </span>R<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;miniconda3/bin/R&quot;</span><span class="sb">`</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;R is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;R is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_R</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c r r-base&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_R</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_R</span>
 <span class="nb">wait</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;R(miniconda3) is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;R(miniconda3) is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install optparse R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing optparse...&quot;</span>
-conda install --yes -c bioconda r-optparse
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing optparse...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>r-optparse
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install openxlsx R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing openxlsx...&quot;</span>
-conda install --yes -c bioconda r-openxlsx
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing openxlsx...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>r-openxlsx
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install dplyr R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing dplyr...&quot;</span>
-conda install --yes -c r r-dplyr
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing dplyr...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-dplyr
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install tidyr R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing tidyr...&quot;</span>
-conda install --yes -c r r-tidyr
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing tidyr...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-tidyr
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install tidyverse R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing tidyverse...&quot;</span>
-conda install --yes -c r r-tidyverse
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing tidyverse...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-tidyverse
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install stringr R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing stringr...&quot;</span>
-conda install --yes -c r r-stringr
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing stringr...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-stringr
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install ggplot2 R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing ggplot2...&quot;</span>
-conda install --yes -c r r-ggplot2
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing ggplot2...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-ggplot2
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install ggpol R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing ggpol...&quot;</span>
-conda install --yes -c conda-forge r-ggpol
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing ggpol...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>r-ggpol
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install ggpubr R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing ggpubr...&quot;</span>
-conda install --yes -c conda-forge r-ggpubr
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing ggpubr...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>r-ggpubr
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install RColorBrewer R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing RColorBrewer...&quot;</span>
-conda install --yes -c r r-rcolorbrewer
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing RColorBrewer...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-rcolorbrewer
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install cowplot R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing cowplot...&quot;</span>
-conda install --yes -c conda-forge r-cowplot
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing cowplot...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>r-cowplot
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install gridextra R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing gridextra...&quot;</span>
-conda install --yes -c r r-gridextra
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing gridextra...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-gridextra
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install pROC R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing pROC...&quot;</span>
-conda install --yes -c r r-proc
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing pROC...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-proc
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install e1071 R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing e1071...&quot;</span>
-conda install --yes -c r r-e1071
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing e1071...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-e1071
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install neuralnet R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing neuralnet...&quot;</span>
-conda install --yes -c conda-forge r-neuralnet
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing neuralnet...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>r-neuralnet
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install caTools R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing caTools...&quot;</span>
-conda install --yes -c r r-catools
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing caTools...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-catools
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install factoextra R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing factoextra...&quot;</span>
-conda install --yes -c conda-forge r-factoextra
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing factoextra...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>r-factoextra
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install venndiagram R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing venndiagram...&quot;</span>
-conda install --yes -c bioconda r-venndiagram
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing venndiagram...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>r-venndiagram
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install reshape2 R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing reshape2...&quot;</span>
-conda install --yes -c r r-reshape2
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing reshape2...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-reshape2
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install limma R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing limma...&quot;</span>
-conda install --yes -c bioconda bioconductor-limma
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing limma...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>bioconductor-limma
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install edger R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing edger...&quot;</span>
-conda install --yes -c bioconda bioconductor-edger
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing edger...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>bioconductor-edger
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install gprofiler2 R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing gprofiler2...&quot;</span>
-conda install --yes -c conda-forge r-gprofiler2
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing gprofiler2...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>r-gprofiler2
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install ggrepel R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing ggrepel...&quot;</span>
-conda install --yes -c bioconda r-ggrepel
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing ggrepel...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>r-ggrepel
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install pathview R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing pathview...&quot;</span>
-conda install --yes -c bioconda bioconductor-pathview
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing pathview...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>bioconductor-pathview
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install bedr R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing bedr...&quot;</span>
-conda install --yes -c bioconda r-bedr
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing bedr...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>r-bedr
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install scales R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing scales...&quot;</span>
-conda install --yes -c r r-scales
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing scales...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>r<span class="w"> </span>r-scales
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install motifstack R package</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing motifstack...&quot;</span>
-conda install --yes -c bioconda bioconductor-motifstack
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing motifstack...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>bioconductor-motifstack
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install snakemake</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which snakemake<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>snakemake<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;snakemake is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;snakemake is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_snakemake</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda snakemake&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_snakemake</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_snakemake</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;snakemake is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;snakemake is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install mupdf-x11</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which  mupdf-x11<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w">  </span>mupdf-x11<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;mupdf is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mupdf is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_mupdf</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c conda-forge mupdf&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_mupdf</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_mupdf</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;mupdf is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mupdf is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install wkhtmltopdf</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which  wkhtmltopdf<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w">  </span>wkhtmltopdf<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;wkhtmltopdf is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;wkhtmltopdf is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_wkhtmltopdf</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c conda-forge wkhtmltopdf&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_wkhtmltopdf</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_wkhtmltopdf</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;wkhtmltopdf is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;wkhtmltopdf is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install fastx_collapser</span>
@@ -419,116 +410,116 @@ conda install --yes -c bioconda bioconductor-motifstack
 <span class="c1"># fi</span>
 
 <span class="c1">#install cutadapt</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which cutadapt<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>cutadapt<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;cutadapt is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;cutadapt is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_cutadapt</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda cutadapt&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_cutadapt</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_cutadapt</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;cutadapt is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;cutadapt is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install seqtk</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which seqtk<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>seqtk<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;seqtk is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;seqtk is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_seqtk</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda seqtk&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_seqtk</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_seqtk</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;seqtk is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;seqtk is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install STAR</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which STAR<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>STAR<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;STAR is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;STAR is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_STAR</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda star&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_STAR</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_STAR</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;STAR is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;STAR is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install samtools</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which samtools<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>samtools<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;samtools is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;samtools is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_samtools</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda samtools&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_samtools</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_samtools</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;samtools is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;samtools is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install gtfToGenePred</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which gtfToGenePred<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>gtfToGenePred<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;gtfToGenePred is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;gtfToGenePred is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_gtfToGenePred</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda ucsc-gtftogenepred&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_gtfToGenePred</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_gtfToGenePred</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;gtfToGenePred is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;gtfToGenePred is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install bedtools</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which bedtools<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>bedtools<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;bedtools is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bedtools is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_bedtools</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda bedtools&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_bedtools</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_bedtools</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;bedtools is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bedtools is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#locate rtsSeeker</span>
-<span class="k">if</span> <span class="o">[</span> <span class="sb">`</span><span class="nb">test</span> -e /script/rtsSeeker<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span><span class="nb">test</span><span class="w"> </span>-e<span class="w"> </span>/script/rtsSeeker<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;rtsSeeker is not exist, please check if script/rtsSeeker exist in your current directory (directory with psiFinder) or re-download the .zip package and unzip it...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;rtsSeeker is not exist, please check if script/rtsSeeker exist in your current directory (directory with psiFinder) or re-download the .zip package and unzip it...&quot;</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;rtsSeeker exist (Note: if you copy the psiFinder to other directory, make sure you copy the rtsSeeker/ directory with it as well).&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;rtsSeeker exist (Note: if you copy the psiFinder to other directory, make sure you copy the rtsSeeker/ directory with it as well).&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#locate bedAnnotator</span>
-<span class="k">if</span> <span class="o">[</span> <span class="sb">`</span><span class="nb">test</span> -e /script/bedAnnotator<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span><span class="nb">test</span><span class="w"> </span>-e<span class="w"> </span>/script/bedAnnotator<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;bedAnnotator is not exist, please check if script/bedAnnotator exist in your current directory (directory with psiFinder) or re-download the .zip package and unzip it...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bedAnnotator is not exist, please check if script/bedAnnotator exist in your current directory (directory with psiFinder) or re-download the .zip package and unzip it...&quot;</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;bedAnnotator exist (Note: if you copy the psiFinder to other directory, make sure you copy the annotation/ directory with it as well).&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bedAnnotator exist (Note: if you copy the psiFinder to other directory, make sure you copy the annotation/ directory with it as well).&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#locate ACAscan</span>
-<span class="k">if</span> <span class="o">[</span> <span class="sb">`</span><span class="nb">test</span> -e /script/ACAscan<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span><span class="nb">test</span><span class="w"> </span>-e<span class="w"> </span>/script/ACAscan<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;ACAscan is not exist, please check if annotation/ACAscan exist in your current directory (directory with psiFinder) or re-download the .zip package and unzip it...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ACAscan is not exist, please check if annotation/ACAscan exist in your current directory (directory with psiFinder) or re-download the .zip package and unzip it...&quot;</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;ACAscan exist (Note: if you copy the psiFinder to other directory, make sure you copy the annotation/ directory with it as well).&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ACAscan exist (Note: if you copy the psiFinder to other directory, make sure you copy the annotation/ directory with it as well).&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install viennarna</span>
-<span class="nb">echo</span> <span class="s2">&quot;installing viennarna...&quot;</span>
-conda install --yes -c bioconda viennarna
-<span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;installing viennarna...&quot;</span>
+conda<span class="w"> </span>install<span class="w"> </span>--yes<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>viennarna
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n&quot;</span>
 
 <span class="c1">#install miranda</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which miranda<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>miranda<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;miranda is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;miranda is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_miranda</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda miranda&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_miranda</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_miranda</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;miranda is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;miranda is installed.&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#install homer</span>
-<span class="k">if</span> <span class="o">[</span> -z  <span class="sb">`</span>which homer<span class="sb">`</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w">  </span><span class="sb">`</span>which<span class="w"> </span>homer<span class="sb">`</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;homer is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;homer is not installed, or not in environment variables. Configuration check will add it to environment variables...&quot;</span>
 <span class="nv">conda_homer</span><span class="o">=</span><span class="s2">&quot;conda install --yes -c bioconda homer&quot;</span>
-<span class="nb">eval</span> <span class="nv">$conda_homer</span>
+<span class="nb">eval</span><span class="w"> </span><span class="nv">$conda_homer</span>
 <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot;homer is installed.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;homer is installed.&quot;</span>
 <span class="k">fi</span>
 
-<span class="nb">echo</span> <span class="s2">&quot;Finished: All software checking is done!&quot;</span>
-<span class="nb">exit</span> <span class="m">0</span>  <span class="c1"># Exit normally.</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Finished: All software checking is done!&quot;</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span><span class="w">  </span><span class="c1"># Exit normally.</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -548,14 +539,13 @@ conda install --yes -c bioconda viennarna
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#download-psifinder">Download psiFinder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#download-genome-sequence-and-annotation-file">Download genome sequence and annotation file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#download-example-data">Download example data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-conda">Install conda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#starting-the-software">Starting the software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
@@ -583,7 +573,7 @@ conda install --yes -c bioconda viennarna
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -600,8 +590,8 @@ conda install --yes -c bioconda viennarna
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, chenzhr23.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    &#169; Copyright 2022, chenzhr23.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>

@@ -1,21 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Transcripts Alignment &#8212; psiFinder v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <script src="../_static/documentation_options.js?v=e160b93e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -26,7 +23,7 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -49,14 +46,14 @@
           <div class="body" role="main">
             
   <section id="transcripts-alignment">
-<h1>Transcripts Alignment<a class="headerlink" href="#transcripts-alignment" title="Permalink to this heading">¶</a></h1>
-<div class="contents local topic" id="contents">
+<h1>Transcripts Alignment<a class="headerlink" href="#transcripts-alignment" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#input" id="id1">Input</a></p></li>
 <li><p><a class="reference internal" href="#perform-transcripts-mapping" id="id2">Perform transcripts mapping</a></p></li>
 <li><p><a class="reference internal" href="#output" id="id3">Output</a></p></li>
 </ul>
-</div>
+</nav>
 <p>psiFinder <code class="docutils literal notranslate"><span class="pre">Transcripts</span> <span class="pre">Alignment</span></code> utilized <a class="reference external" href="https://physiology.med.cornell.edu/faculty/skrabanek/lab/angsd/lecture_notes/STARmanual.pdf">STAR</a> to map sequencing reads to reference genome location and consist of two parts:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Generating</span> <span class="pre">genome</span> <span class="pre">indexes</span></code></p></li>
@@ -66,129 +63,129 @@
 <p>Once click <code class="docutils literal notranslate"><span class="pre">BUILD</span></code>, then psiFinder will run <code class="docutils literal notranslate"><span class="pre">2.0_STAR_index.sh</span></code> to generate genome indexes.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
 
-Help<span class="o">()</span> <span class="o">{</span>
-<span class="nb">echo</span> <span class="s1">&#39;Usage: &#39;</span><span class="nv">$0</span> <span class="s1">&#39; -a threads -b genome -c gtf -o outputpath&#39;</span>
+Help<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Usage: &#39;</span><span class="nv">$0</span><span class="w"> </span><span class="s1">&#39; -a threads -b genome -c gtf -o outputpath&#39;</span>
 <span class="o">}</span>
 
 
-usage<span class="o">()</span> <span class="o">{</span>                                      <span class="c1"># Function: Print a help message.</span>
-  <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [ -h help] [ -a threads ] [ -b genome ] [ -c gtf ] [ -o outputpath ]&quot;</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+usage<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">                                      </span><span class="c1"># Function: Print a help message.</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [ -h help] [ -a threads ] [ -b genome ] [ -c gtf ] [ -o outputpath ]&quot;</span><span class="w"> </span><span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="o">}</span>
-exit_abnormal<span class="o">()</span> <span class="o">{</span>                              <span class="c1"># Function: Exit with error.</span>
-  usage
-  <span class="nb">exit</span> <span class="m">1</span>
+exit_abnormal<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">                              </span><span class="c1"># Function: Exit with error.</span>
+<span class="w">  </span>usage
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="o">}</span>
 
 
-<span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;:h:a:b:c:o:&quot;</span> options<span class="p">;</span> <span class="k">do</span>
+<span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span><span class="s2">&quot;:h:a:b:c:o:&quot;</span><span class="w"> </span>options<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 
-  <span class="k">case</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">in</span>
-    h<span class="p">|</span>:<span class="o">)</span>
-      usage
-      Help
-      <span class="nb">exit</span> <span class="m">0</span>
-      <span class="p">;;</span>
-    a<span class="o">)</span>
-      <span class="nv">threads</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
-      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$threads</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the threads&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-    b<span class="o">)</span>
-      <span class="nv">genome</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
-      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$genome</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the genome&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-    c<span class="o">)</span>
-      <span class="nv">gtf</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
-      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$gtf</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the gtf&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-    o<span class="o">)</span>
-      <span class="nv">outputpath</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
-      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$outputpath</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t input the outputpath&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-    <span class="se">\?</span><span class="o">)</span> <span class="c1"># incorrect option</span>
-      <span class="nb">echo</span> <span class="s2">&quot;Error: -</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2"> Invalid option&quot;</span>
-      exit_abnormal
-      <span class="p">;;</span>
-  <span class="k">esac</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span>h<span class="p">|</span>:<span class="o">)</span>
+<span class="w">      </span>usage
+<span class="w">      </span>Help
+<span class="w">      </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span>a<span class="o">)</span>
+<span class="w">      </span><span class="nv">threads</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$threads</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You didn&#39;t input the threads&quot;</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span>b<span class="o">)</span>
+<span class="w">      </span><span class="nv">genome</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$genome</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You didn&#39;t input the genome&quot;</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span>c<span class="o">)</span>
+<span class="w">      </span><span class="nv">gtf</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$gtf</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You didn&#39;t input the gtf&quot;</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span>o<span class="o">)</span>
+<span class="w">      </span><span class="nv">outputpath</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$outputpath</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You didn&#39;t input the outputpath&quot;</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span><span class="se">\?</span><span class="o">)</span><span class="w"> </span><span class="c1"># incorrect option</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: -</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2"> Invalid option&quot;</span>
+<span class="w">      </span>exit_abnormal
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">  </span><span class="k">esac</span>
 <span class="k">done</span>
 
-<span class="nb">shift</span> <span class="k">$((</span><span class="nv">$OPTIND</span> <span class="o">-</span> <span class="m">1</span><span class="k">))</span>
-date  <span class="c1">## echo the date at start</span>
+<span class="nb">shift</span><span class="w"> </span><span class="k">$((</span><span class="nv">$OPTIND</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+date<span class="w">  </span><span class="c1">## echo the date at start</span>
 
 
-<span class="nb">echo</span> star indexing start
-<span class="nb">echo</span> STAR --runThreadN <span class="nv">$threads</span> --runMode genomeGenerate --genomeDir <span class="nv">$outputpath</span> --genomeFastaFiles <span class="nv">$genome</span> --sjdbGTFfile <span class="nv">$gtf</span> --sjdbOverhang <span class="m">99</span>
-    STAR <span class="se">\</span>
-    --runThreadN <span class="nv">$threads</span> <span class="se">\</span>
-    --runMode genomeGenerate <span class="se">\</span>
-    --genomeDir <span class="nv">$outputpath</span><span class="se">\</span>
-    --genomeFastaFiles <span class="nv">$genome</span> <span class="se">\</span>
-    --sjdbGTFfile <span class="nv">$gtf</span> <span class="se">\</span>
-    --sjdbOverhang <span class="m">99</span>
-<span class="nb">echo</span> star indexing end
+<span class="nb">echo</span><span class="w"> </span>star<span class="w"> </span>indexing<span class="w"> </span>start
+<span class="nb">echo</span><span class="w"> </span>STAR<span class="w"> </span>--runThreadN<span class="w"> </span><span class="nv">$threads</span><span class="w"> </span>--runMode<span class="w"> </span>genomeGenerate<span class="w"> </span>--genomeDir<span class="w"> </span><span class="nv">$outputpath</span><span class="w"> </span>--genomeFastaFiles<span class="w"> </span><span class="nv">$genome</span><span class="w"> </span>--sjdbGTFfile<span class="w"> </span><span class="nv">$gtf</span><span class="w"> </span>--sjdbOverhang<span class="w"> </span><span class="m">99</span>
+<span class="w">    </span>STAR<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--runThreadN<span class="w"> </span><span class="nv">$threads</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--runMode<span class="w"> </span>genomeGenerate<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--genomeDir<span class="w"> </span><span class="nv">$outputpath</span><span class="se">\</span>
+<span class="w">    </span>--genomeFastaFiles<span class="w"> </span><span class="nv">$genome</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--sjdbGTFfile<span class="w"> </span><span class="nv">$gtf</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--sjdbOverhang<span class="w"> </span><span class="m">99</span>
+<span class="nb">echo</span><span class="w"> </span>star<span class="w"> </span>indexing<span class="w"> </span>end
 </pre></div>
 </div>
 <p>Once click <code class="docutils literal notranslate"><span class="pre">START</span></code>, then psiFinder will run <code class="docutils literal notranslate"><span class="pre">2.1_STAR_align.sh</span></code> to run mapping jobs.</p>
 <section id="input">
-<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Input</a><a class="headerlink" href="#input" title="Link to this heading">¶</a></h2>
 <p>Firstly, upload downloaded genome sequence and annotation file to build genome indexes. Next, locate the directory where your indexes were generated, and <code class="docutils literal notranslate"><span class="pre">browse</span></code> the syntropic read (the sequencing reads with the same strand direction as the genome) file for both CMC-input and CMC-treat samples. Finally, output file will be generated at the target out directory.</p>
 </section>
 <section id="perform-transcripts-mapping">
-<h2><a class="toc-backref" href="#id2">Perform transcripts mapping</a><a class="headerlink" href="#perform-transcripts-mapping" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Perform transcripts mapping</a><a class="headerlink" href="#perform-transcripts-mapping" title="Link to this heading">¶</a></h2>
 <p>Built-in STAR argument for <code class="docutils literal notranslate"><span class="pre">Running</span> <span class="pre">mapping</span> <span class="pre">jobs</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>STAR <span class="se">\</span>
-    --genomeDir <span class="nv">$starIndex</span> <span class="se">\</span>
-    --readFilesIn <span class="nv">$input</span> <span class="se">\</span>
-    --runThreadN <span class="nv">$threads</span> <span class="se">\</span>
-    --genomeLoad NoSharedMemory <span class="se">\</span>
-    --alignEndsType EndToEnd <span class="se">\</span>
-    --outSAMtype BAM SortedByCoordinate <span class="se">\</span>
-    --outFileNamePrefix <span class="si">${</span><span class="nv">input</span><span class="p">%.fastq</span><span class="si">}</span> <span class="se">\</span>
-    --outStd Log <span class="se">\</span>
-    --limitBAMsortRAM <span class="m">60000000000</span> <span class="se">\</span>
-    --outFilterType BySJout <span class="se">\</span>
-    --outFilterMultimapScoreRange <span class="m">0</span> <span class="se">\</span>
-    --outFilterMultimapNmax <span class="m">30</span> <span class="se">\</span>
-    --outFilterMismatchNmax <span class="m">15</span> <span class="se">\</span>
-    --outFilterMismatchNoverLmax <span class="m">0</span>.1 <span class="se">\</span>
-    --outFilterScoreMin <span class="m">0</span> <span class="se">\</span>
-    --outFilterScoreMinOverLread <span class="m">0</span> <span class="se">\</span>
-    --outFilterMatchNmin <span class="m">15</span> <span class="se">\</span>
-    --outFilterMatchNminOverLread <span class="m">0</span>.8 <span class="se">\</span>
-    --alignIntronMin <span class="m">20</span> <span class="se">\</span>
-    --alignIntronMax <span class="m">1000000</span> <span class="se">\</span>
-    --alignMatesGapMax <span class="m">1000000</span> <span class="se">\</span>
-    --seedSearchStartLmax <span class="m">15</span> <span class="se">\</span>
-    --seedSearchStartLmaxOverLread <span class="m">1</span> <span class="se">\</span>
-    --seedSearchLmax <span class="m">0</span> <span class="se">\</span>
-    --seedMultimapNmax <span class="m">20000</span> <span class="se">\</span>
-    --seedPerReadNmax <span class="m">1000</span> <span class="se">\</span>
-    --seedPerWindowNmax <span class="m">100</span> <span class="se">\</span>
-    --seedNoneLociPerWindow <span class="m">20</span> <span class="se">\</span>
-    --alignSJoverhangMin <span class="m">8</span> <span class="se">\</span>
-    --alignSJDBoverhangMin <span class="m">1</span> <span class="se">\</span>
-    --quantMode TranscriptomeSAM GeneCounts <span class="se">\</span>
-    --outSAMmode Full <span class="se">\</span>
-    --outSAMattributes All <span class="se">\</span>
-    --outSAMunmapped None <span class="se">\</span>
-    --outSAMorder Paired <span class="se">\</span>
-    --outSAMprimaryFlag AllBestScore <span class="se">\</span>
-    --outSAMreadID Standard <span class="se">\</span>
-    --outReadsUnmapped Fastx <span class="se">\</span>
-    --alignEndsProtrude <span class="m">150</span> ConcordantPair <span class="se">\</span>
-    --limitOutSJcollapsed <span class="m">5000000</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>STAR<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--genomeDir<span class="w"> </span><span class="nv">$starIndex</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--readFilesIn<span class="w"> </span><span class="nv">$input</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--runThreadN<span class="w"> </span><span class="nv">$threads</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--genomeLoad<span class="w"> </span>NoSharedMemory<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--alignEndsType<span class="w"> </span>EndToEnd<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outSAMtype<span class="w"> </span>BAM<span class="w"> </span>SortedByCoordinate<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFileNamePrefix<span class="w"> </span><span class="si">${</span><span class="nv">input</span><span class="p">%.fastq</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outStd<span class="w"> </span>Log<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--limitBAMsortRAM<span class="w"> </span><span class="m">60000000000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterType<span class="w"> </span>BySJout<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterMultimapScoreRange<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterMultimapNmax<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterMismatchNmax<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterMismatchNoverLmax<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterScoreMin<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterScoreMinOverLread<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterMatchNmin<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outFilterMatchNminOverLread<span class="w"> </span><span class="m">0</span>.8<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--alignIntronMin<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--alignIntronMax<span class="w"> </span><span class="m">1000000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--alignMatesGapMax<span class="w"> </span><span class="m">1000000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--seedSearchStartLmax<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--seedSearchStartLmaxOverLread<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--seedSearchLmax<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--seedMultimapNmax<span class="w"> </span><span class="m">20000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--seedPerReadNmax<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--seedPerWindowNmax<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--seedNoneLociPerWindow<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--alignSJoverhangMin<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--alignSJDBoverhangMin<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--quantMode<span class="w"> </span>TranscriptomeSAM<span class="w"> </span>GeneCounts<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outSAMmode<span class="w"> </span>Full<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outSAMattributes<span class="w"> </span>All<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outSAMunmapped<span class="w"> </span>None<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outSAMorder<span class="w"> </span>Paired<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outSAMprimaryFlag<span class="w"> </span>AllBestScore<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outSAMreadID<span class="w"> </span>Standard<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outReadsUnmapped<span class="w"> </span>Fastx<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--alignEndsProtrude<span class="w"> </span><span class="m">150</span><span class="w"> </span>ConcordantPair<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--limitOutSJcollapsed<span class="w"> </span><span class="m">5000000</span>
 </pre></div>
 </div>
 </section>
 <section id="output">
-<h2><a class="toc-backref" href="#id3">Output</a><a class="headerlink" href="#output" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Output</a><a class="headerlink" href="#output" title="Link to this heading">¶</a></h2>
 <p>Results in bam format (with <code class="docutils literal notranslate"><span class="pre">Aligned.sortedByCoord.out.bam</span></code> suffix) will be output to the target directory.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -202,7 +199,7 @@ date  <span class="c1">## echo the date at start</span>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
@@ -234,7 +231,7 @@ date  <span class="c1">## echo the date at start</span>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -251,8 +248,8 @@ date  <span class="c1">## echo the date at start</span>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, chenzhr23.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    &#169; Copyright 2022, chenzhr23.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>

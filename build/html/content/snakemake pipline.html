@@ -1,21 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>snakemake pipline &#8212; psiFinder v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <script src="../_static/documentation_options.js?v=e160b93e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -26,7 +23,7 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -49,8 +46,8 @@
           <div class="body" role="main">
             
   <section id="snakemake-pipline">
-<h1>snakemake pipline<a class="headerlink" href="#snakemake-pipline" title="Permalink to this heading">¶</a></h1>
-<div class="contents local topic" id="contents">
+<h1>snakemake pipline<a class="headerlink" href="#snakemake-pipline" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#input" id="id1">Input</a></p>
 <ul>
@@ -64,17 +61,17 @@
 <li><p><a class="reference internal" href="#snakemake-rules" id="id7">snakemake rules</a></p></li>
 <li><p><a class="reference internal" href="#output" id="id8">Output</a></p></li>
 </ul>
-</div>
+</nav>
 <p>For a quick start of Ψ-sites data analyses, we developed a snakemake pipline and designed corresponding QT widget for easy running.</p>
 <img alt="../_images/quickstart_snakemake.png" src="../_images/quickstart_snakemake.png" />
 <section id="input">
-<h2><a class="toc-backref" href="#id1">Input</a><a class="headerlink" href="#input" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Input</a><a class="headerlink" href="#input" title="Link to this heading">¶</a></h2>
 <section id="select-genome">
-<h3><a class="toc-backref" href="#id2">Select Genome</a><a class="headerlink" href="#select-genome" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Select Genome</a><a class="headerlink" href="#select-genome" title="Link to this heading">¶</a></h3>
 <p>Current version of psiFinder snakemake pipline mainly support <span class="red">Group: Mammal-&gt;Genome: Homo_sapiens-&gt;Assembly: hg38</span>, more support for other species will coming soon.</p>
 </section>
 <section id="data-upload">
-<h3><a class="toc-backref" href="#id3">Data upload</a><a class="headerlink" href="#data-upload" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Data upload</a><a class="headerlink" href="#data-upload" title="Link to this heading">¶</a></h3>
 <p>Users should <code class="docutils literal notranslate"><span class="pre">browse</span></code> and locate <cite>fastq|fasta fastq.gz/fasta.gz fq/fa fq.gz/fa.gz</cite> file for both CMC-input and CMC-treated samples.</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">Barcode</span> <span class="pre">removal</span></code> is checked, it will enable 5’/3’ barcode setting, remove <code class="docutils literal notranslate"><span class="pre">LENGTH</span></code> (<a class="reference external" href="https://cutadapt.readthedocs.io/en/stable/guide.html">cutadapt</a>) bases from reads.</p></li>
@@ -82,28 +79,28 @@
 </ul>
 </section>
 <section id="basic-analyses">
-<h3><a class="toc-backref" href="#id4">Basic analyses</a><a class="headerlink" href="#basic-analyses" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Basic analyses</a><a class="headerlink" href="#basic-analyses" title="Link to this heading">¶</a></h3>
 <p>Current version of psiFinder snakemake pipline provides four basic analysis module of Ψ-sites: (1) identification; (2) annotation; (3) distribution; (4) snoRNA-guided target.</p>
 </section>
 <section id="mode-options">
-<h3><a class="toc-backref" href="#id5">Mode options</a><a class="headerlink" href="#mode-options" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Mode options</a><a class="headerlink" href="#mode-options" title="Link to this heading">¶</a></h3>
 <p>Different mode options are provided for selection on SVM/ANN/User-defined approaches.</p>
 </section>
 <section id="filter-threshold">
-<h3><a class="toc-backref" href="#id6">Filter threshold</a><a class="headerlink" href="#filter-threshold" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Filter threshold</a><a class="headerlink" href="#filter-threshold" title="Link to this heading">¶</a></h3>
 <p>If User-defined <code class="docutils literal notranslate"><span class="pre">Mode</span> <span class="pre">options</span></code> is checked, then <code class="docutils literal notranslate"><span class="pre">Filter</span> <span class="pre">thresholds</span></code> is enable to customize the threshold of the six key metrics.</p>
 </section>
 </section>
 <section id="snakemake-rules">
-<h2><a class="toc-backref" href="#id7">snakemake rules</a><a class="headerlink" href="#snakemake-rules" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">snakemake rules</a><a class="headerlink" href="#snakemake-rules" title="Link to this heading">¶</a></h2>
 <p>Once click <code class="docutils literal notranslate"><span class="pre">START</span></code>, psiFindeer will firstly run <code class="docutils literal notranslate"><span class="pre">cp_unzip.sh</span></code> to unzip and redirect the input sequencing reads files. Then, <code class="docutils literal notranslate"><span class="pre">psiFinder.sh</span></code> will be secondly run to apply snakemake rules selected by <code class="docutils literal notranslate"><span class="pre">quickstart_config.yml</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cp_unzip.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> -ne <span class="m">5</span> <span class="o">]]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">]]</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s1">&#39;Usage: ./&#39;</span><span class="nv">$0</span> <span class="s1">&#39; input_sample input_path treat_sample treat_path log_file&#39;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Usage: ./&#39;</span><span class="nv">$0</span><span class="w"> </span><span class="s1">&#39; input_sample input_path treat_sample treat_path log_file&#39;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="nv">input_sample</span><span class="o">=</span><span class="nv">$1</span>
@@ -113,367 +110,367 @@
 <span class="nv">log_file</span><span class="o">=</span><span class="nv">$5</span>
 
 
-<span class="nb">echo</span> -e <span class="s2">&quot;clear psiFinder.sh history&quot;</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;Your quickstart job is starting, please wait...&quot;</span> &gt; <span class="nv">$log_file</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;clear psiFinder.sh history&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Your quickstart job is starting, please wait...&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$log_file</span>
 
 <span class="c1">#.fastq.gz</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fastq.gz <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fastq.gz<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">input: unzipping and redirecting fastq file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    gunzip -c <span class="nv">$input_sample</span>  &gt; <span class="nv">$input_path</span> <span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">input: unzipping and redirecting fastq file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>gunzip<span class="w"> </span>-c<span class="w"> </span><span class="nv">$input_sample</span><span class="w">  </span>&gt;<span class="w"> </span><span class="nv">$input_path</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fastq.gz <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fastq.gz<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">treat: unzipping and redirecting fastq file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    gunzip -c <span class="nv">$treat_sample</span>  &gt; <span class="nv">$treat_path</span> <span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">treat: unzipping and redirecting fastq file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>gunzip<span class="w"> </span>-c<span class="w"> </span><span class="nv">$treat_sample</span><span class="w">  </span>&gt;<span class="w"> </span><span class="nv">$treat_path</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="k">fi</span>
 
 <span class="c1">#.fasta.gz</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fasta.gz <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fasta.gz<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">input: unzipping and redirecting fasta file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    gunzip -c <span class="nv">$input_sample</span>  &gt; <span class="nv">$input_path</span>
-    seqtk seq -F <span class="s1">&#39;#&#39;</span> <span class="nv">$input_path</span> &gt; <span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
-    rm <span class="nv">$input_path</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">input: unzipping and redirecting fasta file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>gunzip<span class="w"> </span>-c<span class="w"> </span><span class="nv">$input_sample</span><span class="w">  </span>&gt;<span class="w"> </span><span class="nv">$input_path</span>
+<span class="w">    </span>seqtk<span class="w"> </span>seq<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="nv">$input_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
+<span class="w">    </span>rm<span class="w"> </span><span class="nv">$input_path</span>
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fasta.gz <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fasta.gz<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">treat: unzipping and redirecting fasta file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    gunzip -c <span class="nv">$treat_sample</span>  &gt; <span class="nv">$treat_path</span>
-    seqtk seq -F <span class="s1">&#39;#&#39;</span> <span class="nv">$treat_path</span> &gt; <span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
-    rm <span class="nv">$treat_path</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">treat: unzipping and redirecting fasta file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>gunzip<span class="w"> </span>-c<span class="w"> </span><span class="nv">$treat_sample</span><span class="w">  </span>&gt;<span class="w"> </span><span class="nv">$treat_path</span>
+<span class="w">    </span>seqtk<span class="w"> </span>seq<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="nv">$treat_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
+<span class="w">    </span>rm<span class="w"> </span><span class="nv">$treat_path</span>
 <span class="k">fi</span>
 
 <span class="c1">#.fq.gz</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fq.gz <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fq.gz<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">input: unzipping and redirecting fastq file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    gunzip -c <span class="nv">$input_sample</span>  &gt; <span class="nv">$input_path</span> <span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">input: unzipping and redirecting fastq file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>gunzip<span class="w"> </span>-c<span class="w"> </span><span class="nv">$input_sample</span><span class="w">  </span>&gt;<span class="w"> </span><span class="nv">$input_path</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fq.gz <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fq.gz<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">treat: unzipping and redirecting fastq file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    gunzip -c <span class="nv">$treat_sample</span>  &gt; <span class="nv">$treat_path</span> <span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">treat: unzipping and redirecting fastq file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>gunzip<span class="w"> </span>-c<span class="w"> </span><span class="nv">$treat_sample</span><span class="w">  </span>&gt;<span class="w"> </span><span class="nv">$treat_path</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="k">fi</span>
 
 <span class="c1">#.fa.gz</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fa.gz <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fa.gz<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">input: unzipping and redirecting fasta file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    gunzip -c <span class="nv">$input_sample</span>  &gt; <span class="nv">$input_path</span>
-    seqtk seq -F <span class="s1">&#39;#&#39;</span> <span class="nv">$input_path</span> &gt; <span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
-    rm <span class="nv">$input_path</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">input: unzipping and redirecting fasta file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>gunzip<span class="w"> </span>-c<span class="w"> </span><span class="nv">$input_sample</span><span class="w">  </span>&gt;<span class="w"> </span><span class="nv">$input_path</span>
+<span class="w">    </span>seqtk<span class="w"> </span>seq<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="nv">$input_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
+<span class="w">    </span>rm<span class="w"> </span><span class="nv">$input_path</span>
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fa.gz <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fa.gz<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">treat: unzipping and redirecting fasta file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    gunzip -c <span class="nv">$treat_sample</span>  &gt; <span class="nv">$treat_path</span>
-    seqtk seq -F <span class="s1">&#39;#&#39;</span> <span class="nv">$treat_path</span> &gt; <span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
-    rm <span class="nv">$treat_path</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">treat: unzipping and redirecting fasta file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>gunzip<span class="w"> </span>-c<span class="w"> </span><span class="nv">$treat_sample</span><span class="w">  </span>&gt;<span class="w"> </span><span class="nv">$treat_path</span>
+<span class="w">    </span>seqtk<span class="w"> </span>seq<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="nv">$treat_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
+<span class="w">    </span>rm<span class="w"> </span><span class="nv">$treat_path</span>
 <span class="k">fi</span>
 
 <span class="c1">#.fastq</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fastq <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fastq<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">input: redirecting fastq file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    cp -R <span class="nv">$input_sample</span> <span class="nv">$input_path</span> <span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">input: redirecting fastq file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>cp<span class="w"> </span>-R<span class="w"> </span><span class="nv">$input_sample</span><span class="w"> </span><span class="nv">$input_path</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fastq <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fastq<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">treat: redirecting fastq file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    cp -R <span class="nv">$treat_sample</span> <span class="nv">$treat_path</span> <span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">treat: redirecting fastq file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>cp<span class="w"> </span>-R<span class="w"> </span><span class="nv">$treat_sample</span><span class="w"> </span><span class="nv">$treat_path</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="k">fi</span>
 
 <span class="c1">#.fasta</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fasta <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fasta<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">input: redirecting fasta file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    cp -R <span class="nv">$input_sample</span> <span class="nv">$input_path</span>
-    seqtk seq -F <span class="s1">&#39;#&#39;</span> <span class="nv">$input_path</span> &gt; <span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
-    rm <span class="nv">$input_path</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">input: redirecting fasta file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>cp<span class="w"> </span>-R<span class="w"> </span><span class="nv">$input_sample</span><span class="w"> </span><span class="nv">$input_path</span>
+<span class="w">    </span>seqtk<span class="w"> </span>seq<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="nv">$input_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
+<span class="w">    </span>rm<span class="w"> </span><span class="nv">$input_path</span>
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fasta <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fasta<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">treat: redirecting fasta file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    cp -R <span class="nv">$treat_sample</span> <span class="nv">$treat_path</span>
-    seqtk seq -F <span class="s1">&#39;#&#39;</span> <span class="nv">$treat_path</span> &gt; <span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
-    rm <span class="nv">$treat_path</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">treat: redirecting fasta file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>cp<span class="w"> </span>-R<span class="w"> </span><span class="nv">$treat_sample</span><span class="w"> </span><span class="nv">$treat_path</span>
+<span class="w">    </span>seqtk<span class="w"> </span>seq<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="nv">$treat_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
+<span class="w">    </span>rm<span class="w"> </span><span class="nv">$treat_path</span>
 <span class="k">fi</span>
 
 <span class="c1">#.fq</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fq <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fq<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">input: redirecting fastq file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    cp -R <span class="nv">$input_sample</span> <span class="nv">$input_path</span> <span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">input: redirecting fastq file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>cp<span class="w"> </span>-R<span class="w"> </span><span class="nv">$input_sample</span><span class="w"> </span><span class="nv">$input_path</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fq <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fq<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">treat: redirecting fastq file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    cp -R <span class="nv">$treat_sample</span> <span class="nv">$treat_path</span> <span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">treat: redirecting fastq file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>cp<span class="w"> </span>-R<span class="w"> </span><span class="nv">$treat_sample</span><span class="w"> </span><span class="nv">$treat_path</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="k">fi</span>
 
 <span class="c1">#.fa</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fa <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fa<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">input: redirecting fasta file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    cp -R <span class="nv">$input_sample</span> <span class="nv">$input_path</span>
-    seqtk seq -F <span class="s1">&#39;#&#39;</span> <span class="nv">$input_path</span> &gt; <span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
-    rm <span class="nv">$input_path</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">input: redirecting fasta file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>cp<span class="w"> </span>-R<span class="w"> </span><span class="nv">$input_sample</span><span class="w"> </span><span class="nv">$input_path</span>
+<span class="w">    </span>seqtk<span class="w"> </span>seq<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="nv">$input_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
+<span class="w">    </span>rm<span class="w"> </span><span class="nv">$input_path</span>
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span> <span class="o">==</span> *.fa <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$treat_sample</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fa<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">treat: redirecting fasta file...\n</span><span class="k">$(</span>tput sgr <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    cp -R <span class="nv">$treat_sample</span> <span class="nv">$treat_path</span>
-    seqtk seq -F <span class="s1">&#39;#&#39;</span> <span class="nv">$treat_path</span> &gt; <span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
-    rm <span class="nv">$treat_path</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">2</span><span class="k">)</span><span class="s2">treat: redirecting fasta file...\n</span><span class="k">$(</span>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>cp<span class="w"> </span>-R<span class="w"> </span><span class="nv">$treat_sample</span><span class="w"> </span><span class="nv">$treat_path</span>
+<span class="w">    </span>seqtk<span class="w"> </span>seq<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span><span class="nv">$treat_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span>.fastq
+<span class="w">    </span>rm<span class="w"> </span><span class="nv">$treat_path</span>
 <span class="k">fi</span>
 
 <span class="nb">wait</span>
 
 
-<span class="nb">echo</span> -e <span class="s2">&quot;Starting snakemake workflow...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Starting snakemake workflow...&quot;</span>
 <span class="c1">#snakemake</span>
 <span class="c1">#fastq</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="si">${</span><span class="nv">input_path</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> *.fastq <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="si">${</span><span class="nv">treat_path</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> *.fastq <span class="o">]]</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>basename<span class="w"> </span><span class="si">${</span><span class="nv">input_path</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fastq<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>basename<span class="w"> </span><span class="si">${</span><span class="nv">treat_path</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fastq<span class="w"> </span><span class="o">]]</span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;check info: Input is fastq files&quot;</span>  &gt;&gt; <span class="nv">$log_file</span>
-    nohup bash snakemake/psiFinder.sh -i <span class="k">$(</span>basename <span class="si">${</span><span class="nv">input_path</span><span class="p">%.fastq</span><span class="si">}</span><span class="k">)</span> -t <span class="k">$(</span>basename <span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fastq</span><span class="si">}</span><span class="k">)</span> -c quickstart_config.yml &gt;&gt; <span class="nv">$log_file</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
-    <span class="nb">wait</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;check info: Input is fastq files&quot;</span><span class="w">  </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>nohup<span class="w"> </span>bash<span class="w"> </span>snakemake/psiFinder.sh<span class="w"> </span>-i<span class="w"> </span><span class="k">$(</span>basename<span class="w"> </span><span class="si">${</span><span class="nv">input_path</span><span class="p">%.fastq</span><span class="si">}</span><span class="k">)</span><span class="w"> </span>-t<span class="w"> </span><span class="k">$(</span>basename<span class="w"> </span><span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fastq</span><span class="si">}</span><span class="k">)</span><span class="w"> </span>-c<span class="w"> </span>quickstart_config.yml<span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">wait</span>
 <span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&quot;check info: Input is not fastq files&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;check info: Input is not fastq files&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
 <span class="k">fi</span>
 
 <span class="c1">#fasta</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="si">${</span><span class="nv">input_path</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> *.fasta <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="si">${</span><span class="nv">treat_path</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> *.fasta <span class="o">]]</span> <span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>basename<span class="w"> </span><span class="si">${</span><span class="nv">input_path</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fasta<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>basename<span class="w"> </span><span class="si">${</span><span class="nv">treat_path</span><span class="si">}</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.fasta<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;check info: Input is fasta files&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
-    nohup bash snakemake/psiFinder.sh -i <span class="k">$(</span>basename <span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span><span class="k">)</span> -t <span class="k">$(</span>basename <span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span><span class="k">)</span> -c quickstart_config.yml &gt;&gt; <span class="nv">$log_file</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
-    <span class="nb">wait</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;check info: Input is fasta files&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
+<span class="w">    </span>nohup<span class="w"> </span>bash<span class="w"> </span>snakemake/psiFinder.sh<span class="w"> </span>-i<span class="w"> </span><span class="k">$(</span>basename<span class="w"> </span><span class="si">${</span><span class="nv">input_path</span><span class="p">%.fasta</span><span class="si">}</span><span class="k">)</span><span class="w"> </span>-t<span class="w"> </span><span class="k">$(</span>basename<span class="w"> </span><span class="si">${</span><span class="nv">treat_path</span><span class="p">%.fasta</span><span class="si">}</span><span class="k">)</span><span class="w"> </span>-c<span class="w"> </span>quickstart_config.yml<span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">wait</span>
 <span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&quot;check info: Input is not fasta files&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;check info: Input is not fasta files&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
 <span class="k">fi</span>
 
-<span class="nb">echo</span> -e <span class="s2">&quot;Finished snakemake workflow!&quot;</span> &gt;&gt; <span class="nv">$log_file</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Finished snakemake workflow!&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$log_file</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">psiFinder.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-usage<span class="o">()</span> <span class="o">{</span>                                      <span class="c1"># Function: Print a help message.</span>
-  <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [ -h help] [ -i input ] [ -t treat ] [ -c quickstart_config.yml ]&quot;</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+usage<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">                                      </span><span class="c1"># Function: Print a help message.</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [ -h help] [ -i input ] [ -t treat ] [ -c quickstart_config.yml ]&quot;</span><span class="w"> </span><span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="o">}</span>
-exit_abnormal<span class="o">()</span> <span class="o">{</span>                              <span class="c1"># Function: Exit with error.</span>
-  usage
-  <span class="nb">exit</span> <span class="m">1</span>
+exit_abnormal<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">                              </span><span class="c1"># Function: Exit with error.</span>
+<span class="w">  </span>usage
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="o">}</span>
 
 
-<span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;:h:i:t:c:&quot;</span> options<span class="p">;</span> <span class="k">do</span>
+<span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span><span class="s2">&quot;:h:i:t:c:&quot;</span><span class="w"> </span>options<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 
-  <span class="k">case</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">in</span>
-    h<span class="p">|</span>:<span class="o">)</span>
-      usage
-      Help
-      <span class="nb">exit</span> <span class="m">0</span>
-      <span class="p">;;</span>
-    i<span class="o">)</span>
-      <span class="nv">input</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
-      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$input</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t set the input sample&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-    t<span class="o">)</span>
-      <span class="nv">treat</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
-      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$treat</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t set the treat sample&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-    c<span class="o">)</span>
-      <span class="nv">config</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
-      <span class="k">if</span> ! <span class="o">[[</span> -n <span class="nv">$config</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;You didn&#39;t set the config yml file&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-    <span class="se">\?</span><span class="o">)</span> <span class="c1"># incorrect option</span>
-      <span class="nb">echo</span> <span class="s2">&quot;Error: -</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2"> Invalid option&quot;</span>
-      exit_abnormal
-      <span class="p">;;</span>
-  <span class="k">esac</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span>h<span class="p">|</span>:<span class="o">)</span>
+<span class="w">      </span>usage
+<span class="w">      </span>Help
+<span class="w">      </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span>i<span class="o">)</span>
+<span class="w">      </span><span class="nv">input</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$input</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You didn&#39;t set the input sample&quot;</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span>t<span class="o">)</span>
+<span class="w">      </span><span class="nv">treat</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$treat</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You didn&#39;t set the treat sample&quot;</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span>c<span class="o">)</span>
+<span class="w">      </span><span class="nv">config</span><span class="o">=</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$config</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You didn&#39;t set the config yml file&quot;</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">    </span><span class="se">\?</span><span class="o">)</span><span class="w"> </span><span class="c1"># incorrect option</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: -</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2"> Invalid option&quot;</span>
+<span class="w">      </span>exit_abnormal
+<span class="w">      </span><span class="p">;;</span>
+<span class="w">  </span><span class="k">esac</span>
 <span class="k">done</span>
 
-<span class="nb">shift</span> <span class="k">$((</span><span class="nv">$OPTIND</span> <span class="o">-</span> <span class="m">1</span><span class="k">))</span>
+<span class="nb">shift</span><span class="w"> </span><span class="k">$((</span><span class="nv">$OPTIND</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
 
-<span class="nv">quickstart_config</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$config</span><span class="k">)</span>
-<span class="nv">quickstart_array</span><span class="o">=(</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$quickstart_config</span> <span class="p">|</span> tr <span class="s2">&quot;:&quot;</span> <span class="s2">&quot;\n&quot;</span><span class="k">)</span><span class="o">)</span>
+<span class="nv">quickstart_config</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="nv">$config</span><span class="k">)</span>
+<span class="nv">quickstart_array</span><span class="o">=(</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$quickstart_config</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="w"> </span><span class="s2">&quot;\n&quot;</span><span class="k">)</span><span class="o">)</span>
 
-<span class="nb">echo</span> -e <span class="s2">&quot;==Starting a quickstart job...==:\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;==Starting a quickstart job...==:\n&quot;</span>
 
 <span class="c1">#cutadapt-se</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;ad_remove_input:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[41]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[41]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ad_remove_input:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[41]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[41]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting input cutadapt fastq...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/cutadapt/input/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>.fastq
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting input cutadapt fastq...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/cutadapt/input/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>.fastq
 <span class="k">else</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Moving input cutadapt fastq...\n&quot;</span>
-    mv snakemake/reads/input/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>.fastq snakemake/cutadapt/input
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Moving input cutadapt fastq...\n&quot;</span>
+<span class="w">    </span>mv<span class="w"> </span>snakemake/reads/input/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>.fastq<span class="w"> </span>snakemake/cutadapt/input
 <span class="k">fi</span>
 
-<span class="nb">echo</span> -e <span class="s2">&quot;ad_remove_treat:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[43]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[43]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ad_remove_treat:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[43]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[43]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting treat cutadapt fastq...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/cutadapt/treat/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.fastq
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting treat cutadapt fastq...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/cutadapt/treat/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.fastq
 <span class="k">else</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Moving treat cutadapt fastq...\n&quot;</span>
-    mv snakemake/reads/treat/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.fastq snakemake/cutadapt/treat
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Moving treat cutadapt fastq...\n&quot;</span>
+<span class="w">    </span>mv<span class="w"> </span>snakemake/reads/treat/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.fastq<span class="w"> </span>snakemake/cutadapt/treat
 <span class="k">fi</span>
 
 <span class="c1">#STAR-index</span>
-<span class="nv">temp</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[5]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> sed <span class="s2">&quot;s/\&quot;//g&quot;</span>  <span class="k">)</span>
+<span class="nv">temp</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[5]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s2">&quot;s/\&quot;//g&quot;</span><span class="w">  </span><span class="k">)</span>
 <span class="nv">DIRECTORY</span><span class="o">=</span><span class="s2">&quot;snakemake/genome/</span><span class="si">${</span><span class="nv">temp</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;</span><span class="nv">$DIRECTORY</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$DIRECTORY</span><span class="s2"> is not empty, STAR index have been built&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DIRECTORY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DIRECTORY</span><span class="s2"> is not empty, STAR index have been built&quot;</span>
 
 <span class="k">else</span>
-  <span class="nb">echo</span> -e <span class="s2">&quot;No STAR index in </span><span class="nv">$DIRECTORY</span><span class="s2">, generating STAR index...\n&quot;</span>
-  snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/genome/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">temp</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;No STAR index in </span><span class="nv">$DIRECTORY</span><span class="s2">, generating STAR index...\n&quot;</span>
+<span class="w">  </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/genome/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">temp</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1">#rtsSeeker result</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;sites_identification:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[31]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[31]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;sites_identification:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[31]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[31]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting rtsSeeker result for Ψ sites identification...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/output/sites_identification/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.bed
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting rtsSeeker result for Ψ sites identification...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/output/sites_identification/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>.bed
 <span class="k">fi</span>
 
 <span class="c1">#rtsSeeker ann</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;ann:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[49]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[49]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ann:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[49]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[49]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting ann result for Ψ sites identification...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/output/ann/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_ann_psi_prediction.bed
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting ann result for Ψ sites identification...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/output/ann/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_ann_psi_prediction.bed
 <span class="k">fi</span>
 
 <span class="c1">#rtsSeeker svm</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;svm:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[45]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[45]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;svm:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[45]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[45]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting svm result for Ψ sites identification...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/output/svm/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_svm_psi_prediction.bed
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting svm result for Ψ sites identification...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/output/svm/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_svm_psi_prediction.bed
 <span class="k">fi</span>
 
 <span class="c1">#rtsSeeker user-defined</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;user-defined:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[51]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[51]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;user-defined:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[51]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[51]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting user-defined result for Ψ sites identification...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/output/user_defined/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_user_defined_psi_prediction.bed
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting user-defined result for Ψ sites identification...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/output/user_defined/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_user_defined_psi_prediction.bed
 <span class="k">fi</span>
 
 <span class="c1">#bedAnnotator</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;sites_annotation:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[33]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[33]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;sites_annotation:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[33]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[33]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting bedAnnotator result for Ψ sites annotation...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/output/sites_annotation/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_add_seq_group_uniq.bed
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting bedAnnotator result for Ψ sites annotation...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/output/sites_annotation/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_add_seq_group_uniq.bed
 <span class="k">fi</span>
 
 <span class="c1">#metagene</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;metagene:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[47]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[47]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;metagene:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[47]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[47]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting metagene result for Ψ sites identification...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/output/meta_gene/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_metagene_pseudoU.pdf
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting metagene result for Ψ sites identification...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/output/meta_gene/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_metagene_pseudoU.pdf
 <span class="k">fi</span>
 
 <span class="c1">#ACAscan</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;sites_target_prediction:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[35]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[35]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ <span class="s2">&quot;true&quot;</span>  <span class="o">]]</span> <span class="p">;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;sites_target_prediction:</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[35]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">quickstart_array</span><span class="p">[35]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;Getting ACAscan result for Ψ sites target prediction...\n&quot;</span>
-    snakemake -s snakemake/Snakefile --cores <span class="m">8</span> snakemake/output/sites_target_prediction/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_fa.out
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Getting ACAscan result for Ψ sites target prediction...\n&quot;</span>
+<span class="w">    </span>snakemake<span class="w"> </span>-s<span class="w"> </span>snakemake/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">8</span><span class="w"> </span>snakemake/output/sites_target_prediction/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="si">${</span><span class="nv">input</span><span class="si">}</span><span class="s2">&quot;</span>_versus_<span class="s2">&quot;</span><span class="si">${</span><span class="nv">treat</span><span class="si">}</span><span class="s2">&quot;</span>_fa.out
 <span class="k">fi</span>
 
 <span class="c1">#emit done signal</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;==All done!==&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;==All done!==&quot;</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">quickstart_config.yml</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>group: <span class="s2">&quot;Mammal&quot;</span>
-genome: <span class="s2">&quot;Homo_sapiens&quot;</span>
-assembly: <span class="s2">&quot;hg38&quot;</span>
-se_input: <span class="s2">&quot;/public/home/chenzr/PSI_Seq_brainCell/A1-A12-totalRNA-result/A1.cutadapt.extendedFrags.collapse.cutBarcodes.fa.gz&quot;</span>
-se_treat: <span class="s2">&quot;/public/home/chenzr/PSI_Seq_brainCell/A1-A12-totalRNA-result/A2.cutadapt.extendedFrags.collapse.cutBarcodes.fa.gz&quot;</span>
-se_input_prefix: <span class="s2">&quot;A1&quot;</span>
-se_treat_prefix: <span class="s2">&quot;A2&quot;</span>
-se_br5_input: <span class="s2">&quot;0&quot;</span>
-se_br3_input: <span class="s2">&quot;0&quot;</span>
-se_ad5_input: <span class="s2">&quot;&quot;</span>
-se_ad3_input: <span class="s2">&quot;&quot;</span>
-se_br5_treat: <span class="s2">&quot;0&quot;</span>
-se_br3_treat: <span class="s2">&quot;0&quot;</span>
-se_ad5_treat: <span class="s2">&quot;&quot;</span>
-se_ad3_treat: <span class="s2">&quot;&quot;</span>
-sites_identification: <span class="s2">&quot;true&quot;</span>
-sites_annotation: <span class="s2">&quot;true&quot;</span>
-sites_target_prediction: <span class="s2">&quot;true&quot;</span>
-br_remove_input: <span class="s2">&quot;false&quot;</span>
-br_remove_treat: <span class="s2">&quot;false&quot;</span>
-ad_remove_input: <span class="s2">&quot;false&quot;</span>
-ad_remove_treat: <span class="s2">&quot;false&quot;</span>
-svm: <span class="s2">&quot;true&quot;</span>
-metagene: <span class="s2">&quot;false&quot;</span>
-ann: <span class="s2">&quot;false&quot;</span>
-user_defined: <span class="s2">&quot;false&quot;</span>
-treatpre_Fold_thres: <span class="s2">&quot;0&quot;</span>
-preFold_FC_thres: <span class="s2">&quot;0&quot;</span>
-treataft_Fold_thres: <span class="s2">&quot;0&quot;</span>
-aftFold_FC_thres: <span class="s2">&quot;0&quot;</span>
-treatstoprate_thres: <span class="s2">&quot;0&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>group:<span class="w"> </span><span class="s2">&quot;Mammal&quot;</span>
+genome:<span class="w"> </span><span class="s2">&quot;Homo_sapiens&quot;</span>
+assembly:<span class="w"> </span><span class="s2">&quot;hg38&quot;</span>
+se_input:<span class="w"> </span><span class="s2">&quot;/public/home/chenzr/PSI_Seq_brainCell/A1-A12-totalRNA-result/A1.cutadapt.extendedFrags.collapse.cutBarcodes.fa.gz&quot;</span>
+se_treat:<span class="w"> </span><span class="s2">&quot;/public/home/chenzr/PSI_Seq_brainCell/A1-A12-totalRNA-result/A2.cutadapt.extendedFrags.collapse.cutBarcodes.fa.gz&quot;</span>
+se_input_prefix:<span class="w"> </span><span class="s2">&quot;A1&quot;</span>
+se_treat_prefix:<span class="w"> </span><span class="s2">&quot;A2&quot;</span>
+se_br5_input:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+se_br3_input:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+se_ad5_input:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+se_ad3_input:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+se_br5_treat:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+se_br3_treat:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+se_ad5_treat:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+se_ad3_treat:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+sites_identification:<span class="w"> </span><span class="s2">&quot;true&quot;</span>
+sites_annotation:<span class="w"> </span><span class="s2">&quot;true&quot;</span>
+sites_target_prediction:<span class="w"> </span><span class="s2">&quot;true&quot;</span>
+br_remove_input:<span class="w"> </span><span class="s2">&quot;false&quot;</span>
+br_remove_treat:<span class="w"> </span><span class="s2">&quot;false&quot;</span>
+ad_remove_input:<span class="w"> </span><span class="s2">&quot;false&quot;</span>
+ad_remove_treat:<span class="w"> </span><span class="s2">&quot;false&quot;</span>
+svm:<span class="w"> </span><span class="s2">&quot;true&quot;</span>
+metagene:<span class="w"> </span><span class="s2">&quot;false&quot;</span>
+ann:<span class="w"> </span><span class="s2">&quot;false&quot;</span>
+user_defined:<span class="w"> </span><span class="s2">&quot;false&quot;</span>
+treatpre_Fold_thres:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+preFold_FC_thres:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+treataft_Fold_thres:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+aftFold_FC_thres:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+treatstoprate_thres:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="output">
-<h2><a class="toc-backref" href="#id8">Output</a><a class="headerlink" href="#output" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Output</a><a class="headerlink" href="#output" title="Link to this heading">¶</a></h2>
 <p>snakemake result are output to specific directory where psiFinder package is unziped.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /the/directory/of/psiFinder/snakemake/
-$ tree -L <span class="m">1</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/the/directory/of/psiFinder/snakemake/
+$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
 .
-├── cp_unzip.sh
-├── genome
-├── logs
-├── output
-├── psiFinder.sh
-├── reads
-├── script
-├── Snakefile
-├── star
-└── cutadapt
+├──<span class="w"> </span>cp_unzip.sh
+├──<span class="w"> </span>genome
+├──<span class="w"> </span>logs
+├──<span class="w"> </span>output
+├──<span class="w"> </span>psiFinder.sh
+├──<span class="w"> </span>reads
+├──<span class="w"> </span>script
+├──<span class="w"> </span>Snakefile
+├──<span class="w"> </span>star
+└──<span class="w"> </span>cutadapt
 
-<span class="m">7</span> directories, <span class="m">3</span> files
+<span class="m">7</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">3</span><span class="w"> </span>files
 
-$ <span class="nb">cd</span> /the/directory/of/psiFinder/snakemake/output
-$ tree -L <span class="m">1</span>
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/the/directory/of/psiFinder/snakemake/output
+$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
 .
-├── ann
-├── meta_gene
-├── sites_annotation
-├── sites_identification
-├── sites_target_prediction
-├── svm
-└── user_defined
+├──<span class="w"> </span>ann
+├──<span class="w"> </span>meta_gene
+├──<span class="w"> </span>sites_annotation
+├──<span class="w"> </span>sites_identification
+├──<span class="w"> </span>sites_target_prediction
+├──<span class="w"> </span>svm
+└──<span class="w"> </span>user_defined
 
-<span class="m">7</span> directories, <span class="m">0</span> files
+<span class="m">7</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">0</span><span class="w"> </span>files
 </pre></div>
 </div>
 <div class="admonition note">
@@ -488,7 +485,7 @@ $ tree -L <span class="m">1</span>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
@@ -527,7 +524,7 @@ $ tree -L <span class="m">1</span>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -544,8 +541,8 @@ $ tree -L <span class="m">1</span>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, chenzhr23.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    &#169; Copyright 2022, chenzhr23.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>
